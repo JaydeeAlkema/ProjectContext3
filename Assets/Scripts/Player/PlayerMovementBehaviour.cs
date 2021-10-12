@@ -103,13 +103,13 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 		if(Input.GetKeyDown(KeyCode.A) && rightWallHit.collider)
         {
-			rb2d.AddForce((transform.up * jumpForce)+(transform.right * -jumpForce * 8));
+			rb2d.AddForce((transform.up * jumpForce * 1.5f)+(transform.right * -jumpForce * 5f));
 			//rb2d.AddForce(transform.right * -jumpForce * 8);
         }
 
 		if (Input.GetKeyDown(KeyCode.D) && leftWallHit.collider)
 		{
-			rb2d.AddForce((transform.up * jumpForce)+(transform.right * jumpForce * 8));
+			rb2d.AddForce((transform.up * jumpForce * 1.5f)+(transform.right * jumpForce * 5f));
 			//rb2d.AddForce(transform.right * jumpForce * 8);
 		}
 
