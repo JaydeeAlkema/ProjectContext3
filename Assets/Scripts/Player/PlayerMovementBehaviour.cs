@@ -110,7 +110,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<IEnemy>())
+        if (collision.GetComponent<IEnemy>() != null)
         {
 
         }
