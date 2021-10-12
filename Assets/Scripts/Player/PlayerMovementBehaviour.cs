@@ -23,12 +23,15 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	[SerializeField] private float jumpForce = 100f;
 	[SerializeField] private float jumpCheckDistance = 1f;
 	[SerializeField] private float immediateJumpCooldown = 0.1f;
+	[SerializeField] private Transform wallJumpCheckTransform = default;
 
 	[SerializeField] private LayerMask hitMask = default;
 
 	private PlayerAnimationBehaviour playerAnimationBehaviour = default;
 
 	private RaycastHit2D hit = default;
+	private RaycastHit2D rightWallHit = default;
+	private RaycastHit2D leftWallHit = default;
 	private Quaternion fromRotation = default;
 	private Vector3 targetNormal = default;
 	private Quaternion toRotation = default;
@@ -58,6 +61,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	private void Move()
 	{
 		hit = Physics2D.Raycast( jumpCheckTransform.position, Vector2.down, jumpCheckDistance, hitMask );
+		rightWallHit = Physics2D.Raycast(wallJumpCheckTransform.position, Vector2.right, 0.5f, hitMask);
+		leftWallHit = Physics2D.Raycast(wallJumpCheckTransform.position, Vector2.left, 0.5f, hitMask);
 
 		Vector2 vel = rb2d.velocity;
 		vel.x = baseMovementSpeed;
@@ -79,7 +84,19 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 		if( hit.collider != null && !jumpOnCooldown ) { canJump = true; } else { canJump = false; }
 
-		if( canJump && Input.GetKeyDown( jumpKeyCode ) )
+		if(Input.GetKeyDown(KeyCode.A) && rightWallHit.collider)
+        {
+			rb2d.AddForce(transform.up * jumpForce);
+			rb2d.AddForce(transform.right * -jumpForce *3);
+        }
+
+		if (Input.GetKeyDown(KeyCode.D) && leftWallHit.collider)
+		{
+			rb2d.AddForce(transform.up * jumpForce);
+			rb2d.AddForce(transform.right * -jumpForce * 3);
+		}
+
+		if ( canJump && Input.GetKeyDown( jumpKeyCode ) )
 		{
 			jumping = true;
 			rb2d.AddForce( transform.up * jumpForce );
@@ -91,7 +108,15 @@ public class PlayerMovementBehaviour : MonoBehaviour
 		}
 	}
 
-	private IEnumerator StartImmediateJumpCooldown()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<IEnemy>())
+        {
+
+        }
+    }
+
+    private IEnumerator StartImmediateJumpCooldown()
 	{
 		jumpOnCooldown = true;
 		yield return new WaitForSeconds( immediateJumpCooldown );
