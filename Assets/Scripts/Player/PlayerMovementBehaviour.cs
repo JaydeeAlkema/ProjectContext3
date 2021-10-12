@@ -69,18 +69,17 @@ public class PlayerMovementBehaviour : MonoBehaviour
 		hit = Physics2D.Raycast( jumpCheckTransform.position, Vector2.down, jumpCheckDistance, hitMask );
 		rightWallHit = Physics2D.Raycast(wallJumpCheckTransform.position, Vector2.right, 0.3f, hitMask);
 		leftWallHit = Physics2D.Raycast(wallJumpCheckTransform.position, Vector2.left, 0.3f, hitMask);
+		Vector2 vel = rb2d.velocity;
 
-        if (wallJumping)
+        if (!wallJumping)
         {
-			baseMovementSpeed = 0;
-        }
+			vel.x = baseMovementSpeed;
+        }
         else
         {
-			baseMovementSpeed = 2;
-        }
+			vel.x = rb2d.velocity.x;
+		}
 
-		Vector2 vel = rb2d.velocity;
-		vel.x = baseMovementSpeed;
 
 		if( !jumping )
 		{
@@ -103,13 +102,13 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 		if(Input.GetKeyDown(KeyCode.A) && rightWallHit.collider)
         {
-			rb2d.AddForce((transform.up * jumpForce * 1.5f)+(transform.right * -jumpForce * 15f * Time.deltaTime));
+			rb2d.AddForce((transform.up * jumpForce * 1.25f)+(transform.right * -jumpForce));
 			//rb2d.AddForce(transform.right * -jumpForce * 8);
         }
 
 		if (Input.GetKeyDown(KeyCode.D) && leftWallHit.collider)
 		{
-			rb2d.AddForce((transform.up * jumpForce * 1.5f)+(transform.right * jumpForce * 15f * Time.deltaTime));
+			rb2d.AddForce((transform.up * jumpForce * 1.25f)+(transform.right * jumpForce));
 			//rb2d.AddForce(transform.right * jumpForce * 8);
 		}
 
@@ -130,6 +129,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
         if (collision.GetComponent<IWallJumpZone>() != null)
         {
 			smoothCam.clampY = false;
+			smoothCam.clamp = true;
         }
     }
 
@@ -138,6 +138,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
 		if (collision.GetComponent<IWallJumpZone>() != null)
 		{
 			smoothCam.clampY = true;
+			smoothCam.clamp = false;
 		}
 	}
     private void OnTriggerEnter2D(Collider2D collision)
