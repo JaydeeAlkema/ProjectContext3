@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour, IEnemy
+public class Enemy_Moving : EnemyBehaviour
 {
 	[SerializeField] private float speed = 6f;  // Speed is in Unity units per second.
 
@@ -13,17 +13,14 @@ public class EnemyBehaviour : MonoBehaviour, IEnemy
 		Init();
 	}
 
-	/// <summary>
-	/// Initialize the enemy properties.
-	/// </summary>
-	private void Init()
+	public override void Init()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
 
 		Vector2 vel = rb2d.velocity;
 		vel.x = speed;
 		rb2d.velocity = vel;
-	}
 
-	public void OnHit() { }
+		Destroy( this.gameObject, destroyTime );
+	}
 }
