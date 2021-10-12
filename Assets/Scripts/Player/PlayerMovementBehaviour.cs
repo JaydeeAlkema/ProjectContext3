@@ -29,6 +29,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 	private PlayerAnimationBehaviour playerAnimationBehaviour = default;
 
+	private SmoothCam smoothCam = default;
+
 	private RaycastHit2D hit = default;
 	private RaycastHit2D rightWallHit = default;
 	private RaycastHit2D leftWallHit = default;
@@ -40,10 +42,13 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	private bool canJump = false;
 	private bool jumping = false;
 	private bool canSlide = false;
+	private bool wallJumping = false;
+	private bool falling = false;
 
 	private void Start()
 	{
 		playerAnimationBehaviour = GetComponent<PlayerAnimationBehaviour>();
+		smoothCam = Camera.main.GetComponent<SmoothCam>();
 
 		if( !rb2d ) { rb2d = GetComponentInChildren<Rigidbody2D>(); }
 	}
@@ -61,8 +66,17 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	private void Move()
 	{
 		hit = Physics2D.Raycast( jumpCheckTransform.position, Vector2.down, jumpCheckDistance, hitMask );
-		rightWallHit = Physics2D.Raycast(wallJumpCheckTransform.position, Vector2.right, 0.5f, hitMask);
-		leftWallHit = Physics2D.Raycast(wallJumpCheckTransform.position, Vector2.left, 0.5f, hitMask);
+		rightWallHit = Physics2D.Raycast(wallJumpCheckTransform.position, Vector2.right, 0.3f, hitMask);
+		leftWallHit = Physics2D.Raycast(wallJumpCheckTransform.position, Vector2.left, 0.3f, hitMask);
+
+        if (wallJumping)
+        {
+			baseMovementSpeed = 0;
+        }
+        else
+        {
+			baseMovementSpeed = 2;
+        }
 
 		Vector2 vel = rb2d.velocity;
 		vel.x = baseMovementSpeed;
@@ -74,6 +88,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
 		}
 
 		rb2d.velocity = vel;
+		if (!hit) { falling = true; } else { falling = false; }
+		if (falling) { smoothCam.clampY = false; } else { smoothCam.clampY = true; }
 
 		//Debug.Log( string.Format( "Velocity [{0}][{1}]", vel.x, vel.y ) )
 	}
@@ -82,18 +98,19 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	{
 		if( jumpOnCooldown ) return;
 
-		if( hit.collider != null && !jumpOnCooldown ) { canJump = true; } else { canJump = false; }
+		if( hit.collider != null && !jumpOnCooldown ) { canJump = true;} else { canJump = false;}
+		if(rightWallHit.collider != null || leftWallHit.collider != null) { wallJumping = true; smoothCam.clampY = false; smoothCam.yPos = transform.position.y; } else { wallJumping = false; smoothCam.clampY = true; }
 
 		if(Input.GetKeyDown(KeyCode.A) && rightWallHit.collider)
         {
-			rb2d.AddForce(transform.up * jumpForce);
-			rb2d.AddForce(transform.right * -jumpForce *3);
+			rb2d.AddForce(transform.up * jumpForce * 0.7f);
+			rb2d.AddForce(transform.right * -jumpForce * 2);
         }
 
 		if (Input.GetKeyDown(KeyCode.D) && leftWallHit.collider)
 		{
-			rb2d.AddForce(transform.up * jumpForce);
-			rb2d.AddForce(transform.right * -jumpForce * 3);
+			rb2d.AddForce(transform.up * jumpForce *0.7f);
+			rb2d.AddForce(transform.right * jumpForce * 2);
 		}
 
 		if ( canJump && Input.GetKeyDown( jumpKeyCode ) )
