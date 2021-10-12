@@ -8,10 +8,11 @@ public class SmoothCam : MonoBehaviour
 	[SerializeField] private Vector3 offset;
 	[SerializeField] private float smoothing;
 
-	[SerializeField] private bool clamp;
+	public bool clamp;
 	public bool clampY = true;
 
 	public float yPos = default;
+	public float xPos = default;
 
 	private Vector3 desiredPos;
 	private Vector3 smoothedPos;
@@ -24,9 +25,14 @@ public class SmoothCam : MonoBehaviour
 			yPos = target.position.y;
 		}
 
+		if(!clamp)
+		{ 
+			xPos = target.position.x;
+		}
+
 		if( target )
 		{
-			desiredPos = new Vector3( offset.x + target.position.x, offset.y + yPos, offset.z );
+			desiredPos = new Vector3( offset.x + xPos, offset.y + yPos, offset.z );
 			smoothedPos = Vector3.SmoothDamp( transform.position, desiredPos, ref velocity, smoothing );
 
 			transform.position = smoothedPos;
