@@ -44,6 +44,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	private bool canSlide = false;
 	private bool wallJumping = false;
 	private bool falling = false;
+	private bool jumpZone = false;
 
 	private void Start()
 	{
@@ -89,7 +90,6 @@ public class PlayerMovementBehaviour : MonoBehaviour
 
 		rb2d.velocity = vel;
 		if (!hit) { falling = true; } else { falling = false; }
-		if (falling) { smoothCam.clampY = false; } else { smoothCam.clampY = true; }
 
 		//Debug.Log( string.Format( "Velocity [{0}][{1}]", vel.x, vel.y ) )
 	}
@@ -98,19 +98,19 @@ public class PlayerMovementBehaviour : MonoBehaviour
 	{
 		if( jumpOnCooldown ) return;
 
-		if( hit.collider != null && !jumpOnCooldown ) { canJump = true;} else { canJump = false;}
-		if(rightWallHit.collider != null || leftWallHit.collider != null) { wallJumping = true; smoothCam.clampY = false; smoothCam.yPos = transform.position.y; } else { wallJumping = false; smoothCam.clampY = true; }
+		if( hit.collider != null && !jumpOnCooldown ) { canJump = true; wallJumping = false; } else { canJump = false;}
+		if(rightWallHit.collider != null || leftWallHit.collider != null) { wallJumping = true;} 
 
 		if(Input.GetKeyDown(KeyCode.A) && rightWallHit.collider)
         {
-			rb2d.AddForce(transform.up * jumpForce * 0.7f);
-			rb2d.AddForce(transform.right * -jumpForce * 2);
+			rb2d.AddForce((transform.up * jumpForce)+(transform.right * -jumpForce * 8));
+			//rb2d.AddForce(transform.right * -jumpForce * 8);
         }
 
 		if (Input.GetKeyDown(KeyCode.D) && leftWallHit.collider)
 		{
-			rb2d.AddForce(transform.up * jumpForce *0.7f);
-			rb2d.AddForce(transform.right * jumpForce * 2);
+			rb2d.AddForce((transform.up * jumpForce)+(transform.right * jumpForce * 8));
+			//rb2d.AddForce(transform.right * jumpForce * 8);
 		}
 
 		if ( canJump && Input.GetKeyDown( jumpKeyCode ) )
@@ -122,6 +122,23 @@ public class PlayerMovementBehaviour : MonoBehaviour
 		else if( jumping && hit.collider != null )
 		{
 			jumping = false;
+		}
+	}
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+
+        if (collision.GetComponent<IWallJumpZone>() != null)
+        {
+			smoothCam.clampY = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+		if (collision.GetComponent<IWallJumpZone>() != null)
+		{
+			smoothCam.clampY = true;
 		}
 	}
 
