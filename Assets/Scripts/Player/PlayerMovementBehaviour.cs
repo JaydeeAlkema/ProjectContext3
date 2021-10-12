@@ -88,8 +88,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
 		}
 
 		rb2d.velocity = vel;
-		if (!hit) { falling = true; } else { falling = false; }
-		if (falling) { smoothCam.clampY = false; } else { smoothCam.clampY = true; }
+		falling = !hit;
+		smoothCam.clampY = !falling;
 
 		//Debug.Log( string.Format( "Velocity [{0}][{1}]", vel.x, vel.y ) )
 	}
