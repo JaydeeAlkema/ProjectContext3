@@ -69,14 +69,14 @@ public class PlayerMovementBehaviour : MonoBehaviour
 		hit = Physics2D.Raycast( jumpCheckTransform.position, Vector2.down, jumpCheckDistance, hitMask );
 		rightWallHit = Physics2D.Raycast(wallJumpCheckTransform.position, Vector2.right, 0.3f, hitMask);
 		leftWallHit = Physics2D.Raycast(wallJumpCheckTransform.position, Vector2.left, 0.3f, hitMask);
-
-        if (wallJumping)
-        {
-			baseMovementSpeed = 0;
+
+        if (wallJumping)
+        {
+			baseMovementSpeed = 0;
         }
-        else
-        {
-			baseMovementSpeed = 2;
+        else
+        {
+			baseMovementSpeed = 2;
         }
 
 		Vector2 vel = rb2d.velocity;
@@ -89,7 +89,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
 		}
 
 		rb2d.velocity = vel;
-		if (!hit) { falling = true; } else { falling = false; }
+		if (!hit) { falling = true; } else { falling = false; }
 
 		//Debug.Log( string.Format( "Velocity [{0}][{1}]", vel.x, vel.y ) )
 	}
@@ -101,16 +101,16 @@ public class PlayerMovementBehaviour : MonoBehaviour
 		if( hit.collider != null && !jumpOnCooldown ) { canJump = true; wallJumping = false; } else { canJump = false;}
 		if(rightWallHit.collider != null || leftWallHit.collider != null) { wallJumping = true;} 
 
-		if(Input.GetKeyDown(KeyCode.A) && rightWallHit.collider)
-        {
-			rb2d.AddForce((transform.up * jumpForce * 1.5f)+(transform.right * -jumpForce * 5f));
-			//rb2d.AddForce(transform.right * -jumpForce * 8);
+		if(Input.GetKeyDown(KeyCode.A) && rightWallHit.collider)
+        {
+			rb2d.AddForce((transform.up * jumpForce * 1.5f)+(transform.right * -jumpForce * 15f * Time.deltaTime));
+			//rb2d.AddForce(transform.right * -jumpForce * 8);
         }
 
-		if (Input.GetKeyDown(KeyCode.D) && leftWallHit.collider)
-		{
-			rb2d.AddForce((transform.up * jumpForce * 1.5f)+(transform.right * jumpForce * 5f));
-			//rb2d.AddForce(transform.right * jumpForce * 8);
+		if (Input.GetKeyDown(KeyCode.D) && leftWallHit.collider)
+		{
+			rb2d.AddForce((transform.up * jumpForce * 1.5f)+(transform.right * jumpForce * 15f * Time.deltaTime));
+			//rb2d.AddForce(transform.right * jumpForce * 8);
 		}
 
 		if ( canJump && Input.GetKeyDown( jumpKeyCode ) )
@@ -125,31 +125,27 @@ public class PlayerMovementBehaviour : MonoBehaviour
 		}
 	}
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-
-        if (collision.GetComponent<IWallJumpZone>() != null)
-        {
-			smoothCam.clampY = false;
-        }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.GetComponent<IWallJumpZone>() != null)
+        {
+			smoothCam.clampY = false;
+        }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-		if (collision.GetComponent<IWallJumpZone>() != null)
-		{
-			smoothCam.clampY = true;
-		}
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+		if (collision.GetComponent<IWallJumpZone>() != null)
+		{
+			smoothCam.clampY = true;
+		}
 	}
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<IEnemy>() != null)
-        {
-
-        }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<IEnemy>() != null)
+        {
+        }
     }
-
     private IEnumerator StartImmediateJumpCooldown()
 	{
 		jumpOnCooldown = true;
