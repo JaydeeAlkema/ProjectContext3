@@ -59,7 +59,6 @@ public class WallJumpZone : MonoBehaviour
 			Debug.Log( "Player Entered Jumpzone" );
 			canCheckForInitialJumpDistance = true;
 
-			rotateCamera.ResetRotation();
 			rotateCamera.enabled = false;
 
 			smoothCam.clamp = true;
