@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class ShowWarning : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    [SerializeField] private GameObject enemies = default;
+    [SerializeField] private GameObject warning = default;
+    [SerializeField] private GameObject enemy;
+
     void Update()
     {
-        
+        if( enemies.GetComponentInChildren<EnemyBehaviour>() != null )
+        {
+            enemy = enemies.GetComponentInChildren<EnemyBehaviour>().gameObject;
+        }
+
+        if( enemy != null )
+        {
+            if( transform.position.x - enemy.transform.position.x <= 10f )
+            {
+                warning.SetActive( true );
+            }
+
+            if(enemy.transform.position.x - transform.position.x >= 2f)
+            {
+                warning.SetActive( false );
+                enemy = null;
+			}
+        }
     }
 }
