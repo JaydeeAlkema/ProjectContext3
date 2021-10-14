@@ -23,7 +23,7 @@ public class SmoothCam : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if (!clampY)
+		if( !clampY )
 		{
 			yPos = target.position.y;
 		}
@@ -33,8 +33,8 @@ public class SmoothCam : MonoBehaviour
 			yPos = yClampPos;
 		}
 
-		if(!clamp)
-		{ 
+		if( !clamp )
+		{
 			xPos = target.position.x;
 		}
 		else
