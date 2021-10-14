@@ -7,37 +7,24 @@ public class RotateCamera : MonoBehaviour
     [SerializeField]private float mDelta = 10;
     [SerializeField]private float mSpeedRight = 3.0f;
     [SerializeField] private float mSpeedLeft = 3.0f;
-    [SerializeField] private bool lockLeft = default;
-    [SerializeField] private bool lockRight = default;
 
-    // Update is called once per frame
-    void Update()
+    private SmoothCam smoothCam = default;
+
+	private void Start()
+	{
+        smoothCam = GetComponent<SmoothCam>();
+	}
+
+	// Update is called once per frame
+	void FixedUpdate()
     {
-        //Max rotate value
-        if(transform.rotation.y >= 0.065f)
+        if( Input.mousePosition.x >= Screen.width - mDelta)
         {
-            lockRight = true;
-		}    
-        else
-        {
-            lockRight = false;
-		}
-        if( transform.rotation.y <= -0.20f )
-        {
-            lockLeft = true;
+            transform.position += Vector3.right * Time.deltaTime * mSpeedRight;
         }
-        else
+        if( Input.mousePosition.x <= 0f + mDelta)
         {
-            lockLeft = false;
-        }
-
-        if (Input.mousePosition.x >= Screen.width - mDelta && !lockRight)
-        {
-            transform.Rotate( 0f, mSpeedRight * Time.deltaTime, 0f );
-        }
-        if(Input.mousePosition.x <= 0f + mDelta && !lockLeft)
-        {
-            transform.Rotate(0f, mSpeedLeft * Time.deltaTime, 0f);
+            transform.position += Vector3.right * Time.deltaTime * mSpeedLeft;
         }
     }
 }
