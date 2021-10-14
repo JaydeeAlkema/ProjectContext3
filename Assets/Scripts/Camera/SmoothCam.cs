@@ -13,6 +13,9 @@ public class SmoothCam : MonoBehaviour
 
 	public float yPos = default;
 	public float xPos = default;
+	//Vaste clamp Positie
+	public float yClampPos = default;
+	public float xClampPos = default;
 
 	private Vector3 desiredPos;
 	private Vector3 smoothedPos;
@@ -24,10 +27,20 @@ public class SmoothCam : MonoBehaviour
 		{
 			yPos = target.position.y;
 		}
+		else
+		{
+			// in het geval van clamp pas positie aan naar value
+			yPos = yClampPos;
+		}
 
 		if(!clamp)
 		{ 
 			xPos = target.position.x;
+		}
+		else
+		{
+			// in het geval van clamp pas positie aan naar value
+			xPos = xClampPos;
 		}
 
 		if( target )

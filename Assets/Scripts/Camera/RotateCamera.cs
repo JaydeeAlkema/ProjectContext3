@@ -13,6 +13,7 @@ public class RotateCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Max rotate value
         if(transform.rotation.y >= 0.065f)
         {
             lockRight = true;
