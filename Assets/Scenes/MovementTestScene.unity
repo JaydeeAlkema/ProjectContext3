@@ -164,8 +164,6 @@ GameObject:
   - component: {fileID: 57858113}
   - component: {fileID: 57858114}
   - component: {fileID: 57858115}
-  - component: {fileID: 57858117}
-  - component: {fileID: 57858116}
   m_Layer: 0
   m_Name: Scene Manager
   m_TagString: Untagged
@@ -301,72 +299,6 @@ MonoBehaviour:
   background: {r: 0, g: 0, b: 0, a: 1}
   foreground: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   arrow: {fileID: 544395715}
---- !u!114 &57858116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57858111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 2ab06caa98e7c6d4d8bdb809580fa749, type: 2}
-    - {fileID: 11400000, guid: 513b04ad4d348754c96f8050089d0e26, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: SongToSceneGenerator, Assembly-CSharp
-          m_MethodName: SpawnObject
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1438321692845381358, guid: 2ec2546d52a765840be3246c43cb7bd2, type: 3}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 591907762}
-          m_TargetAssemblyTypeName: PlayerMovementBehaviour, Assembly-CSharp
-          m_MethodName: Jump
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!320 &57858117
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57858111}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 7684a4cd62ef7fb449969b8b156b4537, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 480167420132961679, guid: 7684a4cd62ef7fb449969b8b156b4537, type: 2}
-    value: {fileID: 57858114}
-  - key: {fileID: -5061567106669207809, guid: 7684a4cd62ef7fb449969b8b156b4537, type: 2}
-    value: {fileID: 57858116}
-  m_ExposedReferences:
-    m_References: []
 --- !u!1 &94311633
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,17 +852,6 @@ Transform:
   m_Father: {fileID: 57858113}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &591907762 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2250325880319197295, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
-  m_PrefabInstance: {fileID: 2250325881107925502}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9fc921b3aa95914f84fb41a3233844b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &618344527 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7995677475284498146, guid: c81c32e9b6c4f7340942f9f9760efc6c, type: 3}
@@ -1889,6 +1810,10 @@ PrefabInstance:
     - target: {fileID: 1604126752, guid: fce92794b89af934c812e606eab5a066, type: 3}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621861422, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1622269326, guid: fce92794b89af934c812e606eab5a066, type: 3}
       propertyPath: target
