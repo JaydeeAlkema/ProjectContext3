@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2250325880319197293}
   - component: {fileID: 2250325880319197295}
   - component: {fileID: 804463632}
+  - component: {fileID: 368164410}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -158,6 +159,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitTrigger: {fileID: 5161137715486900492}
   inputs: 20000000
+--- !u!114 &368164410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250325880319197299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 132e0127f8fb5ce4c90b2ac5119e947c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: {fileID: 0}
+  warning: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!1 &2250325880886385889
 GameObject:
   m_ObjectHideFlags: 0
