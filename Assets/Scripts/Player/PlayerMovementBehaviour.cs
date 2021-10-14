@@ -128,7 +128,6 @@ public class PlayerMovementBehaviour : MonoBehaviour
     {
         if (collision.GetComponent<IWallJumpZone>() != null)
         {
-			smoothCam.clampY = false;
 			smoothCam.clamp = true;
         }
     }
@@ -137,7 +136,6 @@ public class PlayerMovementBehaviour : MonoBehaviour
     {
 		if (collision.GetComponent<IWallJumpZone>() != null)
 		{
-			smoothCam.clampY = true;
 			smoothCam.clamp = false;
 		}
 	}

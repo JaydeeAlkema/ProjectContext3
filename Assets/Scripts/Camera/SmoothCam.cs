@@ -9,7 +9,7 @@ public class SmoothCam : MonoBehaviour
 	[SerializeField] private float smoothing;
 
 	public bool clamp;
-	public bool clampY = true;
+	public bool clampY = false;
 
 	public float yPos = default;
 	public float xPos = default;
