@@ -7,27 +7,30 @@ public class ShowWarning : MonoBehaviour
 
     [SerializeField] private GameObject enemies = default;
     [SerializeField] private GameObject warning = default;
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject enemy = default;
 
     void Update()
     {
-        if( enemies.GetComponentInChildren<EnemyBehaviour>() != null )
+        if( warning != null )
         {
-            enemy = enemies.GetComponentInChildren<EnemyBehaviour>().gameObject;
-        }
-
-        if( enemy != null )
-        {
-            if( transform.position.x - enemy.transform.position.x <= 10f )
+            if( enemies.GetComponentInChildren<EnemyBehaviour>() != null )
             {
-                warning.SetActive( true );
+                enemy = enemies.GetComponentInChildren<EnemyBehaviour>().gameObject;
             }
 
-            if(enemy.transform.position.x - transform.position.x >= 2f)
+            if( enemy != null )
             {
-                warning.SetActive( false );
-                enemy = null;
-			}
+                if( transform.position.x - enemy.transform.position.x <= 10f )
+                {
+                    warning.SetActive( true );
+                }
+
+                if( enemy.transform.position.x - transform.position.x >= 2f )
+                {
+                    warning.SetActive( false );
+                    enemy = null;
+                }
+            }
         }
     }
 }
