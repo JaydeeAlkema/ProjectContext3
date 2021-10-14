@@ -1247,6 +1247,18 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1896155534}
+    - target: {fileID: 2819820121041641198, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: mDelta
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819820121041641198, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: mSpeedLeft
+      value: -17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819820121041641198, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: mSpeedRight
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5345472206123006531, guid: fce92794b89af934c812e606eab5a066, type: 3}
       propertyPath: m_RootOrder
       value: 0
