@@ -24,7 +24,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	[SerializeField] private float jumpForce = 100f;
 	[SerializeField] private float jumpCheckDistance = 1f;
 	[SerializeField] private float immediateJumpCooldown = 0.1f;
-	[SerializeField] private Transform wallJumpCheckTransform = default;
 
 	[SerializeField] private LayerMask hitMask = default;
 

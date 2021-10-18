@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class WallJumpZone : MonoBehaviour
 {
-	[SerializeField] private Transform[] jumpPoints;        // Array with all the points the player jumps to.
-	[SerializeField] private Transform initialJumpPoint;    // First jump point.
-	[SerializeField] private float timeToReact = 2f;        // How much time the player has to react to complete a QTE.
+	[SerializeField] private Transform[] jumpPoints = default;      // Array with all the points the player jumps to.
+	[SerializeField] private Transform initialJumpPoint = default;  // First jump point.
+	[SerializeField] private float timeToReact = 2f;                // How much time the player has to react to complete a QTE.
 
-	private Camera cam;
-	private SmoothCam smoothCam;
-	private RotateCamera rotateCamera;
-	private GameObject player;
-	private PlayerMovementBehaviour playerMovement;
+	private Camera cam = default;
+	private SmoothCam smoothCam = default;
+	private RotateCamera rotateCamera = default;
+	private GameObject player = default;
+	private PlayerMovementBehaviour playerMovement = default;
+	private SpriteRenderer playerSprite = default;
 
 	private int jumpPointIndex = 0;
 
@@ -37,6 +38,7 @@ public class WallJumpZone : MonoBehaviour
 		rotateCamera = cam.GetComponent<RotateCamera>();
 		playerMovement = FindObjectOfType<PlayerMovementBehaviour>();
 		player = playerMovement.gameObject;
+		playerSprite = player.GetComponentInChildren<SpriteRenderer>();
 	}
 
 	/// <summary>
@@ -60,6 +62,7 @@ public class WallJumpZone : MonoBehaviour
 		{
 			if( Input.GetKeyDown( KeyCode.A ) )
 			{
+				FlipPlayerSprite();
 				StartCoroutine( JumpTowardsPoint( jumpPoints[jumpPointIndex] ) );
 			}
 		}
@@ -106,9 +109,20 @@ public class WallJumpZone : MonoBehaviour
 			yield return null;
 		}
 
+		// Call function within player behaviour that changes to the walljumping animation.
+
 		jumpPointIndex++;
 		canJumpToNextPoint = true;
 		smoothCam.clampY = false;
 		yield return null;
+	}
+
+	/// <summary>
+	/// Flips the player sprite to make it so it always faces the wall.
+	/// Makes sense for walljumping and gives the player a visual queue as to what to do.
+	/// </summary>
+	private void FlipPlayerSprite()
+	{
+		playerSprite.flipX = !playerSprite.flipX;
 	}
 }
