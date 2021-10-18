@@ -47,6 +47,8 @@ public class PlayerQuickTimeEventBehaviour : MonoBehaviour
 		qteSpriteTransform.gameObject.SetActive( true );
 		qteHitIndicatorSpriteRenderer.gameObject.SetActive( true );
 		qteSpriteRenderer.sprite = quickTimeEvents[QTEIndex].sprite;
+
+		ActivateHitIndicator();
 	}
 
 	public void DeactivateQTE()
@@ -55,6 +57,26 @@ public class PlayerQuickTimeEventBehaviour : MonoBehaviour
 
 		qteSpriteTransform.gameObject.SetActive( false );
 		qteHitIndicatorSpriteRenderer.gameObject.SetActive( false );
+		qteHitIndicatorSpriteRenderer.gameObject.transform.localScale = qteHitIndicatorInitialScale;
+	}
+
+	private void ActivateHitIndicator()
+	{
+		StartCoroutine( ScaleOverSeconds( qteHitIndicatorSpriteRenderer.transform.gameObject, Vector3.one, qteTimeToReact ) );
+	}
+
+	public IEnumerator ScaleOverSeconds( GameObject objectToScale, Vector3 end, float seconds )
+	{
+		float elapsedTime = 0;
+		Vector3 startingPos = objectToScale.transform.localScale;
+		while( elapsedTime < seconds )
+		{
+			elapsedTime += Time.deltaTime;
+			objectToScale.transform.localScale = Vector3.Lerp( startingPos, end, ( elapsedTime / seconds ) );
+			yield return new WaitForEndOfFrame();
+		}
+		objectToScale.transform.localScale = end;
+		currentJumpZone.Jump();
 	}
 
 	public void CheckForCorrectInput()
@@ -68,14 +90,14 @@ public class PlayerQuickTimeEventBehaviour : MonoBehaviour
 		{
 			// Add points
 
-			Debug.Log( "Correct Input!" );
+			StopAllCoroutines();
 			currentJumpZone.Jump();
 		}
 		else if( Input.anyKeyDown && !Input.GetKeyDown( keycode ) )
 		{
 			// Retract Points
 
-			Debug.Log( "Incorrect Input!" );
+			StopAllCoroutines();
 			currentJumpZone.Jump();
 		}
 	}
