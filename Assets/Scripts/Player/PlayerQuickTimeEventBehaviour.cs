@@ -89,16 +89,10 @@ public class PlayerQuickTimeEventBehaviour : MonoBehaviour
 		if( Input.anyKeyDown && Input.GetKeyDown( keycode ) )
 		{
 			// Add points
-
-			StopAllCoroutines();
-			currentJumpZone.Jump();
 		}
 		else if( Input.anyKeyDown && !Input.GetKeyDown( keycode ) )
 		{
 			// Retract Points
-
-			StopAllCoroutines();
-			currentJumpZone.Jump();
 		}
 	}
 }
