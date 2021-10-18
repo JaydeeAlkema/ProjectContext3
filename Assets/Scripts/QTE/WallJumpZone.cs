@@ -13,6 +13,7 @@ public class WallJumpZone : MonoBehaviour
 	private RotateCamera rotateCamera = default;
 	private GameObject player = default;
 	private PlayerMovementBehaviour playerMovement = default;
+	private PlayerQuickTimeEventBehaviour playerQuickTimeEventBehaviour = default;
 	private SpriteRenderer playerSprite = default;
 
 	private int jumpPointIndex = 0;
@@ -39,6 +40,7 @@ public class WallJumpZone : MonoBehaviour
 		playerMovement = FindObjectOfType<PlayerMovementBehaviour>();
 		player = playerMovement.gameObject;
 		playerSprite = player.GetComponentInChildren<SpriteRenderer>();
+		playerQuickTimeEventBehaviour = FindObjectOfType<PlayerQuickTimeEventBehaviour>();
 	}
 
 	/// <summary>
@@ -51,20 +53,11 @@ public class WallJumpZone : MonoBehaviour
 		{
 			//Debug.Log( "jump" );
 			initialJumpDone = true;
-			StartCoroutine( JumpTowardsPoint( jumpPoints[jumpPointIndex] ) );
+			Jump();
 
 			playerMovement.State = PlayerState.WALLJUMPING;
 			playerMovement.ResetVelocity();
 			playerMovement.Constrain( true );
-		}
-
-		if( canJumpToNextPoint )
-		{
-			if( Input.GetKeyDown( KeyCode.A ) )
-			{
-				FlipPlayerSprite();
-				StartCoroutine( JumpTowardsPoint( jumpPoints[jumpPointIndex] ) );
-			}
 		}
 	}
 
@@ -80,6 +73,8 @@ public class WallJumpZone : MonoBehaviour
 			smoothCam.clamp = true;
 			smoothCam.clampY = false;
 			smoothCam.xClampPos = transform.position.x;
+
+			collision.GetComponent<PlayerQuickTimeEventBehaviour>().CurrentJumpZone = this;
 		}
 	}
 
@@ -92,6 +87,14 @@ public class WallJumpZone : MonoBehaviour
 
 		playerMovement.State = PlayerState.MOVING;
 		playerMovement.Constrain( false );
+
+		playerQuickTimeEventBehaviour.DeactivateQTE();
+		FlipPlayerSprite( 1 );
+	}
+
+	public void Jump()
+	{
+		StartCoroutine( JumpTowardsNextPoint() );
 	}
 
 	/// <summary>
@@ -99,17 +102,36 @@ public class WallJumpZone : MonoBehaviour
 	/// </summary>
 	/// <param name="point"> Move towards this point. </param>
 	/// <returns></returns>
-	private IEnumerator JumpTowardsPoint( Transform point )
+	private IEnumerator JumpTowardsNextPoint()
 	{
-		while( Vector2.Distance( playerMovement.transform.position, point.position ) > 0.01f )
+		// Reset QTE and activate it again.
+		playerQuickTimeEventBehaviour.DeactivateQTE();
+
+		while( Vector2.Distance( playerMovement.transform.position, jumpPoints[jumpPointIndex].position ) > 0.01f )
 		{
 			canJumpToNextPoint = false;
 			float step = 7f * Time.deltaTime;
-			playerMovement.gameObject.transform.position = Vector2.MoveTowards( playerMovement.gameObject.transform.position, point.position, step );
+			playerMovement.gameObject.transform.position = Vector2.MoveTowards( playerMovement.gameObject.transform.position, jumpPoints[jumpPointIndex].position, step );
 			yield return null;
 		}
 
 		// Call function within player behaviour that changes to the walljumping animation.
+
+		if( jumpPointIndex < jumpPoints.Length - 1 )
+		{
+			switch( jumpPointIndex % 2 )
+			{
+				case 0:
+					playerQuickTimeEventBehaviour.ActivateQTE( QTE_KEY.LEFT );
+					break;
+
+				case 1:
+					playerQuickTimeEventBehaviour.ActivateQTE( QTE_KEY.RIGHT );
+					break;
+			}
+
+			FlipPlayerSprite( jumpPointIndex );
+		}
 
 		jumpPointIndex++;
 		canJumpToNextPoint = true;
@@ -121,8 +143,17 @@ public class WallJumpZone : MonoBehaviour
 	/// Flips the player sprite to make it so it always faces the wall.
 	/// Makes sense for walljumping and gives the player a visual queue as to what to do.
 	/// </summary>
-	private void FlipPlayerSprite()
+	private void FlipPlayerSprite( int dir )
 	{
-		playerSprite.flipX = !playerSprite.flipX;
+		switch( dir % 2 )
+		{
+			case 0:
+				playerSprite.flipX = true;
+				break;
+
+			case 1:
+				playerSprite.flipX = false;
+				break;
+		}
 	}
 }
