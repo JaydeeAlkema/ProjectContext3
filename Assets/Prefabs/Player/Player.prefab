@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2250325880319197295}
   - component: {fileID: 804463632}
   - component: {fileID: 368164410}
+  - component: {fileID: 8914600241893399933}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -132,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fc921b3aa95914f84fb41a3233844b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 1
   rb2d: {fileID: 2250325880319197294}
   spriteTransform: {fileID: 2250325881263789063}
   baseMovementSpeed: 2
@@ -141,7 +143,6 @@ MonoBehaviour:
   jumpForce: 220
   jumpCheckDistance: 0.1
   immediateJumpCooldown: 0.1
-  wallJumpCheckTransform: {fileID: 1525704537}
   hitMask:
     serializedVersion: 2
     m_Bits: 64
@@ -172,8 +173,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: {fileID: 0}
-  warning: {fileID: 0}
+  enemyWarning: {fileID: 0}
   enemy: {fileID: 0}
+  obstacles: {fileID: 0}
+  obstacleWarning: {fileID: 0}
+  obstacle: {fileID: 0}
+--- !u!114 &8914600241893399933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250325880319197299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8d0bba9f097a7a439b61a513f259345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2250325880886385889
 GameObject:
   m_ObjectHideFlags: 0
