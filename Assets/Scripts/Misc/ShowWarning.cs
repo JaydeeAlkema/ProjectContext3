@@ -6,12 +6,21 @@ public class ShowWarning : MonoBehaviour
 {
 
     [SerializeField] private GameObject enemies = default;
-    [SerializeField] private GameObject warning = default;
+    [SerializeField] private GameObject enemyWarning = default;
     [SerializeField] private GameObject enemy = default;
+    [SerializeField] private GameObject obstacles = default;
+    [SerializeField] private GameObject obstacleWarning = default;
+    [SerializeField] private GameObject obstacle = default;
 
     void Update()
     {
-        if( warning != null )
+        ShowEnemyWarning();
+        ShowObstacleWarning();
+    }
+
+    private void ShowEnemyWarning()
+    {
+        if( enemyWarning != null )
         {
             if( enemies.GetComponentInChildren<EnemyBehaviour>() != null )
             {
@@ -22,13 +31,38 @@ public class ShowWarning : MonoBehaviour
             {
                 if( transform.position.x - enemy.transform.position.x <= 10f )
                 {
-                    warning.SetActive( true );
+                    enemyWarning.SetActive( true );
                 }
 
                 if( enemy.transform.position.x - transform.position.x >= 2f )
                 {
-                    warning.SetActive( false );
+                    enemyWarning.SetActive( false );
                     enemy = null;
+                }
+            }
+        }
+    }
+
+    private void ShowObstacleWarning()
+    {
+        if( obstacleWarning != null )
+        {
+            if( obstacles.GetComponentInChildren<EnemyBehaviour>() != null )
+            {
+                obstacle = obstacles.GetComponentInChildren<EnemyBehaviour>().gameObject;
+            }
+
+            if( obstacle != null )
+            {
+                if( transform.position.x - obstacle.transform.position.x >= 10f )
+                {
+                    obstacleWarning.SetActive( true );
+                }
+
+                if( obstacle.transform.position.x - transform.position.x <= -2f )
+                {
+                    obstacleWarning.SetActive( false );
+                    obstacle = null;
                 }
             }
         }
