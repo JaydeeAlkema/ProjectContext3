@@ -22,6 +22,16 @@ public class WallJumpZone : MonoBehaviour
 
 	private void Start()
 	{
+		Init();
+	}
+
+	private void Update()
+	{
+		JumpInput();
+	}
+
+	private void Init()
+	{
 		cam = Camera.main;
 		smoothCam = cam.GetComponent<SmoothCam>();
 		rotateCamera = cam.GetComponent<RotateCamera>();
@@ -29,12 +39,15 @@ public class WallJumpZone : MonoBehaviour
 		player = playerMovement.gameObject;
 	}
 
-	private void Update()
+	/// <summary>
+	/// Checks for Input and calls functions and events accordingly.
+	/// </summary>
+	private void JumpInput()
 	{
 		//Debug.Log( Mathf.Abs( playerMovement.transform.position.x - initialJumpPoint.position.x ) );
 		if( canCheckForInitialJumpDistance && !initialJumpDone && Mathf.Abs( playerMovement.transform.position.x - initialJumpPoint.position.x ) < 0.1f )
 		{
-			Debug.Log( "jump" );
+			//Debug.Log( "jump" );
 			initialJumpDone = true;
 			StartCoroutine( JumpTowardsPoint( jumpPoints[jumpPointIndex] ) );
 
@@ -62,6 +75,7 @@ public class WallJumpZone : MonoBehaviour
 			rotateCamera.enabled = false;
 
 			smoothCam.clamp = true;
+			smoothCam.clampY = false;
 			smoothCam.xClampPos = transform.position.x;
 		}
 	}
@@ -77,6 +91,11 @@ public class WallJumpZone : MonoBehaviour
 		playerMovement.Constrain( false );
 	}
 
+	/// <summary>
+	/// Moves the player character to the point at a constant speed.
+	/// </summary>
+	/// <param name="point"> Move towards this point. </param>
+	/// <returns></returns>
 	private IEnumerator JumpTowardsPoint( Transform point )
 	{
 		while( Vector2.Distance( playerMovement.transform.position, point.position ) > 0.01f )
