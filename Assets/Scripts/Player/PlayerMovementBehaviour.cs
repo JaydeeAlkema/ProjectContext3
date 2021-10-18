@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum PlayerState
@@ -34,8 +33,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	private SmoothCam smoothCam = default;
 
 	private RaycastHit2D hit = default;
-	private RaycastHit2D rightWallHit = default;
-	private RaycastHit2D leftWallHit = default;
 	private Quaternion fromRotation = default;
 	private Vector3 targetNormal = default;
 	private Quaternion toRotation = default;
@@ -44,9 +41,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	private bool canJump = false;
 	private bool jumping = false;
 	private bool canSlide = false;
-	private bool wallJumping = false;
 	private bool falling = false;
-	private bool jumpZone = false;
 
 	public PlayerState State { get => state; set => state = value; }
 
@@ -74,22 +69,10 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	private void Move()
 	{
 		hit = Physics2D.Raycast( jumpCheckTransform.position, Vector2.down, jumpCheckDistance, hitMask );
-		//rightWallHit = Physics2D.Raycast( wallJumpCheckTransform.position, Vector2.right, 0.3f, hitMask );
-		//leftWallHit = Physics2D.Raycast( wallJumpCheckTransform.position, Vector2.left, 0.3f, hitMask );
 
 		Vector2 vel = rb2d.velocity;
 		vel.x = baseMovementSpeed;
 		rb2d.velocity = vel;
-
-		//if( !wallJumping )
-		//{
-		//	vel.x = baseMovementSpeed;
-		//}
-		//else
-		//{
-		//	vel.x = rb2d.velocity.x;
-		//}
-
 
 		if( !jumping )
 		{
@@ -106,20 +89,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	{
 		if( jumpOnCooldown ) return;
 
-		if( hit.collider != null && !jumpOnCooldown ) { canJump = true; wallJumping = false; } else { canJump = false; }
-		//if( rightWallHit.collider != null || leftWallHit.collider != null ) { wallJumping = true; }
-
-		//if( Input.GetKeyDown( KeyCode.A ) && rightWallHit.collider )
-		//{
-		//	rb2d.AddForce( ( transform.up * jumpForce * 1.25f ) + ( transform.right * -jumpForce ) );
-		//	//rb2d.AddForce(transform.right * -jumpForce * 8);
-		//}
-
-		//if( Input.GetKeyDown( KeyCode.D ) && leftWallHit.collider )
-		//{
-		//	rb2d.AddForce( ( transform.up * jumpForce * 1.25f ) + ( transform.right * jumpForce ) );
-		//	//rb2d.AddForce(transform.right * jumpForce * 8);
-		//}
+		canJump = hit.collider != null && !jumpOnCooldown;
 
 		if( canJump && Input.GetKeyDown( jumpKeyCode ) )
 		{
@@ -150,29 +120,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	{
 		rb2d.constraints = constrain ? RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.FreezeRotation;
 	}
-
-	//private void OnTriggerStay2D( Collider2D collision )
-	//{
-	//	if( collision.GetComponent<IWallJumpZone>() != null )
-	//	{
-	//		smoothCam.clamp = true;
-	//	}
-	//}
-
-	//private void OnTriggerExit2D( Collider2D collision )
-	//{
-	//	if( collision.GetComponent<IWallJumpZone>() != null )
-	//	{
-	//		smoothCam.clamp = false;
-	//	}
-	//}
-
-	//private void OnTriggerEnter2D( Collider2D collision )
-	//{
-	//	if( collision.GetComponent<IEnemy>() != null )
-	//	{
-	//	}
-	//}
 
 	private IEnumerator StartImmediateJumpCooldown()
 	{
