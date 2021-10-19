@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy_Shooting : EnemyBehaviour
 {
 	[SerializeField] private LineRenderer lazerLine = default;
-	[SerializeField] private Transform lazerPosition = default;
+	[SerializeField] private Transform shootTo = default;
 	[SerializeField] private float laserDuration = 3f;
 	[SerializeField] private Transform attackFromPosition = default;
 	[SerializeField] private Transform firePoint = default;
@@ -14,18 +14,31 @@ public class Enemy_Shooting : EnemyBehaviour
 	private bool inPosition = false;
 	private bool hasShot = false;
 
+	private float dist = default;
+	private float counter = default;
+	[SerializeField]private float lineDrawSpeed = 6f;
+
+	
+
 	private void Start()
 	{
 		lazerLine.enabled = false;
+		
+	}
+
+	private void FixedUpdate()
+	{
+		if( inPosition )
+		{
+			Shoot();
+		}
+		
 	}
 
 	private void Update()
 	{
 		MoveToPosition();
-		if(inPosition)
-		{
-			Shoot();
-		}
+
 
 		if(hasShot)
 		{
@@ -39,8 +52,11 @@ public class Enemy_Shooting : EnemyBehaviour
 		{
 			transform.position += Vector3.right * 5.0f * Time.deltaTime;
 		}
-		else
+		else if(!inPosition)
 		{
+			shootTo.position = player.transform.position;
+			shootTo.position += new Vector3( 1f, 0f, 0f );
+			dist = Vector3.Distance( firePoint.position, shootTo.position );
 			inPosition = true;
 		}
 		
@@ -48,15 +64,33 @@ public class Enemy_Shooting : EnemyBehaviour
 
 	private void Shoot()
 	{
-		lazerLine.SetPosition( 0, firePoint.position );
-		lazerLine.SetPosition( 1, player.transform.position );
-		lazerLine.enabled = true;
+		if( counter < dist )
+		{
+			counter += 0.1f / lineDrawSpeed;
+			float x = Mathf.Lerp( 0, dist, counter );
+
+			Vector3 pointA = firePoint.position;
+			Vector3 pointB = shootTo.position;
+
+			Vector3 pointAlongLine = x * Vector3.Normalize( pointB - pointA ) + pointA;
+
+			lazerLine.SetPosition( 0, firePoint.position );
+			lazerLine.SetPosition( 1, pointAlongLine );
+			lazerLine.enabled = true;
+			StartCoroutine( WaitForShot());
+		}
+	}
+
+	IEnumerator WaitForShot()
+	{
+		yield return new WaitForSeconds(laserDuration);
 		hasShot = true;
 	}
 
 	void MoveAway()
 	{
-		transform.position += transform.position * -1f * Time.deltaTime;
+		lazerLine.enabled = false;
+		transform.position += transform.position * -10f * Time.deltaTime;
 	}
 
 }
