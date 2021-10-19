@@ -68,12 +68,6 @@ public class WallJumpZone : MonoBehaviour
 			Debug.Log( "Player Entered Jumpzone" );
 			canCheckForInitialJumpDistance = true;
 
-			rotateCamera.enabled = false;
-
-			smoothCam.clamp = true;
-			smoothCam.clampY = false;
-			smoothCam.xClampPos = transform.position.x;
-
 			collision.GetComponent<PlayerQuickTimeEventBehaviour>().CurrentJumpZone = this;
 		}
 	}
@@ -94,6 +88,12 @@ public class WallJumpZone : MonoBehaviour
 
 	public void Jump()
 	{
+		rotateCamera.enabled = false;
+
+		smoothCam.clamp = true;
+		smoothCam.clampY = false;
+		smoothCam.xClampPos = transform.position.x;
+
 		StartCoroutine( JumpTowardsNextPoint() );
 	}
 
