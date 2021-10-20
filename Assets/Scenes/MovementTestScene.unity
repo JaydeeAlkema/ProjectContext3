@@ -1442,6 +1442,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8914600241893399933, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
+      propertyPath: qteTimeToReact
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
 --- !u!1001 &5345472204572131226
@@ -1512,6 +1516,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 94311634}
     m_Modifications:
+    - target: {fileID: 186487083, guid: c81c32e9b6c4f7340942f9f9760efc6c, type: 3}
+      propertyPath: timeToReact
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7995677475284498146, guid: c81c32e9b6c4f7340942f9f9760efc6c, type: 3}
       propertyPath: m_RootOrder
       value: 0
