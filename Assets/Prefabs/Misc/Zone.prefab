@@ -319,12 +319,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  initialJumpPoint: {fileID: 0}
+  - {fileID: 1148731417}
+  - {fileID: 1492167896}
+  - {fileID: 300373195}
+  - {fileID: 428385116}
+  - {fileID: 779373391}
+  - {fileID: 1189781070}
+  - {fileID: 221649950}
+  initialJumpPoint: {fileID: 1324476748}
   timeToReact: 2
