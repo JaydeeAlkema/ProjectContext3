@@ -877,8 +877,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2058339511160771188, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
+      propertyPath: parallaxEffectMultiplier.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058339511160771188, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
       propertyPath: parallaxEffectMultiplier.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2451468375827096387, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
       propertyPath: m_Size.x
@@ -1378,7 +1382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2250325880319197296, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.06
+      value: -1.024
       objectReference: {fileID: 0}
     - target: {fileID: 2250325880319197296, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1431,12 +1435,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1622269326, guid: fce92794b89af934c812e606eab5a066, type: 3}
       propertyPath: clampY
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1622269326, guid: fce92794b89af934c812e606eab5a066, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1896155534}
+    - target: {fileID: 1622269326, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: offset.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5345472206123006531, guid: fce92794b89af934c812e606eab5a066, type: 3}
       propertyPath: m_RootOrder
       value: 1
