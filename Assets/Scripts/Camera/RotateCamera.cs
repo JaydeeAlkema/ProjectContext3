@@ -24,11 +24,11 @@ public class RotateCamera : MonoBehaviour
         //dir.x = Input.acceleration.y;
         dir = Input.acceleration.normalized;
 
-        if( Input.mousePosition.x >= Screen.width - mDelta || dir.normalized.x >= 0.2)
+        if( Input.mousePosition.x >= Screen.width - mDelta || dir.normalized.x >= 0.35)
         {
             transform.position += Vector3.right * Time.deltaTime * mSpeedRight;
         }
-        if( Input.mousePosition.x <= 0f + mDelta || dir.normalized.x <= -0.2)
+        if( Input.mousePosition.x <= 0f + mDelta || dir.normalized.x <= -0.35)
         {
             transform.position += Vector3.right * Time.deltaTime * mSpeedLeft;
         }

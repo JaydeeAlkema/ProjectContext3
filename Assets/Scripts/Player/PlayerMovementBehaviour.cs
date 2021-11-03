@@ -90,6 +90,26 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 		canJump = hit.collider != null && !jumpOnCooldown;
 
+		foreach(Touch touch in Input.touches)
+		{
+			Vector2 beginPos = default;
+			if(touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
+			{
+				if(touch.phase == TouchPhase.Began)
+				{
+					beginPos = touch.position;
+				}
+
+				if( touch.phase == TouchPhase.Moved)
+				{
+					if( touch.deltaPosition.y > beginPos.y + 1f && canJump )
+					{
+						Jump();
+					}
+				}
+			}
+		}
+
 		if( canJump && Input.GetKeyDown( jumpKeyCode ) )
 		{
 			Jump();
