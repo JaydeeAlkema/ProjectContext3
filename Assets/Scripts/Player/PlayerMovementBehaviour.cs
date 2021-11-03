@@ -102,7 +102,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 				if( touch.phase == TouchPhase.Moved)
 				{
-					if( touch.deltaPosition.y > beginPos.y + 1f && canJump )
+					if( touch.deltaPosition.y > beginPos.y + 50f && canJump )
 					{
 						Jump();
 					}
