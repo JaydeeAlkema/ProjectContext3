@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SceneManager : MonoBehaviour
 {
-    [SerializeField] private int TargetFPS = 60;    
-    // Start is called before the first frame update
-    void Awake()
-    {
-        Application.targetFrameRate = TargetFPS;
-    }
+	[SerializeField] private int TargetFPS = 60;
+
+	//TODO: Check for device refreshrate instead of setting our own target frame rate.
+	void Awake()
+	{
+		Application.targetFrameRate = TargetFPS;
+	}
 }
