@@ -366,7 +366,7 @@ MonoBehaviour:
   - name: Right Arrow
     sprite: {fileID: 3318904089994504119, guid: aedaf3ccb955a154e96b72d2db50b794, type: 3}
     keyCode: 275
-  qteTimeToReact: 1
+  qteTimeToReact: 0.5
   currentJumpZone: {fileID: 0}
 --- !u!1 &2250325880886385889
 GameObject:
