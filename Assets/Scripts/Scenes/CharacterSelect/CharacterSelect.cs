@@ -1,12 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CharacterSelect : MonoBehaviour
 {
-	public void LoadNextScene()
+
+	[SerializeField] private Animator sceneFadeAnimator;
+
+	private void Awake()
 	{
-		UnityEngine.SceneManagement.SceneManager.LoadScene( UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex + 1 );
+		Application.targetFrameRate = 120;
+	}
+
+	public async void LoadNextScene()
+	{
+		sceneFadeAnimator.SetTrigger( "Transition" );
+		await Task.Delay( 2500 );
+		SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex + 1 );
 	}
 }
