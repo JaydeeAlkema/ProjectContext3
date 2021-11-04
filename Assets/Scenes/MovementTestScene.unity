@@ -180,6 +180,7 @@ MonoBehaviour:
   failed: 0
   index: 0
   timeLeft: 30
+  drawError: 0.1
 --- !u!1 &43605201
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,7 +574,8 @@ MonoBehaviour:
   completed: 0
   failed: 0
   index: 0
-  timeLeft: 30
+  timeLeft: 10
+  drawError: 1.25
   objectToDestroy: {fileID: 0}
 --- !u!1001 &205200817
 PrefabInstance:
@@ -1073,8 +1075,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6292dd5a286851f46973b0b4854f9176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Runes: {fileID: 1507736798}
-  minDistance: 25
+  destroyRune: {fileID: 159651501}
+  minDistance: 10
 --- !u!1001 &411198427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1672,6 +1674,7 @@ MonoBehaviour:
   failed: 0
   index: 0
   timeLeft: 30
+  drawError: 0.1
 --- !u!1001 &1267150699
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class PlayerRuneActivation : MonoBehaviour
     public bool failed = false;
     [SerializeField]private int index = 0;
     [SerializeField] private float timeLeft = 30f;
+    [SerializeField] private float drawError = 0.1f;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -25,29 +26,33 @@ public class PlayerRuneActivation : MonoBehaviour
 
     void DrawRune()
     {
-        foreach( Touch touch in Input.touches )
+        //foreach( Touch touch in Input.touches )
+        if(Input.touchCount > 0)
         {
+            Touch touch = Input.GetTouch( 0 );
+            Vector3 touchPos = Camera.main.ScreenToWorldPoint( touch.position );
+            touchPos.z = 0;
             if( touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled )
             {
                 if(touch.phase == TouchPhase.Began)
                 {
                     Debug.Log( "Touch began" );
-                    if((touch.position.normalized - (Vector2)points[index].position.normalized).sqrMagnitude <= 0.1f && index == 0)
+                    if((touchPos - points[index].position).magnitude <= drawError && index == 0)
                     {
                         Debug.Log( "Touch hit" );
                         hits[index] = true;
-                        index++;
+                        if(hits[index]){ index++; }
 					}
 				}
 
                 if(touch.phase == TouchPhase.Moved)
                 {
                     Debug.Log( "Touch moved" );
-                    if((touch.position.normalized - (Vector2)points[index].position.normalized).sqrMagnitude <= 0.1f && index != 0)
+                    if((touchPos - points[index].position).magnitude <= drawError && index != 0)
                     {
                         Debug.Log( "Touch hit" );
                         hits[index] = true;
-                        if( index < hits.Length - 1 ) { index++; }
+                        if( hits[index] && index < hits.Length - 1 ) { index++; }
 					}
 					
 				}
