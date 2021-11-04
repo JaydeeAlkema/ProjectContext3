@@ -7,13 +7,20 @@ public class PlayerRuneActivation : MonoBehaviour
     [SerializeField] private Transform[] points;
     [SerializeField] private bool[] hits;
     public bool completed = false;
+    public bool failed = false;
     [SerializeField]private int index = 0;
+    [SerializeField] private float timeLeft = 30f;
 
     // Update is called once per frame
     void FixedUpdate()
     {
         DrawRune();
         CheckforCompletion();
+        timeLeft -= Time.deltaTime;
+        if( timeLeft <= 0 )
+        {
+            failed = true;
+        }
     }
 
     void DrawRune()
@@ -65,4 +72,9 @@ public class PlayerRuneActivation : MonoBehaviour
 		}
         return completed;
 	}
+
+    public void RuneFailed()
+    {
+
+    }
 }
