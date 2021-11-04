@@ -8,10 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MovementTestScene.unity
     guid: 9b6e03f959e006746b25a6b29b021a91
-  - enabled: 0
-    path: Assets/Scenes/Enemy Behaviour Test Scene.unity
-    guid: e48031caa04861a41b97f45316d3b54b
-  - enabled: 0
-    path: Assets/Scenes/Data Serialization.unity
-    guid: b822308c15153734a8406aa48776fbe1
   m_configObjects: {}
