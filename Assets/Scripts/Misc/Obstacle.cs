@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour, IObstacle
+public class Obstacle : MonoBehaviour
 {
-	[SerializeField] private GameObject onHitGO;
+	[SerializeField]private GameObject destroyRune = default;
+	[SerializeField] private float minDistance = 25f;
 
-	public void OnHit()
+	private void FixedUpdate()
 	{
-		GameObject onHitGO_ = Instantiate( onHitGO, transform.position, Quaternion.identity );
+		CheckDistance();
+	}
 
-		Destroy( onHitGO_, 2f );
-		Destroy( gameObject );
+	void CheckDistance(){
+		if(Vector3.Distance(destroyRune.transform.position, this.transform.position) <= minDistance){
+			destroyRune.gameObject.SetActive( true );
+			destroyRune.GetComponent<DestroyRune>().objectToDestroy = this.transform;
+		}
 	}
 }
