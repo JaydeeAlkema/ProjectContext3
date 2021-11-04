@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats_ScriptableObject : ScriptableObject
+[CreateAssetMenu(fileName ="Player Data", menuName ="ScriptableObjects/New Player Data Object")]
+public class PlayerData_ScriptableObject : ScriptableObject
 {
 	public int playerCharacterIndex = 0;	// Reference to the player character select. 0 - 3 indicates which sprites we have to load.
 
