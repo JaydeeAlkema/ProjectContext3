@@ -90,8 +90,11 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 		canJump = hit.collider != null && !jumpOnCooldown;
 
-		foreach(Touch touch in Input.touches)
+		if( Input.touchCount > 0 )
 		{
+			Touch touch = Input.GetTouch( 0 );
+			Vector3 touchPos = Camera.main.ScreenToWorldPoint( touch.position );
+			touchPos.z = 0;
 			Vector2 beginPos = default;
 			if(touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
 			{
