@@ -1,22 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerRuneActivation : MonoBehaviour
 {
     [SerializeField] private Transform[] points;
-    [SerializeField] private bool[] hits;
     public bool completed = false;
     public bool failed = false;
-    [SerializeField]private int index = 0;
+    [SerializeField] private List<Transform> hitPoints;
     [SerializeField] private float timeLeft = 30f;
     [SerializeField] private float drawError = 0.1f;
+    [SerializeField] private LineRenderer line;
 
     // Update is called once per frame
     void FixedUpdate()
     {
         DrawRune();
         CheckforCompletion();
+        ShowRuneDrawing();
         timeLeft -= Time.deltaTime;
         if( timeLeft <= 0 )
         {
@@ -26,55 +28,67 @@ public class PlayerRuneActivation : MonoBehaviour
 
     void DrawRune()
     {
-        //foreach( Touch touch in Input.touches )
         if(Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch( 0 );
             Vector3 touchPos = Camera.main.ScreenToWorldPoint( touch.position );
             touchPos.z = 0;
+
+            //Check to see touch is not canceled
             if( touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled )
             {
+                //on first touchphase check all points to see if close enough
                 if(touch.phase == TouchPhase.Began)
                 {
-                    Debug.Log( "Touch began" );
-                    if((touchPos - points[index].position).magnitude <= drawError && index == 0)
+                    hitPoints.Clear();
+                    foreach( Transform point in points )
                     {
-                        Debug.Log( "Touch hit" );
-                        hits[index] = true;
-                        if(hits[index]){ index++; }
-					}
+                        if( ( touchPos - point.position ).magnitude <= drawError && !hitPoints.Contains( point ) )
+                        {
+                            //add point to list
+                            hitPoints.Add( point );
+                        }
+                    }
 				}
 
+                //for everymove check for touch position is close enough
                 if(touch.phase == TouchPhase.Moved)
                 {
-                    Debug.Log( "Touch moved" );
-                    if((touchPos - points[index].position).magnitude <= drawError && index != 0)
-                    {
-                        Debug.Log( "Touch hit" );
-                        hits[index] = true;
-                        if( hits[index] && index < hits.Length - 1 ) { index++; }
+                    foreach( Transform point in points )
+					{
+                        if((touchPos-point.position).magnitude <= drawError && !hitPoints.Contains(point))
+                        {
+                            //add point to list
+                            hitPoints.Add( point );
+						}
+                        //check to see if 4th hit point is not in list already except when its the first, then register again
+                        else if( ( touchPos - point.position ).magnitude <= drawError &&  hitPoints.First() == point && hitPoints.Count > 1){
+                            //add point to list
+                            hitPoints.Add( point );
+						}
 					}
-					
 				}
-
-                if(touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            }
+            //if touchphase has ended clear list for new input
+            if( touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled )
+            {
+                if( !completed )
                 {
-                    if(!completed)
-                    {
-                        hits.Equals(false);
-                        index = 0;
-					}
-				}
+                    hitPoints.Clear();
+                }
             }
         }
 	}
 
+    void ShowRuneDrawing(){
+		for( int i = 0; i < hitPoints.Count; i++ )
+		{
+            line.SetPosition( i , hitPoints.ElementAt( i ).position );
+		}
+	}
+
     bool CheckforCompletion()
     {
-        if(hits[hits.Length-1] == true)
-        {
-            completed = true;
-		}
         return completed;
 	}
 
