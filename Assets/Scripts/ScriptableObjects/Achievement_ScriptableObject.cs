@@ -14,4 +14,15 @@ public class Achievement_ScriptableObject : ScriptableObject
 
 	public bool unlocked;
 	public bool hidden;
+	[Space( 10 )]
+	public bool resetAchievementOnQuit;
+
+	private void OnEnable()
+	{
+		if( resetAchievementOnQuit )
+		{
+			current = 0;
+			unlocked = false;
+		}
+	}
 }
