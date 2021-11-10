@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   name: Test 1
-  description: Test Achievement for jumping many times
+  description: Test Achievement for jumping a couple of times
   ID: ACH_TEST1
   current: 0
-  goal: 10
+  goal: 2
   unlocked: 0
   hidden: 0
+  resetAchievementOnQuit: 1
