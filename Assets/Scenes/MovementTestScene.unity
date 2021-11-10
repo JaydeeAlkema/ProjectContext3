@@ -632,8 +632,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6292dd5a286851f46973b0b4854f9176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyRune: {fileID: 0}
+  runeActivation: {fileID: 1603391925}
   minDistance: 10
+  player: {fileID: 2081139969}
 --- !u!1001 &411198427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1482,6 +1483,11 @@ Transform:
   m_Father: {fileID: 254457893}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2081139969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2250325880319197299, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
+  m_PrefabInstance: {fileID: 2250325881107925502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2089715168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 726829697054183862, guid: 835fa9e631dcc0843bef091395911e0d, type: 3}
@@ -1610,6 +1616,10 @@ PrefabInstance:
     - target: {fileID: 2250325880319197299, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250325881263789062, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
