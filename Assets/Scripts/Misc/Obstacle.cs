@@ -25,5 +25,10 @@ public class Obstacle : MonoBehaviour
 			Destroy( this.gameObject );
 			runeActivation.gameObject.SetActive( false );
 		}
+
+		if(runeActivation.rune == PlayerRuneActivation.Runes.DISABLE){
+			this.gameObject.GetComponent<Material>().color = Color.green;
+			runeActivation.gameObject.SetActive( false );
+		}
 	}
 }
