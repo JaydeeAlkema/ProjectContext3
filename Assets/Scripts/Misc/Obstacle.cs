@@ -27,7 +27,7 @@ public class Obstacle : MonoBehaviour
 		}
 
 		if(runeActivation.rune == PlayerRuneActivation.Runes.DISABLE){
-			this.gameObject.GetComponent<Material>().color = Color.green;
+			this.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
 			runeActivation.gameObject.SetActive( false );
 		}
 	}

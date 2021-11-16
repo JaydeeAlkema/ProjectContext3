@@ -18,7 +18,7 @@ public class PlayerRuneActivation : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if( hitPoints.Count >= 4 ) { CheckforCompletion(); }
+        if( hitPoints.Count >= 4 ) { CheckforCompletion(); hitPoints.Clear(); }
         DrawRune();
         ShowRuneDrawing();
         timeLeft -= Time.deltaTime;
@@ -26,7 +26,6 @@ public class PlayerRuneActivation : MonoBehaviour
         {
             RuneFailed();
         }
-        if( completed ) { hitPoints.Clear(); }
     }
 
     void DrawRune()
@@ -37,8 +36,10 @@ public class PlayerRuneActivation : MonoBehaviour
             Vector3 touchPos = Camera.main.ScreenToWorldPoint( touch.position );
             touchPos.z = 0;
 
+            if( hitPoints.Count >= 4 ) { CheckforCompletion(); hitPoints.Clear(); }
+
             //Check to see touch is not canceled
-            if( touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled && hitPoints.Count != 4 )
+            if( touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
             {
                 //on first touchphase check all points to see if close enough
                 if( touch.phase == TouchPhase.Began )
@@ -46,7 +47,7 @@ public class PlayerRuneActivation : MonoBehaviour
                     hitPoints.Clear();
                     foreach( Transform point in points )
                     {
-                        if( ( touchPos - point.position ).magnitude <= drawError && !hitPoints.Contains( point ) )
+                        if( ( touchPos - point.position ).magnitude <= drawError + 0.5f && !hitPoints.Contains( point ) )
                         {
                             //add point to list
                             hitPoints.Add( point );
@@ -75,10 +76,8 @@ public class PlayerRuneActivation : MonoBehaviour
             //if touchphase has ended clear list for new input
             if( touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled )
             {
-                if( !completed )
-                {
-                    hitPoints.Clear();
-                }
+                hitPoints.Clear();
+                line.positionCount = 0;
             }
         }
     }
@@ -87,7 +86,7 @@ public class PlayerRuneActivation : MonoBehaviour
         for( int i = 0; i < hitPoints.Count; i++ )
         {
             line.positionCount = i + 1;
-            line.SetPosition( i, hitPoints.ElementAt( i ).position );
+            line.SetPosition( i, hitPoints.ElementAt( i ).position + new Vector3(0,0,-0.1f) );
         }
     }
 
@@ -104,10 +103,11 @@ public class PlayerRuneActivation : MonoBehaviour
                 //Destroy object
                 rune = Runes.DESTROY;
                 order = "";
-                completed = true;
+                //completed = true;
                 break;
             case "1634":
                 //Disable object
+                rune = Runes.DISABLE;
                 order = "";
                 //completed = true;
                 break;
