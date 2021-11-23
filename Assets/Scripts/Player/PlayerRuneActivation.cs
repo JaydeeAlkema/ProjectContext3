@@ -14,6 +14,8 @@ public class PlayerRuneActivation : MonoBehaviour
 	[SerializeField] private float timeLeft = 30f;
 	[SerializeField] private float drawError = 0.1f;
 	[SerializeField] private LineRenderer line;
+	[Space]
+	[SerializeField] private List<GameObject> animatedRunes = new List<GameObject>();
 
 	// Update is called once per frame
 	void FixedUpdate()
@@ -26,6 +28,13 @@ public class PlayerRuneActivation : MonoBehaviour
 		{
 			RuneFailed();
 		}
+	}
+
+	void SpawnAnimatedRune( Runes type )
+	{
+		Vector3 spawnPos = new Vector3( transform.position.x, transform.position.y + 1, transform.position.z + 10 );
+		GameObject animatedRuneGo = Instantiate( animatedRunes[( ( byte )rune )], spawnPos, Quaternion.identity, Camera.main.transform );
+		Destroy( animatedRuneGo, 10f );
 	}
 
 	void DrawRune()
@@ -101,27 +110,25 @@ public class PlayerRuneActivation : MonoBehaviour
 		}
 		switch( order )
 		{
-			case "1351":
-				//Destroy object
+			case "1351":    //Destroy object
 				rune = Runes.DESTROY;
 				order = "";
 				//completed = true;
-				Debug.Log( "Destroyed" );
+				SpawnAnimatedRune( rune );
+
 				break;
 
-			case "1634":
-				//Disable object
+			case "1634":    //Disable object
 				rune = Runes.DISABLE;
 				order = "";
 				//completed = true;
-				Debug.Log( "Disable" );
+				SpawnAnimatedRune( rune );
 				break;
 
-			case "5623":
-				//Dodge object
+			case "5623":    //Dodge object
 				order = "";
 				//completed = true;
-				Debug.Log( "Dodge" );
+				SpawnAnimatedRune( rune );
 				break;
 
 			default:
