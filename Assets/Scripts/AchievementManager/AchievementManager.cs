@@ -8,9 +8,11 @@ public class AchievementManager : MonoBehaviour
 	private static AchievementManager instance;
 
 	[SerializeField] private Achievement_ScriptableObject[] achievements;
+	[SerializeField] private Achievement_ScriptableObject latestUnlockedAchievement;
 
 	#region Properties
 	public static AchievementManager Instance { get => instance; set => instance = value; }
+	public Achievement_ScriptableObject LatestUnlockedAchievement { get => latestUnlockedAchievement; set => latestUnlockedAchievement = value; }
 	#endregion
 
 	private void Awake()
@@ -20,6 +22,18 @@ public class AchievementManager : MonoBehaviour
 			instance = null;
 			instance = this;
 		}
+	}
+
+	public Achievement_ScriptableObject GetAchievementByID( string ID )
+	{
+		foreach( Achievement_ScriptableObject achievement in achievements )
+		{
+			if( achievement.ID == ID )
+			{
+				return achievement;
+			}
+		}
+		return null;
 	}
 
 	public void AddAchievementProgress( string ID, int value )
@@ -34,6 +48,8 @@ public class AchievementManager : MonoBehaviour
 			{
 				achievement.current = achievement.goal;
 				achievement.unlocked = true;
+
+				latestUnlockedAchievement = achievement;
 
 				Debug.Log( $"Achievement Unlocked: [{achievement.name}]" );
 			}
