@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 57858114}
   - component: {fileID: 57858115}
   - component: {fileID: 57858112}
+  - component: {fileID: 57858116}
   m_Layer: 0
   m_Name: Scene Manager
   m_TagString: Untagged
@@ -427,6 +428,35 @@ MonoBehaviour:
   background: {r: 0, g: 0, b: 0, a: 1}
   foreground: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   arrow: {fileID: 544395715}
+--- !u!114 &57858116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57858111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 126a98b71ffa03d4db62361ac3558538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listenForInput: 1
+  showGizmos: 1
+  clearOnExit: 0
+  scriptableObject: {fileID: 11400000, guid: 7ed43695fabc1a8479b19f378f4f43b1, type: 2}
+  helperEvents:
+  - name: Rune
+    key: 114
+    eventType: 0
+    eventColor: {r: 0.93336535, g: 0.06132078, b: 1, a: 0}
+    position: {x: 0, y: 0, z: 0}
+    timeStamp: 0
+  - name: Transition
+    key: 116
+    eventType: 1
+    eventColor: {r: 0.07075471, g: 0.15765233, b: 1, a: 0}
+    position: {x: 0, y: 0, z: 0}
+    timeStamp: 0
 --- !u!1001 &66023906
 PrefabInstance:
   m_ObjectHideFlags: 0
