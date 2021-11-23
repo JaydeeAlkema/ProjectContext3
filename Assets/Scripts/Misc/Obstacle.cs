@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
 	[SerializeField] private PlayerRuneActivation runeActivation = default;
-	[SerializeField] private float minDistance = 25f;
+	[SerializeField] private PlayerRuneActivation.Runes defaultBehaviour;
 	[SerializeField] private GameObject player = default;
+	[Space]
+	[SerializeField] private float activationRange = 25f;   // If player gets within this range, the rune will activate.
 
 	private void Start()
 	{
 		runeActivation.gameObject.SetActive( false );
 	}
 
-	private void FixedUpdate()
+	private void Update()
 	{
 		CheckDistance();
 		CheckForDestroyComplete();
@@ -21,7 +24,7 @@ public class Obstacle : MonoBehaviour
 
 	void CheckDistance()
 	{
-		if( ( player.transform.position - this.transform.position ).magnitude <= minDistance )
+		if( ( player.transform.position - this.transform.position ).magnitude <= activationRange )
 		{
 			runeActivation.gameObject.SetActive( true );
 		}
@@ -31,8 +34,8 @@ public class Obstacle : MonoBehaviour
 	{
 		if( runeActivation.rune == PlayerRuneActivation.Runes.DESTROY )
 		{
-			Destroy( this.gameObject );
 			runeActivation.gameObject.SetActive( false );
+			Destroy( this.gameObject );
 		}
 
 		if( runeActivation.rune == PlayerRuneActivation.Runes.DISABLE )
@@ -42,9 +45,14 @@ public class Obstacle : MonoBehaviour
 		}
 	}
 
+	private void OnTriggerEnter2D( Collider2D collision )
+	{
+		runeActivation.rune = defaultBehaviour;
+	}
+
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.green;
-		Gizmos.DrawWireCube( new Vector3( transform.position.x - minDistance, transform.position.y, transform.position.z ), new Vector3( 1, 2, 1 ) );
+		Gizmos.DrawWireCube( new Vector3( transform.position.x - activationRange, transform.position.y, transform.position.z ), new Vector3( 0.25f, 10, 1 ) );
 	}
 }

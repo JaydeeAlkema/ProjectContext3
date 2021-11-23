@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7385054b21e153e48a27aaef21c7e2e7, type: 3}
   m_Name: Timeline Helper Tool Events
   m_EditorClassIdentifier: 
-  Events: []
+  Events:
+  - name: Rune
+    key: 114
+    eventType: 0
+    eventColor: {r: 0.93336535, g: 0.06132078, b: 1, a: 0}
+    position: {x: 16.46, y: -0.0023650378, z: 0}
+    timeStamp: 8.96
