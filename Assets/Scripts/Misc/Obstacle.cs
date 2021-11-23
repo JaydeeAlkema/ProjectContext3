@@ -5,28 +5,38 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+	//TODO: Add 2 seperate sprite variables for each interaction type except dodge.
+
+
 	[SerializeField] private PlayerRuneActivation runeActivation = default;
 	[SerializeField] private PlayerRuneActivation.Runes defaultBehaviour;
 	[SerializeField] private GameObject player = default;
 	[Space]
 	[SerializeField] private float activationRange = 25f;   // If player gets within this range, the rune will activate.
 
+	private SpriteRenderer spriteRenderer;
+	private Animator anim;
+	private bool runeDone = false;
+
 	private void Start()
 	{
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		anim = GetComponent<Animator>();
+
 		runeActivation.gameObject.SetActive( false );
 	}
 
 	private void Update()
 	{
 		CheckDistance();
-		CheckForDestroyComplete();
 	}
 
 	void CheckDistance()
 	{
-		if( ( player.transform.position - this.transform.position ).magnitude <= activationRange )
+		if( !runeDone && ( player.transform.position - this.transform.position ).magnitude <= activationRange )
 		{
 			runeActivation.gameObject.SetActive( true );
+			CheckForDestroyComplete();
 		}
 	}
 
@@ -34,20 +44,26 @@ public class Obstacle : MonoBehaviour
 	{
 		if( runeActivation.rune == PlayerRuneActivation.Runes.DESTROY )
 		{
+			runeDone = true;
+			//anim.SetBool( "Destroyed", true );
 			runeActivation.gameObject.SetActive( false );
+			runeActivation.rune = PlayerRuneActivation.Runes.NULL;
 			Destroy( this.gameObject );
 		}
 
 		if( runeActivation.rune == PlayerRuneActivation.Runes.DISABLE )
 		{
-			this.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+			runeDone = true;
+			anim.SetBool( "Disabled", true );
 			runeActivation.gameObject.SetActive( false );
+			runeActivation.rune = PlayerRuneActivation.Runes.NULL;
 		}
 	}
 
 	private void OnTriggerEnter2D( Collider2D collision )
 	{
-		runeActivation.rune = defaultBehaviour;
+		if( !runeDone )
+			runeActivation.rune = defaultBehaviour;
 	}
 
 	private void OnDrawGizmos()
