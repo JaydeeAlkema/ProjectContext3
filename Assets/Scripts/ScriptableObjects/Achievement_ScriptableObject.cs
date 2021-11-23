@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 
 [CreateAssetMenu( fileName = "New Achievement", menuName = "ScriptableObjects/New Achievement" )]
@@ -26,3 +27,4 @@ public class Achievement_ScriptableObject : ScriptableObject
 		}
 	}
 }
+#endif
