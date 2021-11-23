@@ -26,6 +26,16 @@ public class StartAudioFromTimestamp : MonoBehaviour
 
 		if( currentTime >= stopTime )
 		{
+			FadeOutAudio();
+		}
+	}
+
+	private void FadeOutAudio()
+	{
+		audioSource.volume -= 0.002f * Time.deltaTime;
+
+		if( audioSource.volume <= 0.0001f )
+		{
 			audioSource.Stop();
 		}
 	}

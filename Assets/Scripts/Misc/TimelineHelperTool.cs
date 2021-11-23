@@ -75,6 +75,7 @@ public struct TimelineHelperEvent
 public enum EventType
 {
 	RUNE,
-	TRANSITION
+	TRANSITION,
+	OBSTACLE
 }
 #endif

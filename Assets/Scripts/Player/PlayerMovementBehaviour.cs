@@ -90,20 +90,21 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 		canJump = hit.collider != null && !jumpOnCooldown;
 
+#if UNITY_ANDROID
 		if( Input.touchCount > 0 )
 		{
 			Touch touch = Input.GetTouch( 0 );
 			Vector3 touchPos = Camera.main.ScreenToWorldPoint( touch.position );
 			touchPos.z = 0;
 			Vector2 beginPos = default;
-			if(touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
+			if( touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled )
 			{
-				if(touch.phase == TouchPhase.Began)
+				if( touch.phase == TouchPhase.Began )
 				{
 					beginPos = touch.position;
 				}
 
-				if( touch.phase == TouchPhase.Moved)
+				if( touch.phase == TouchPhase.Moved )
 				{
 					if( touch.deltaPosition.y > beginPos.y + 50f && canJump )
 					{
@@ -112,12 +113,18 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 				}
 			}
 		}
+#endif
 
+#if UNITY_EDITOR
 		if( canJump && Input.GetKeyDown( jumpKeyCode ) )
 		{
 			Jump();
 		}
-		else if( jumping && hit.collider != null )
+#endif
+
+		//TODO: Fix weird bug that doesn't trigger the jump animation.
+
+		if( jumping && hit.collider != null )
 		{
 			jumping = false;
 		}
