@@ -17,5 +17,11 @@ MonoBehaviour:
     key: 114
     eventType: 0
     eventColor: {r: 0.93336535, g: 0.06132078, b: 1, a: 0}
-    position: {x: 16.46, y: -0.0023650378, z: 0}
-    timeStamp: 8.96
+    position: {x: 16.929888, y: -0.001278311, z: 0}
+    timeStamp: 8.534427
+  - name: Rune
+    key: 114
+    eventType: 0
+    eventColor: {r: 0.93336535, g: 0.06132078, b: 1, a: 0}
+    position: {x: 63.435806, y: -0.0051208287, z: 0}
+    timeStamp: 31.7953
