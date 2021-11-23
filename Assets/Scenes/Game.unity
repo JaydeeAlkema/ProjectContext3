@@ -461,6 +461,12 @@ MonoBehaviour:
     eventColor: {r: 0.07075471, g: 0.15765233, b: 1, a: 0}
     position: {x: 0, y: 0, z: 0}
     timeStamp: 0
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 0, y: 0, z: 0}
+    timeStamp: 0
 --- !u!114 &57858117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,7 +480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 47
-  stopTime: 80
+  stopTime: 55
   currentTime: 0
 --- !u!1001 &66023906
 PrefabInstance:
@@ -2342,10 +2348,10 @@ RectTransform:
   m_Father: {fileID: 431387008}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3840, y: 2160}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &973262159
 GameObject:
