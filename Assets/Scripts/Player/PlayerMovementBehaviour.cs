@@ -152,7 +152,8 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 	private void Slide()
 	{
-
+		//add animation
+		//shorten hitbox?
 	}
 
 	private void UpdateSpriteRotation()
