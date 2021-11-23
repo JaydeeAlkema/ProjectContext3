@@ -8,27 +8,43 @@ public class Obstacle : MonoBehaviour
 	[SerializeField] private float minDistance = 25f;
 	[SerializeField] private GameObject player = default;
 
+	private void Start()
+	{
+		runeActivation.gameObject.SetActive( false );
+	}
+
 	private void FixedUpdate()
 	{
 		CheckDistance();
 		CheckForDestroyComplete();
 	}
 
-	void CheckDistance(){
-		if((player.transform.position - this.transform.position).magnitude <= minDistance){
+	void CheckDistance()
+	{
+		if( ( player.transform.position - this.transform.position ).magnitude <= minDistance )
+		{
 			runeActivation.gameObject.SetActive( true );
 		}
 	}
 
-	void CheckForDestroyComplete(){
-		if(runeActivation.rune == PlayerRuneActivation.Runes.DESTROY){
+	void CheckForDestroyComplete()
+	{
+		if( runeActivation.rune == PlayerRuneActivation.Runes.DESTROY )
+		{
 			Destroy( this.gameObject );
 			runeActivation.gameObject.SetActive( false );
 		}
 
-		if(runeActivation.rune == PlayerRuneActivation.Runes.DISABLE){
+		if( runeActivation.rune == PlayerRuneActivation.Runes.DISABLE )
+		{
 			this.gameObject.GetComponent<SpriteRenderer>().color = Color.green;
 			runeActivation.gameObject.SetActive( false );
 		}
+	}
+
+	private void OnDrawGizmos()
+	{
+		Gizmos.color = Color.green;
+		Gizmos.DrawWireCube( new Vector3( transform.position.x - minDistance, transform.position.y, transform.position.z ), new Vector3( 1, 2, 1 ) );
 	}
 }

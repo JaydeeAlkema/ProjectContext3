@@ -12,7 +12,6 @@ public class PlayerInteractionBehaviour : MonoBehaviour
 	private void Start()
 	{
 		playerAnimationBehaviour = GetComponentInChildren<PlayerAnimationBehaviour>();
-		hitTrigger.SetActive( false );
 	}
 
 	private void Update()
