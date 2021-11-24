@@ -25,3 +25,69 @@ MonoBehaviour:
     eventColor: {r: 0.93336535, g: 0.06132078, b: 1, a: 0}
     position: {x: 63.435806, y: -0.0051208287, z: 0}
     timeStamp: 31.7953
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 26.606768, y: 0.033630814, z: 0}
+    timeStamp: 13.361498
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 26.606768, y: 0.033630814, z: 0}
+    timeStamp: 13.361498
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 35.26767, y: -0.96654254, z: 0}
+    timeStamp: 17.641703
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 37.987732, y: -0.96654254, z: 0}
+    timeStamp: 19.013521
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 40.827797, y: -0.96654254, z: 0}
+    timeStamp: 20.422152
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 46.42769, y: -0.96712583, z: 0}
+    timeStamp: 23.23753
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 49.307755, y: -0.96712583, z: 0}
+    timeStamp: 24.661678
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 52.14782, y: -0.96712583, z: 0}
+    timeStamp: 26.090834
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 66.19346, y: 0.030734856, z: 0}
+    timeStamp: 33.166367
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 68.87352, y: 0.030734856, z: 0}
+    timeStamp: 34.514862
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 71.63358, y: 0.030734856, z: 0}
+    timeStamp: 35.893345

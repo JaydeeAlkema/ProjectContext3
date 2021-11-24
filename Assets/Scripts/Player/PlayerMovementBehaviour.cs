@@ -40,11 +40,14 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	[SerializeField] [ReadOnly] private bool jumpOnCooldown = false;
 	[SerializeField] [ReadOnly] private bool canJump = false;
 	[SerializeField] [ReadOnly] private bool jumping = false;
-	[SerializeField] [ReadOnly] private bool canSlide = false;
+	[SerializeField] [ReadOnly] private bool canSlide = true;
 	[SerializeField] [ReadOnly] private bool isSliding = false;
+	[SerializeField] private int maxSpriteBlinkCount = 6;
+	[SerializeField] private float spriteBlinkInterval = 0.25f;
 
 	private float hitboxY = default;
 	private float hitboxYPos = default;
+	private int spriteBlinkCount = 0;
 
 	private CapsuleCollider2D capsuleCollider;
 	private SpriteRenderer spriteRenderer;
@@ -62,6 +65,8 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		hitboxYPos = capsuleCollider.offset.y;
 
 		if( !rb2d ) { rb2d = GetComponentInChildren<Rigidbody2D>(); }
+
+		canSlide = true;
 	}
 
 	private void Update()
@@ -95,8 +100,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		{
 			jumping = false;
 		}
-
-		canSlide = hit;
 
 		//Debug.Log( string.Format( "Velocity [{0}][{1}]", vel.x, vel.y ) )
 	}
@@ -192,6 +195,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 	private void Slide()
 	{
+		canSlide = false;
 		isSliding = true;
 		if( isSliding )
 		{
@@ -229,8 +233,9 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		capsuleCollider.size = new Vector2( capsuleCollider.size.x, hitboxY );
 		capsuleCollider.offset = new Vector2( capsuleCollider.offset.x, hitboxYPos );
 		spriteRenderer.gameObject.transform.localScale = new Vector3( 0.05f, 0.05f, 1f );
-			spriteRenderer.gameObject.transform.localPosition = new Vector3( 0f, 0.37f, 1f );
+		spriteRenderer.gameObject.transform.localPosition = new Vector3( 0f, 0.37f, 1f );
 		isSliding = false;
+		canSlide = true;
 	}
 
 	private void UpdateSpriteRotation()
@@ -247,6 +252,25 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	private void UpdateAnimator()
 	{
 		playerAnimationBehaviour.SetBool( "Jumping", jumping );
+	}
+
+	public void BlinkSprite()
+	{
+		StartCoroutine( BlinkSpriteIE() );
+	}
+
+	private IEnumerator BlinkSpriteIE()
+	{
+		while( spriteBlinkCount < maxSpriteBlinkCount )
+		{
+			spriteRenderer.enabled = false;
+			yield return new WaitForSeconds( spriteBlinkInterval );
+			spriteRenderer.enabled = true;
+			yield return new WaitForSeconds( spriteBlinkInterval );
+			spriteBlinkCount++;
+
+		}
+		yield return null;
 	}
 
 	private void OnDrawGizmosSelected()
