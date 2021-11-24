@@ -89,7 +89,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 			else if( toRotation.z < 0 ) { vel.y = -1; }
 		}
 
-		//TODO: Fix weird bug that doesn't trigger the jump animation.
 		if( !canJump && jumping && hit.collider != null )
 		{
 			jumping = false;
