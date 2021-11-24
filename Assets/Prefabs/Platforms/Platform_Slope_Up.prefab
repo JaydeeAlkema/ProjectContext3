@@ -255,7 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8989005448280223942}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Banners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2967550642767993848}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Deco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -738,7 +738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 907929110739152651}
   - component: {fileID: 5584081243949168175}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground_Shade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -819,7 +819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1671519915542027332}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Misc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -858,7 +858,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3451361662877829939}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Platform_Slope_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -895,7 +895,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7964396772647936967}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Pillars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1888,7 +1888,7 @@ GameObject:
   - component: {fileID: 8847476976194381046}
   - component: {fileID: 6083239422264208519}
   - component: {fileID: 2214419454601988993}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2186,7 +2186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5100420561438623686}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Windows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2221,7 +2221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 242259794157638640}
   - component: {fileID: 3334359216229143126}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground_Shade (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2385,7 +2385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5148785832562170912}
   - component: {fileID: 7282511124875597675}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground_Shade (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

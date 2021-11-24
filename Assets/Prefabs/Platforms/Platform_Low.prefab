@@ -776,7 +776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3451361662877829939}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Platform_Low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1692,7 +1692,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5406546960771665368}
   - component: {fileID: 3096297788454566021}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground_Shade
   m_TagString: Untagged
   m_Icon: {fileID: 0}

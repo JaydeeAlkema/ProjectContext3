@@ -255,7 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8989005448280223942}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Banners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2967550642767993848}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Deco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,7 +737,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1671519915542027332}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Misc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3451361662877829939}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Platform_High
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -809,7 +809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7964396772647936967}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Pillars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1091,7 +1091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 502671950916353454}
   - component: {fileID: 2596651918442811399}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground_Shade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1775,7 +1775,7 @@ GameObject:
   - component: {fileID: 8847476976194381046}
   - component: {fileID: 6083239422264208519}
   - component: {fileID: 2214419454601988993}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1964,7 +1964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5100420561438623686}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Windows
   m_TagString: Untagged
   m_Icon: {fileID: 0}

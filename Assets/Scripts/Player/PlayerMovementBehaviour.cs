@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using NaughtyAttributes;
 
 public enum PlayerState
 {
@@ -36,11 +37,10 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	private Vector3 targetNormal = default;
 	private Quaternion toRotation = default;
 
-	private bool jumpOnCooldown = false;
-	private bool canJump = false;
-	private bool jumping = false;
-	private bool isSliding = false;
-	private bool falling = false;
+	[SerializeField] [ReadOnly] private bool jumpOnCooldown = false;
+	[SerializeField] [ReadOnly] private bool canJump = false;
+	[SerializeField] [ReadOnly] private bool jumping = false;
+	[SerializeField] [ReadOnly] private bool canSlide = false;
 
 	private float hitboxY = default;
 	private float hitboxYPos = default;
@@ -88,7 +88,11 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 			else if( toRotation.z < 0 ) { vel.y = -1; }
 		}
 
-		falling = !hit;
+		//TODO: Fix weird bug that doesn't trigger the jump animation.
+		if( !canJump && jumping && hit.collider != null )
+		{
+			jumping = false;
+		}
 
 		//Debug.Log( string.Format( "Velocity [{0}][{1}]", vel.x, vel.y ) )
 	}
@@ -130,13 +134,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 			Jump();
 		}
 #endif
-
-		//TODO: Fix weird bug that doesn't trigger the jump animation.
-
-		if( jumping && hit.collider != null )
-		{
-			jumping = false;
-		}
 	}
 
 	public void Jump()

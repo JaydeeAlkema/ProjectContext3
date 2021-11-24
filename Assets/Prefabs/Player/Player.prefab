@@ -13,9 +13,7 @@ GameObject:
   - component: {fileID: 2250325880319197297}
   - component: {fileID: 2250325880319197293}
   - component: {fileID: 2250325880319197295}
-  - component: {fileID: 804463632}
   - component: {fileID: 368164410}
-  - component: {fileID: 8914600241893399933}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -114,20 +112,6 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &804463632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2250325880319197299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e40ae7962527623469bcd06c249af2a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitTrigger: {fileID: 0}
-  inputs: 20000000
 --- !u!114 &368164410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,30 +130,6 @@ MonoBehaviour:
   obstacles: {fileID: 0}
   obstacleWarning: {fileID: 0}
   obstacle: {fileID: 0}
---- !u!114 &8914600241893399933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2250325880319197299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8d0bba9f097a7a439b61a513f259345, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  qteSpriteTransform: {fileID: 0}
-  qteSpriteRenderer: {fileID: 0}
-  qteHitIndicatorSpriteRenderer: {fileID: 0}
-  quickTimeEvents:
-  - name: Left Arrow
-    sprite: {fileID: -1033766676993296678, guid: aedaf3ccb955a154e96b72d2db50b794, type: 3}
-    keyCode: 276
-  - name: Right Arrow
-    sprite: {fileID: 3318904089994504119, guid: aedaf3ccb955a154e96b72d2db50b794, type: 3}
-    keyCode: 275
-  qteTimeToReact: 0.5
-  currentJumpZone: {fileID: 0}
 --- !u!1 &2250325880886385889
 GameObject:
   m_ObjectHideFlags: 0

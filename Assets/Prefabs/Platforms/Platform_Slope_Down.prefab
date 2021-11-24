@@ -255,7 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8989005448280223942}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Banners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2967550642767993848}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Deco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,7 +737,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1671519915542027332}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Misc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3451361662877829939}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Platform_Slope_Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,7 +813,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7964396772647936967}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Pillars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1122,7 +1122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3043549173580944074}
   - component: {fileID: 7401903363304911789}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground_Shade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1286,7 +1286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7536234747072387043}
   - component: {fileID: 4795907282388270100}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground_Shade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1970,7 +1970,7 @@ GameObject:
   - component: {fileID: 8847476976194381046}
   - component: {fileID: 6083239422264208519}
   - component: {fileID: 2214419454601988993}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2269,7 +2269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6683503665702459525}
   - component: {fileID: 7346196153029863475}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Ground_Shade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2350,7 +2350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5100420561438623686}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Windows
   m_TagString: Untagged
   m_Icon: {fileID: 0}
