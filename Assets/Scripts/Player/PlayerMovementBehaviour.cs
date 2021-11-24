@@ -47,6 +47,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	private float hitboxYPos = default;
 
 	private CapsuleCollider2D capsuleCollider;
+	private SpriteRenderer spriteRenderer;
 
 	public PlayerState State { get => state; set => state = value; }
 
@@ -55,6 +56,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		playerAnimationBehaviour = GetComponent<PlayerAnimationBehaviour>();
 		smoothCam = Camera.main.GetComponent<SmoothCam>();
 		capsuleCollider = GetComponent<CapsuleCollider2D>();
+		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
 		hitboxY = capsuleCollider.size.y;
 		hitboxYPos = capsuleCollider.offset.y;
@@ -93,6 +95,8 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		{
 			jumping = false;
 		}
+
+		canSlide = hit;
 
 		//Debug.Log( string.Format( "Velocity [{0}][{1}]", vel.x, vel.y ) )
 	}
@@ -136,11 +140,67 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 #endif
 	}
 
+	private void GetSlideInput()
+	{
+		//add animation
+		//shorten hitbox?
+#if UNITY_EDITOR
+		if( Input.touchCount > 0 )
+		{
+			Touch touch = Input.GetTouch( 0 );
+			Vector3 touchPos = Camera.main.ScreenToWorldPoint( touch.position );
+			touchPos.z = 0;
+			Vector2 beginPos = default;
+			if( touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled )
+			{
+				if( touch.phase == TouchPhase.Began )
+				{
+					beginPos = touch.position;
+				}
+
+				if( touch.phase == TouchPhase.Moved )
+				{
+					if( touch.deltaPosition.y < beginPos.y - 50f && canSlide )
+					{
+						Slide();
+					}
+				}
+			}
+		}
+#endif
+
+#if UNITY_EDITOR
+		if( canSlide )
+		{
+			foreach( KeyCode key in slideKeyCode )
+			{
+				if( Input.GetKeyDown( key ) )
+				{
+					Slide();
+				}
+			}
+		}
+#endif
+	}
+
 	public void Jump()
 	{
 		jumping = true;
 		rb2d.AddForce( transform.up * jumpForce );
 		StartCoroutine( StartImmediateJumpCooldown() );
+	}
+
+	private void Slide()
+	{
+		isSliding = true;
+		if( isSliding )
+		{
+			capsuleCollider.size = new Vector2( capsuleCollider.size.x, 0f );
+			capsuleCollider.offset = new Vector2( capsuleCollider.offset.x, -0.25f );
+			spriteRenderer.gameObject.transform.localScale = new Vector3( 0.025f, 0.025f, 1f );
+			spriteRenderer.gameObject.transform.localPosition = new Vector3( 0f, 0.185f, 1f );
+			StartCoroutine( SlideCooldown() );
+		}
 	}
 
 	public void ResetVelocity()
@@ -163,50 +223,14 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		jumpOnCooldown = false;
 	}
 
-	private void GetSlideInput()
+	private IEnumerator SlideCooldown()
 	{
-		//add animation
-		//shorten hitbox?
-		if( Input.touchCount > 0 )
-		{
-			Touch touch = Input.GetTouch( 0 );
-			Vector3 touchPos = Camera.main.ScreenToWorldPoint( touch.position );
-			touchPos.z = 0;
-			Vector2 beginPos = default;
-			if( touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled )
-			{
-				if( touch.phase == TouchPhase.Began )
-				{
-					beginPos = touch.position;
-				}
-
-				if( touch.phase == TouchPhase.Moved )
-				{
-					if( touch.deltaPosition.y < beginPos.y - 50f)
-					{
-						isSliding = true;
-						Slide();
-					}
-				}
-			}
-		}
-	}
-
-	private void Slide()
-	{
-		if( isSliding )
-		{
-			capsuleCollider.size = new Vector2( capsuleCollider.size.x, 0f );
-			capsuleCollider.offset = new Vector2( capsuleCollider.offset.x, -0.35f );
-			StartCoroutine( SlideCooldown() );
-		}
-	}
-
-	private IEnumerator SlideCooldown(){
-		yield return new WaitForSeconds(1f);
-		isSliding = false;
+		yield return new WaitForSeconds( 1f );
 		capsuleCollider.size = new Vector2( capsuleCollider.size.x, hitboxY );
 		capsuleCollider.offset = new Vector2( capsuleCollider.offset.x, hitboxYPos );
+		spriteRenderer.gameObject.transform.localScale = new Vector3( 0.05f, 0.05f, 1f );
+			spriteRenderer.gameObject.transform.localPosition = new Vector3( 0f, 0.37f, 1f );
+		isSliding = false;
 	}
 
 	private void UpdateSpriteRotation()
