@@ -41,6 +41,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	[SerializeField] [ReadOnly] private bool canJump = false;
 	[SerializeField] [ReadOnly] private bool jumping = false;
 	[SerializeField] [ReadOnly] private bool canSlide = false;
+	[SerializeField] [ReadOnly] private bool isSliding = false;
 
 	private float hitboxY = default;
 	private float hitboxYPos = default;
