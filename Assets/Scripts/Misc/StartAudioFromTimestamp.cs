@@ -11,6 +11,7 @@ public class StartAudioFromTimestamp : MonoBehaviour
 	[SerializeField] [ReadOnly] private float currentTime = 0f;    // Current Timestamp of the audio clip.
 
 	private AudioSource audioSource;
+	private SceneSwapper SceneSwapper;
 
 	private void Start()
 	{
@@ -18,6 +19,8 @@ public class StartAudioFromTimestamp : MonoBehaviour
 
 		audioSource.time = startTime;
 		audioSource.Play();
+
+		SceneSwapper = FindObjectOfType<SceneSwapper>();
 	}
 
 	private void Update()
@@ -32,11 +35,12 @@ public class StartAudioFromTimestamp : MonoBehaviour
 
 	private void FadeOutAudio()
 	{
-		audioSource.volume -= 0.002f * Time.deltaTime;
+		audioSource.volume -= 0.02f * Time.deltaTime;
 
 		if( audioSource.volume <= 0.0001f )
 		{
 			audioSource.Stop();
+			SceneSwapper.GoToGallery();
 		}
 	}
 }

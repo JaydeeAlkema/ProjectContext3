@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
 	void Awake()
 	{
+		Application.targetFrameRate = 60;
 		if( PlayerPrefs.GetInt( "firstTime", 0 ) == 0 )
 		{
 			PlayerPrefs.SetInt( "firstTime", 1 );
