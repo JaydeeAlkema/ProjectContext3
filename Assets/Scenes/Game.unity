@@ -328,7 +328,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 74f945a9081d94949817cd98bd595955, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a80e34187ae659e4b9a5f650e670a691, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
@@ -4381,6 +4381,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 679986836}
     m_Modifications:
     - target: {fileID: 323950882290408506, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
+      propertyPath: m_Size.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 323950882290408506, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
       propertyPath: m_Color.a
       value: 0.68235296
       objectReference: {fileID: 0}
@@ -4400,13 +4404,33 @@ PrefabInstance:
       propertyPath: parallaxEffectMultiplier.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2451468375827096387, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
+      propertyPath: m_Size.x
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 3139415214105313146, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
       propertyPath: parallaxEffectMultiplier.x
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3557096258293295419, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
+      propertyPath: m_Size.x
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 3744641950749295650, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744641950749295651, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
+      propertyPath: m_Size.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744641951169401215, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
+      propertyPath: m_Size.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3744641951435111436, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
+      propertyPath: m_Size.x
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3744641952037963782, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
       propertyPath: m_Name
@@ -4459,6 +4483,10 @@ PrefabInstance:
     - target: {fileID: 3744641952037963783, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555668186979907171, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
+      propertyPath: m_Size.x
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4555668186979907171, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
       propertyPath: m_SortingOrder
