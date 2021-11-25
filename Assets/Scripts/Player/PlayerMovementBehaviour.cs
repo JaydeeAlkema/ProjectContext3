@@ -268,8 +268,8 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 			spriteRenderer.enabled = true;
 			yield return new WaitForSeconds( spriteBlinkInterval );
 			spriteBlinkCount++;
-
 		}
+		spriteBlinkCount = 0;
 		yield return null;
 	}
 
