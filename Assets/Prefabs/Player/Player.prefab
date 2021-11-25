@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2250325880319197293}
   - component: {fileID: 2250325880319197295}
   - component: {fileID: 368164410}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,8 +71,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.14512081}
-  m_Size: {x: 0.12093206, y: 0.3895311}
+  m_Offset: {x: 0, y: 0.015408099}
+  m_Size: {x: 0.14111373, y: 0.7191838}
   m_Direction: 0
 --- !u!114 &2250325880319197293
 MonoBehaviour:
@@ -106,12 +106,20 @@ MonoBehaviour:
   jumpKeyCode: 119
   slideKeyCode: 7300000012010000
   jumpCheckTransform: {fileID: 2250325881183362067}
-  jumpForce: 220
+  jumpForce: 250
   jumpCheckDistance: 0.1
   immediateJumpCooldown: 0.1
   hitMask:
     serializedVersion: 2
     m_Bits: 64
+  runeActivation: {fileID: 0}
+  jumpOnCooldown: 0
+  canJump: 0
+  jumping: 0
+  canSlide: 1
+  isSliding: 0
+  maxSpriteBlinkCount: 8
+  spriteBlinkInterval: 0.1
 --- !u!114 &368164410
 MonoBehaviour:
   m_ObjectHideFlags: 0
