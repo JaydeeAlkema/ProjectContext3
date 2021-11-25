@@ -31,6 +31,11 @@ public class PlayerRuneActivation : MonoBehaviour
 		}
 	}
 
+	private void OnDisable()
+	{
+		isDrawing = false;
+	}
+
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.red;

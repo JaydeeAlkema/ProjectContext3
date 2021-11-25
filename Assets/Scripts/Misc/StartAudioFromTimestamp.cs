@@ -35,7 +35,7 @@ public class StartAudioFromTimestamp : MonoBehaviour
 
 	private void FadeOutAudio()
 	{
-		audioSource.volume -= 0.02f * Time.deltaTime;
+		audioSource.volume -= 0.04f * Time.deltaTime;
 
 		if( audioSource.volume <= 0.0001f )
 		{
