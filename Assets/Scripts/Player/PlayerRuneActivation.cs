@@ -31,6 +31,16 @@ public class PlayerRuneActivation : MonoBehaviour
 		}
 	}
 
+	private void OnDrawGizmos()
+	{
+		Gizmos.color = Color.red;
+		foreach( Transform point in points)
+		{
+			Gizmos.DrawWireSphere(point.position, drawError);
+		}
+	}
+
+
 	void SpawnAnimatedRune( Runes type )
 	{
 		Vector3 spawnPos = new Vector3( transform.position.x, transform.position.y + 1, transform.position.z + 10 );
