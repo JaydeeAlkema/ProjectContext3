@@ -110,7 +110,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 		canJump = hit.collider != null && !jumpOnCooldown;
 
-#if UNITY_ANDROID
+#if UNITY_ANDROID || PLATFORM_ANDROID
 		if( Input.touchCount > 0 )
 		{
 			Touch touch = Input.GetTouch( 0 );
@@ -147,7 +147,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	{
 		//add animation
 		//shorten hitbox?
-#if UNITY_EDITOR
+#if UNITY_ANDROID || PLATFORM_ANDROID
 		if( Input.touchCount > 0 )
 		{
 			Touch touch = Input.GetTouch( 0 );
