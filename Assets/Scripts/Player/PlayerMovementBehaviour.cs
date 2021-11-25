@@ -130,7 +130,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 					if( touch.deltaPosition.y > beginPos.y + 50f && canJump && !runeActivation.isDrawing)
 					{
 						Jump();
-						canSlide = false;
 					}
 				}
 			}
@@ -141,7 +140,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		if( canJump && Input.GetKeyDown( jumpKeyCode ) )
 		{
 			Jump();
-			canSlide = false;
 		}
 #endif
 	}
@@ -169,7 +167,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 					if( touch.deltaPosition.y < beginPos.y - 50f && canSlide && !runeActivation.isDrawing )
 					{
 						Slide();
-						canJump = false;
 					}
 				}
 			}
@@ -184,7 +181,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 				if( Input.GetKeyDown( key ) )
 				{
 					Slide();
-					canJump = false;
 				}
 			}
 		}
@@ -230,7 +226,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		jumpOnCooldown = true;
 		yield return new WaitForSeconds( immediateJumpCooldown );
 		jumpOnCooldown = false;
-		canSlide = true;
 	}
 
 	private IEnumerator SlideCooldown()
@@ -242,7 +237,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		spriteRenderer.gameObject.transform.localPosition = new Vector3( 0f, 0.37f, 1f );
 		isSliding = false;
 		canSlide = true;
-		canJump = true;
 	}
 
 	private void UpdateSpriteRotation()
