@@ -10,6 +10,7 @@ public class PlayerRuneActivation : MonoBehaviour
 	public bool completed = false;
 	public bool failed = false;
 	public Runes rune;
+	public bool isDrawing = false;
 	[SerializeField] private List<Transform> hitPoints;
 	[SerializeField] private float timeLeft = 30f;
 	[SerializeField] private float drawError = 0.1f;
@@ -60,6 +61,7 @@ public class PlayerRuneActivation : MonoBehaviour
 						{
 							//add point to list
 							hitPoints.Add( point );
+							isDrawing = true;
 						}
 					}
 				}
@@ -88,6 +90,7 @@ public class PlayerRuneActivation : MonoBehaviour
 			{
 				hitPoints.Clear();
 				line.positionCount = 0;
+				isDrawing = false;
 			}
 		}
 	}
@@ -115,6 +118,7 @@ public class PlayerRuneActivation : MonoBehaviour
 				order = "";
 				//completed = true;
 				SpawnAnimatedRune( rune );
+				isDrawing = false;
 
 				break;
 
@@ -123,12 +127,14 @@ public class PlayerRuneActivation : MonoBehaviour
 				order = "";
 				//completed = true;
 				SpawnAnimatedRune( rune );
+				isDrawing = false;
 				break;
 
 			case "5623":    //Dodge object
 				order = "";
 				//completed = true;
 				SpawnAnimatedRune( rune );
+				isDrawing = false;
 				break;
 
 			default:
