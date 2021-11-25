@@ -279,7 +279,6 @@ GameObject:
   m_Component:
   - component: {fileID: 57858113}
   - component: {fileID: 57858114}
-  - component: {fileID: 57858115}
   - component: {fileID: 57858112}
   - component: {fileID: 57858116}
   - component: {fileID: 57858117}
@@ -415,23 +414,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &57858115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57858111}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40c836b980dcde24697c2e7f6e3b5967, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  width: 4096
-  height: 512
-  background: {r: 0, g: 0, b: 0, a: 1}
-  foreground: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  arrow: {fileID: 544395715}
 --- !u!114 &57858116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,7 +772,7 @@ GameObject:
   - component: {fileID: 343930871}
   - component: {fileID: 343930872}
   - component: {fileID: 343930873}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Obstacle_Slide_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1367,10 +1349,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1832,7 +1814,7 @@ GameObject:
   - component: {fileID: 545638760}
   - component: {fileID: 545638762}
   - component: {fileID: 545638761}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Obstacle_Slide_1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1906,7 +1888,7 @@ GameObject:
   - component: {fileID: 608950545}
   - component: {fileID: 608950547}
   - component: {fileID: 608950546}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Obstacle_Slide_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2313,7 +2295,7 @@ GameObject:
   - component: {fileID: 795607792}
   - component: {fileID: 795607794}
   - component: {fileID: 795607793}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Obstacle_Jump_1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2449,7 +2431,7 @@ GameObject:
   - component: {fileID: 823067273}
   - component: {fileID: 823067275}
   - component: {fileID: 823067274}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Obstacle_Jump_1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2647,7 +2629,7 @@ GameObject:
   - component: {fileID: 874836802}
   - component: {fileID: 874836804}
   - component: {fileID: 874836803}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Obstacle_Jump_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2778,7 +2760,7 @@ GameObject:
   - component: {fileID: 893302645}
   - component: {fileID: 893302647}
   - component: {fileID: 893302646}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Obstacle_Slide_1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2975,7 +2957,6 @@ GameObject:
   m_Component:
   - component: {fileID: 961140238}
   - component: {fileID: 961140237}
-  - component: {fileID: 961140236}
   - component: {fileID: 961140235}
   m_Layer: 5
   m_Name: Tutorial
@@ -2983,7 +2964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &961140235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3024,7 +3005,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 961140236}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -3040,36 +3021,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &961140236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 961140234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 847e289380fa90a45a03afb86577ebbc, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &961140237
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3087,8 +3038,9 @@ RectTransform:
   m_GameObject: {fileID: 961140234}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.47, z: 0.5}
-  m_Children: []
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1478473223}
   m_Father: {fileID: 431387008}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3577,7 +3529,7 @@ GameObject:
   - component: {fileID: 1145928906}
   - component: {fileID: 1145928908}
   - component: {fileID: 1145928907}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Obstacle_Jump_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4685,6 +4637,81 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 887e434799ba9fa40bb2aabacade4848, type: 3}
+--- !u!1 &1478473222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1478473223}
+  - component: {fileID: 1478473225}
+  - component: {fileID: 1478473224}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1478473223
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478473222}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 961140238}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1478473224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478473222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: dbec6d8417f189b43b6a998e55b827cb, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1478473225
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478473222}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1490298441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4979,7 +5006,7 @@ GameObject:
   - component: {fileID: 1575123375}
   - component: {fileID: 1575123377}
   - component: {fileID: 1575123376}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Obstacle_Jump_1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5644,7 +5671,7 @@ GameObject:
   - component: {fileID: 1843893199}
   - component: {fileID: 1843893201}
   - component: {fileID: 1843893200}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Obstacle_Slide_1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5733,7 +5760,7 @@ GameObject:
   - component: {fileID: 1917310477}
   - component: {fileID: 1917310479}
   - component: {fileID: 1917310478}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Obstacle_Jump_1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5889,7 +5916,7 @@ GameObject:
   - component: {fileID: 1927813986}
   - component: {fileID: 1927813988}
   - component: {fileID: 1927813987}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Obstacle_Jump_1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6470,11 +6497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2250325880319197297, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: m_Size.x
-      value: 0.25957993
+      value: 0.14111373
       objectReference: {fileID: 0}
     - target: {fileID: 2250325880319197297, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: m_Size.y
-      value: 0.75
+      value: 0.7191838
       objectReference: {fileID: 0}
     - target: {fileID: 2250325880319197297, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: m_Offset.x
@@ -6482,7 +6509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2250325880319197297, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: 0.015408099
       objectReference: {fileID: 0}
     - target: {fileID: 2250325880319197299, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: m_Name

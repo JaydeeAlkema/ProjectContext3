@@ -9,12 +9,16 @@ public class GameManager : MonoBehaviour
 	void Awake()
 	{
 		Application.targetFrameRate = 60;
-		if( PlayerPrefs.GetInt( "firstTime", 0 ) == 0 )
+
+		if( tutorialObject != null )
 		{
-			PlayerPrefs.SetInt( "firstTime", 1 );
-			//show tutorial
-			tutorialObject.SetActive( true );
-			Time.timeScale = 0;
+			if( PlayerPrefs.GetInt( "firstTime", 0 ) == 0 )
+			{
+				PlayerPrefs.SetInt( "firstTime", 1 );
+				//show tutorial
+				tutorialObject.SetActive( true );
+				Time.timeScale = 0;
+			}
 		}
 	}
 
