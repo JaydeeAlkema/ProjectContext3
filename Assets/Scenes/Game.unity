@@ -5240,6 +5240,7 @@ MonoBehaviour:
   completed: 0
   failed: 0
   rune: 0
+  isDrawing: 0
   hitPoints: []
   timeLeft: 30
   drawError: 0.25
@@ -6471,6 +6472,10 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 2250325880319197295, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
+      propertyPath: runeActivation
+      value: 
+      objectReference: {fileID: 1603391925}
     - target: {fileID: 2250325880319197295, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: maxSpriteBlinkCount
       value: 8
