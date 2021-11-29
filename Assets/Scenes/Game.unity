@@ -5783,13 +5783,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 679986836}
     m_Modifications:
+    - target: {fileID: 2250325880319197294, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2250325880319197295, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: canSlide
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2250325880319197295, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: jumpForce
-      value: 250
+      value: 2200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250325880319197295, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
+      propertyPath: slideTime
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2250325880319197295, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: runeActivation
@@ -6013,9 +6021,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 618699338}
     - target: {fileID: 1622269326, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: clampY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1622269326, guid: fce92794b89af934c812e606eab5a066, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1896155534}
+    - target: {fileID: 1622269326, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1923226192, guid: fce92794b89af934c812e606eab5a066, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.39
@@ -6034,7 +6050,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5345472206123006531, guid: fce92794b89af934c812e606eab5a066, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5345472206123006531, guid: fce92794b89af934c812e606eab5a066, type: 3}
       propertyPath: m_LocalPosition.y
