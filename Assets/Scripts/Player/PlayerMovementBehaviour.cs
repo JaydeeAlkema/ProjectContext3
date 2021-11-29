@@ -15,19 +15,20 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	[SerializeField] private PlayerState state = PlayerState.MOVING;
 	[SerializeField] private Rigidbody2D rb2d = default;
 	[SerializeField] private Transform spriteTransform = default;
-
+	[Space]
 	[SerializeField] private float baseMovementSpeed = 5f;
-
-	[SerializeField] private KeyCode jumpKeyCode = KeyCode.Space;
-	[SerializeField] private KeyCode[] slideKeyCode = { KeyCode.S, KeyCode.DownArrow };
-
-	[SerializeField] private Transform jumpCheckTransform = default;
 	[SerializeField] private float jumpForce = 100f;
 	[SerializeField] private float jumpCheckDistance = 1f;
 	[SerializeField] private float immediateJumpCooldown = 0.1f;
-
+	[Space]
+	[SerializeField] private KeyCode[] slideKeyCode = { KeyCode.S, KeyCode.DownArrow };
+	[SerializeField] private float slideTime = 0.75f;
+	[Space]
+	[SerializeField] private KeyCode jumpKeyCode = KeyCode.Space;
+	[SerializeField] private Transform jumpCheckTransform = default;
+	[Space]
 	[SerializeField] private LayerMask hitMask = default;
-
+	[Space]
 	[SerializeField] private PlayerRuneActivation runeActivation;
 	private PlayerAnimationBehaviour playerAnimationBehaviour = default;
 
@@ -38,6 +39,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	private Vector3 targetNormal = default;
 	private Quaternion toRotation = default;
 
+	[Space]
 	[SerializeField] [ReadOnly] private bool jumpOnCooldown = false;
 	[SerializeField] [ReadOnly] private bool canJump = false;
 	[SerializeField] [ReadOnly] private bool jumping = false;
@@ -102,6 +104,15 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 			jumping = false;
 		}
 
+		if( jumping )
+		{
+			capsuleCollider.size = new Vector2( capsuleCollider.size.x, hitboxY * 0.5f );
+		}
+		else if( !jumping && !isSliding )
+		{
+			capsuleCollider.size = new Vector2( capsuleCollider.size.x, hitboxY );
+		}
+
 		//Debug.Log( string.Format( "Velocity [{0}][{1}]", vel.x, vel.y ) )
 	}
 
@@ -127,7 +138,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 				if( touch.phase == TouchPhase.Moved )
 				{
-					if( touch.deltaPosition.y > beginPos.y + 50f && canJump && !runeActivation.isDrawing)
+					if( touch.deltaPosition.y > beginPos.y + 50f && canJump && !runeActivation.isDrawing )
 					{
 						Jump();
 					}
@@ -208,19 +219,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		}
 	}
 
-	public void ResetVelocity()
-	{
-		Vector2 vel = rb2d.velocity;
-		vel.x = 0;
-		vel.y = 0;
-		rb2d.velocity = vel;
-	}
-
-	public void Constrain( bool constrain )
-	{
-		rb2d.constraints = constrain ? RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.FreezeRotation;
-	}
-
 	private IEnumerator StartImmediateJumpCooldown()
 	{
 		jumpOnCooldown = true;
@@ -230,7 +228,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 	private IEnumerator SlideCooldown()
 	{
-		yield return new WaitForSeconds( 1f );
+		yield return new WaitForSeconds( slideTime );
 		capsuleCollider.size = new Vector2( capsuleCollider.size.x, hitboxY );
 		capsuleCollider.offset = new Vector2( capsuleCollider.offset.x, hitboxYPos );
 		spriteRenderer.gameObject.transform.localScale = new Vector3( 0.05f, 0.05f, 1f );
