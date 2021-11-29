@@ -19,6 +19,8 @@ public class PlayerRuneActivation : MonoBehaviour
 	[Space]
 	[SerializeField] private List<GameObject> animatedRunes = new List<GameObject>();
 
+	private Vector3 touchPos;
+
 	// Update is called once per frame
 	void Update()
 	{
@@ -59,7 +61,7 @@ public class PlayerRuneActivation : MonoBehaviour
 		if( Input.touchCount > 0 )
 		{
 			Touch touch = Input.GetTouch( 0 );
-			Vector3 touchPos = Camera.main.ScreenToWorldPoint( touch.position );
+			touchPos = Camera.main.ScreenToWorldPoint( touch.position );
 			touchPos.z = 0;
 
 			if( hitPoints.Count >= 4 ) { CheckforCompletion(); hitPoints.Clear(); }
@@ -116,7 +118,11 @@ public class PlayerRuneActivation : MonoBehaviour
 		for( int i = 0; i < hitPoints.Count; i++ )
 		{
 			line.positionCount = i + 1;
-			line.SetPosition( i, hitPoints.ElementAt( i ).position + new Vector3( 0, 0, -0.1f ) );
+			line.SetPosition( i, touchPos + new Vector3( 0, 0, -0.1f ) );
+			if( i > 0 )
+			{
+				line.SetPosition( i -1, hitPoints.ElementAt( i -1 ).position + new Vector3( 0, 0, -0.1f ) );
+			}
 		}
 	}
 
