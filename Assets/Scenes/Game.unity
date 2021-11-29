@@ -328,7 +328,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a80e34187ae659e4b9a5f650e670a691, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 74f945a9081d94949817cd98bd595955, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.25
   m_Pitch: 1
@@ -5905,6 +5905,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
       propertyPath: hitPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1379400717}
@@ -5928,6 +5932,86 @@ PrefabInstance:
       propertyPath: hitPoints.Array.data[5]
       value: 
       objectReference: {fileID: 1454981916}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[0].name
+      value: Destroy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[1].name
+      value: Disable
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[2].name
+      value: Dodge
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[0].runeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[1].runeType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[2].runeType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[0].hitpoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[1].hitpoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[2].hitpoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[0].hitpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1379400717}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[0].hitpoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 280851802}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[0].hitpoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 618699338}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[1].hitpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1379400717}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[1].hitpoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1454981916}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[1].hitpoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 280851802}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[1].hitpoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 457291309}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[2].hitpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 280851802}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[2].hitpoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1705395484}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[2].hitpoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1454981916}
+    - target: {fileID: 1603391925, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: runeOrders.Array.data[2].hitpoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 618699338}
     - target: {fileID: 1622269326, guid: fce92794b89af934c812e606eab5a066, type: 3}
       propertyPath: target
       value: 
