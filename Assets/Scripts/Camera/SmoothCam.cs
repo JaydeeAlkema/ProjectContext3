@@ -6,47 +6,30 @@ public class SmoothCam : MonoBehaviour
 {
 	[SerializeField] private Transform target;
 	[SerializeField] private Vector3 offset;
+	[Space]
 	[SerializeField] private float smoothing;
-
-	public bool clamp;
-	public bool clampY = false;
-
-	public float yPos = default;
-	public float xPos = default;
-	//Vaste clamp Positie
-	public float yClampPos = default;
-	public float xClampPos = default;
+	[Space]
+	[SerializeField] private Vector2 minClampVector;
+	[SerializeField] private Vector2 maxClampVector;
+	[SerializeField] private bool clampX;
+	[SerializeField] private bool clampY;
 
 	private Vector3 desiredPos;
 	private Vector3 smoothedPos;
 	private Vector3 velocity;
 
+	float clampedPosX;
+	float clampedPosY;
+
 	private void FixedUpdate()
 	{
-		if( !clampY )
-		{
-			yPos = target.position.y;
-		}
-		else
-		{
-			// in het geval van clamp pas positie aan naar value
-			yPos = yClampPos;
-		}
-
-		if( !clamp )
-		{
-			xPos = target.position.x;
-		}
-		else
-		{
-			// in het geval van clamp pas positie aan naar value
-			xPos = xClampPos;
-		}
-
 		if( target )
 		{
-			desiredPos = new Vector3( offset.x + xPos, offset.y + yPos, offset.z );
+			desiredPos = new Vector3( target.position.x + offset.x, target.position.y + offset.y, offset.z );
 			smoothedPos = Vector3.SmoothDamp( transform.position, desiredPos, ref velocity, smoothing );
+
+			if( clampX ) { clampedPosX = Mathf.Clamp( smoothedPos.x, minClampVector.x, maxClampVector.x ); smoothedPos.x = clampedPosX; }
+			if( clampY ) { clampedPosY = Mathf.Clamp( smoothedPos.y, minClampVector.y, maxClampVector.y ); smoothedPos.y = clampedPosY; }
 
 			transform.position = smoothedPos;
 		}
