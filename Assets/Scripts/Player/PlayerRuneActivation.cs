@@ -6,6 +6,7 @@ using System.Linq;
 public class PlayerRuneActivation : MonoBehaviour
 {
 	[SerializeField] private Transform[] points;
+	[SerializeField] private List<RuneOrder> runeOrders;
 	public GameObject player;
 	public bool completed = false;
 	public bool failed = false;
@@ -19,7 +20,7 @@ public class PlayerRuneActivation : MonoBehaviour
 	[SerializeField] private List<GameObject> animatedRunes = new List<GameObject>();
 
 	// Update is called once per frame
-	void FixedUpdate()
+	void Update()
 	{
 		if( hitPoints.Count >= 4 ) { CheckforCompletion(); hitPoints.Clear(); }
 		DrawRune();
@@ -39,9 +40,9 @@ public class PlayerRuneActivation : MonoBehaviour
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.red;
-		foreach( Transform point in points)
+		foreach( Transform point in points )
 		{
-			Gizmos.DrawWireSphere(point.position, drawError);
+			Gizmos.DrawWireSphere( point.position, drawError );
 		}
 	}
 
@@ -121,44 +122,59 @@ public class PlayerRuneActivation : MonoBehaviour
 
 	bool CheckforCompletion()
 	{
-		string order = "";
-		foreach( Transform point in hitPoints )
+		foreach( RuneOrder runeOrder in runeOrders )
 		{
-			order += point.name;
+			if( new HashSet<Transform>( runeOrder.hitpoints ).SetEquals( hitPoints ) )
+			{
+				rune = runeOrder.runeType;
+				SpawnAnimatedRune( rune );
+				isDrawing = false;
+			}
 		}
-		switch( order )
-		{
-			case "1351":    //Destroy object
-				rune = Runes.DESTROY;
-				order = "";
-				//completed = true;
-				SpawnAnimatedRune( rune );
-				isDrawing = false;
+		//string order = "";
+		//foreach( Transform point in hitPoints )
+		//{
+		//	order += point.name;
+		//}
+		//switch( order )
+		//{
+		//	case "1351":    //Destroy object
+		//		rune = Runes.DESTROY;
+		//		order = "";
+		//		//completed = true;
+		//		SpawnAnimatedRune( rune );
+		//		isDrawing = false;
 
-				break;
+		//		break;
 
-			case "1634":    //Disable object
-				rune = Runes.DISABLE;
-				order = "";
-				//completed = true;
-				SpawnAnimatedRune( rune );
-				isDrawing = false;
-				break;
+		//	case "1634":    //Disable object
+		//		rune = Runes.DISABLE;
+		//		order = "";
+		//		//completed = true;
+		//		SpawnAnimatedRune( rune );
+		//		isDrawing = false;
+		//		break;
 
-			case "5623":    //Dodge object
-				order = "";
-				//completed = true;
-				SpawnAnimatedRune( rune );
-				isDrawing = false;
-				break;
+		//	case "5623":    //Dodge object
+		//		order = "";
+		//		//completed = true;
+		//		SpawnAnimatedRune( rune );
+		//		isDrawing = false;
+		//		break;
 
-			default:
-				completed = false;
-				break;
-		}
+		//	default:
+		//		completed = false;
+		//		break;
+		//}
 		return completed;
 	}
 
+	[System.Serializable]
+	private struct RuneOrder
+	{
+		public Runes runeType;
+		public List<Transform> hitpoints;
+	}
 
 	public void RuneFailed()
 	{
