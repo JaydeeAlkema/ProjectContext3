@@ -2,84 +2,56 @@ using System.Collections;
 using UnityEngine;
 using NaughtyAttributes;
 
-public enum PlayerState
-{
-	MOVING = 1,
-	JUMPING = 2,
-	SLIDING = 3,
-	WALLJUMPING = 4
-}
-
 public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 {
-	[SerializeField] private PlayerState state = PlayerState.MOVING;
-	[SerializeField] private Rigidbody2D rb2d = default;
 	[SerializeField] private Transform spriteTransform = default;
 	[Space]
 	[SerializeField] private float baseMovementSpeed = 5f;
-	[SerializeField] private float jumpForce = 100f;
-	[SerializeField] private float jumpCheckDistance = 1f;
-	[SerializeField] private float immediateJumpCooldown = 0.1f;
-	[Space]
-	[SerializeField] private KeyCode[] slideKeyCode = { KeyCode.S, KeyCode.DownArrow };
+	[SerializeField] private float slopeForce = 100f;
+	[SerializeField] private float slopeForceRayLength = 2f;
+	[SerializeField] private float jumpMultiplier = 6;
+	[SerializeField] private AnimationCurve jumpfallOff = default;
 	[SerializeField] private float slideTime = 0.75f;
 	[Space]
 	[SerializeField] private KeyCode jumpKeyCode = KeyCode.Space;
-	[SerializeField] private Transform jumpCheckTransform = default;
+	[SerializeField] private KeyCode[] slideKeyCode = { KeyCode.S, KeyCode.DownArrow };
 	[Space]
 	[SerializeField] private LayerMask hitMask = default;
 	[Space]
 	[SerializeField] private PlayerRuneActivation runeActivation;
-	private PlayerAnimationBehaviour playerAnimationBehaviour = default;
-
-	private SmoothCam smoothCam = default;
-
-	private RaycastHit2D hit = default;
-	private Quaternion fromRotation = default;
-	private Vector3 targetNormal = default;
-	private Quaternion toRotation = default;
-
 	[Space]
-	[SerializeField] [ReadOnly] private bool jumpOnCooldown = false;
-	[SerializeField] [ReadOnly] private bool canJump = false;
-	[SerializeField] [ReadOnly] private bool jumping = false;
+	[SerializeField] [ReadOnly] private bool isJumping = false;
 	[SerializeField] [ReadOnly] private bool canSlide = true;
 	[SerializeField] [ReadOnly] private bool isSliding = false;
+	[Space]
 	[SerializeField] private int maxSpriteBlinkCount = 6;
 	[SerializeField] private float spriteBlinkInterval = 0.25f;
 
-	private float hitboxY = default;
-	private float hitboxYPos = default;
+	private PlayerAnimationBehaviour playerAnimationBehaviour = null;
+	private SmoothCam smoothCam = null;
+	private SpriteRenderer spriteRenderer = null;
+	private CharacterController charController = null;
+
+	private RaycastHit hit = default;
+	private Quaternion fromRotation = default;
+	private Vector3 targetNormal = default;
+	private Quaternion toRotation = default;
 	private int spriteBlinkCount = 0;
 
-	private CapsuleCollider2D capsuleCollider;
-	private SpriteRenderer spriteRenderer;
 
-	public PlayerState State { get => state; set => state = value; }
-
-	private void Start()
+	private void Awake()
 	{
-		playerAnimationBehaviour = GetComponent<PlayerAnimationBehaviour>();
-		smoothCam = Camera.main.GetComponent<SmoothCam>();
-		capsuleCollider = GetComponent<CapsuleCollider2D>();
-		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
-		hitboxY = capsuleCollider.size.y;
-		hitboxYPos = capsuleCollider.offset.y;
-
-		if( !rb2d ) { rb2d = GetComponentInChildren<Rigidbody2D>(); }
-
-		canSlide = true;
+		if( !playerAnimationBehaviour ) playerAnimationBehaviour = GetComponent<PlayerAnimationBehaviour>();
+		if( !smoothCam ) smoothCam = Camera.main.GetComponent<SmoothCam>();
+		if( !spriteRenderer ) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+		if( !charController ) charController = GetComponent<CharacterController>();
 	}
 
 	private void Update()
 	{
-		if( state != PlayerState.WALLJUMPING )
-		{
-			Move();
-			GetJumpInput();
-			GetSlideInput();
-		}
+		Move();
+		GetJumpInput();
+		GetSlideInput();
 
 		UpdateSpriteRotation();
 		UpdateAnimator();
@@ -87,42 +59,20 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 	private void Move()
 	{
-		hit = Physics2D.Raycast( jumpCheckTransform.position, Vector2.down, jumpCheckDistance, hitMask );
+		charController.SimpleMove( Vector3.right * baseMovementSpeed );
 
-		Vector2 vel = rb2d.velocity;
-		vel.x = baseMovementSpeed;
-		rb2d.velocity = vel;
+		if( OnSlope() )
+			charController.Move( Vector3.down * charController.height / 2f * slopeForce * Time.deltaTime );
 
-		if( !jumping )
-		{
-			if( toRotation.z > 0 ) { vel.y = 1; }
-			else if( toRotation.z < 0 ) { vel.y = -1; }
-		}
-
-		if( !canJump && jumping && hit.collider != null )
-		{
-			jumping = false;
-		}
-
-		if( jumping )
-		{
-			capsuleCollider.size = new Vector2( capsuleCollider.size.x, hitboxY * 0.5f );
-		}
-		else if( !jumping && !isSliding )
-		{
-			capsuleCollider.size = new Vector2( capsuleCollider.size.x, hitboxY );
-		}
+		GetJumpInput();
 
 		//Debug.Log( string.Format( "Velocity [{0}][{1}]", vel.x, vel.y ) )
 	}
 
 	private void GetJumpInput()
 	{
-		if( jumpOnCooldown ) return;
+		if( !charController.isGrounded ) return;
 
-		canJump = hit.collider != null && !jumpOnCooldown;
-
-#if UNITY_ANDROID || PLATFORM_ANDROID
 		if( Input.touchCount > 0 )
 		{
 			Touch touch = Input.GetTouch( 0 );
@@ -138,28 +88,25 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 				if( touch.phase == TouchPhase.Moved )
 				{
-					if( touch.deltaPosition.y > beginPos.y + 50f && canJump && !runeActivation.isDrawing )
+					if( touch.deltaPosition.y > beginPos.y + 50f && !runeActivation.isDrawing )
 					{
-						Jump();
+						isJumping = true;
+						StartCoroutine( JumpEvent() );
 					}
 				}
 			}
 		}
-#endif
 
-#if UNITY_EDITOR
-		if( canJump && Input.GetKeyDown( jumpKeyCode ) )
+		if( Input.GetKeyDown( jumpKeyCode ) )
 		{
-			Jump();
+			isJumping = true;
+			StartCoroutine( JumpEvent() );
 		}
-#endif
 	}
 
 	private void GetSlideInput()
 	{
 		//add animation
-		//shorten hitbox?
-#if UNITY_ANDROID || PLATFORM_ANDROID
 		if( Input.touchCount > 0 )
 		{
 			Touch touch = Input.GetTouch( 0 );
@@ -182,9 +129,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 				}
 			}
 		}
-#endif
 
-#if UNITY_EDITOR
 		if( canSlide )
 		{
 			foreach( KeyCode key in slideKeyCode )
@@ -195,14 +140,21 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 				}
 			}
 		}
-#endif
 	}
 
-	public void Jump()
+	private IEnumerator JumpEvent()
 	{
-		jumping = true;
-		rb2d.AddForce( transform.up * jumpForce );
-		StartCoroutine( StartImmediateJumpCooldown() );
+		charController.slopeLimit = 90f;
+		float timeInAir = 0f;
+		do
+		{
+			float jumpForce = jumpfallOff.Evaluate( timeInAir );
+			charController.Move( Vector3.up * jumpForce * jumpMultiplier * Time.deltaTime );
+			timeInAir += Time.deltaTime;
+			yield return null;
+		} while( !charController.isGrounded && charController.collisionFlags != CollisionFlags.Above );
+		charController.slopeLimit = 45f;
+		isJumping = false;
 	}
 
 	private void Slide()
@@ -211,26 +163,30 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		isSliding = true;
 		if( isSliding )
 		{
-			capsuleCollider.size = new Vector2( capsuleCollider.size.x, 0f );
-			capsuleCollider.offset = new Vector2( capsuleCollider.offset.x, -0.25f );
+			charController.height = 0f;
+			charController.center = new Vector2( charController.center.x, -0.25f );
 			spriteRenderer.gameObject.transform.localScale = new Vector3( 0.025f, 0.025f, 1f );
 			spriteRenderer.gameObject.transform.localPosition = new Vector3( 0f, 0.185f, 1f );
 			StartCoroutine( SlideCooldown() );
 		}
 	}
 
-	private IEnumerator StartImmediateJumpCooldown()
+	private bool OnSlope()
 	{
-		jumpOnCooldown = true;
-		yield return new WaitForSeconds( immediateJumpCooldown );
-		jumpOnCooldown = false;
+		if( isJumping )
+			return false;
+
+		if( Physics.Raycast( transform.position, Vector3.down, out hit, charController.height / 2f * slopeForceRayLength ) )
+			if( hit.normal != Vector3.up )
+				return true;
+		return false;
 	}
 
 	private IEnumerator SlideCooldown()
 	{
 		yield return new WaitForSeconds( slideTime );
-		capsuleCollider.size = new Vector2( capsuleCollider.size.x, hitboxY );
-		capsuleCollider.offset = new Vector2( capsuleCollider.offset.x, hitboxYPos );
+		charController.height = 0.7f;
+		charController.center = new Vector2( charController.center.x, 0f );
 		spriteRenderer.gameObject.transform.localScale = new Vector3( 0.05f, 0.05f, 1f );
 		spriteRenderer.gameObject.transform.localPosition = new Vector3( 0f, 0.37f, 1f );
 		isSliding = false;
@@ -250,7 +206,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 	private void UpdateAnimator()
 	{
-		playerAnimationBehaviour.SetBool( "Jumping", jumping );
+		playerAnimationBehaviour.SetBool( "Jumping", isJumping );
 	}
 
 	public void BlinkSprite()
@@ -272,9 +228,9 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		yield return null;
 	}
 
-	private void OnDrawGizmosSelected()
+	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.blue;
-		Gizmos.DrawRay( jumpCheckTransform.position, Vector2.down * jumpCheckDistance );
+		Gizmos.DrawRay( transform.position, Vector3.down * slopeForceRayLength );
 	}
 }
