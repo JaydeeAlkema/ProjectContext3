@@ -6070,6 +6070,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 679986836}
     m_Modifications:
+    - target: {fileID: 368164410, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
+      propertyPath: runes
+      value: 
+      objectReference: {fileID: 1603391925}
+    - target: {fileID: 368164410, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 368164410, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
+      propertyPath: obstacles
+      value: 
+      objectReference: {fileID: 28714748}
+    - target: {fileID: 368164410, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
+      propertyPath: minDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 368164410, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
+      propertyPath: showWarning
+      value: 
+      objectReference: {fileID: 406557983}
     - target: {fileID: 2250325880319197294, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: m_Mass
       value: 0.0001

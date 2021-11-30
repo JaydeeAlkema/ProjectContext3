@@ -14,6 +14,7 @@ public class RuneObstacle : MonoBehaviour
 	[SerializeField] private float activationRange = 25f;   // If player gets within this range, the rune will activate.
 
 	private SpriteRenderer spriteRenderer;
+	private ShowWarning warning;
 	private Animator anim;
 	private bool runeDone = false;
 
@@ -21,6 +22,7 @@ public class RuneObstacle : MonoBehaviour
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
+		warning = player.GetComponent<ShowWarning>();
 
 		runeActivation.gameObject.SetActive( false );
 	}
@@ -61,6 +63,15 @@ public class RuneObstacle : MonoBehaviour
 			runeActivation.gameObject.SetActive( false );
 			runeActivation.rune = PlayerRuneActivation.Runes.NULL;
 		}
+	}
+
+	private void OnDestroy()
+	{
+		if( warning.individualObstacles.Count > warning.obstacleIndex )
+		{ 
+			warning.obstacleIndex++; 
+		}
+		warning.individualObstacles.RemoveAt(0);
 	}
 
 	private void OnDrawGizmos()

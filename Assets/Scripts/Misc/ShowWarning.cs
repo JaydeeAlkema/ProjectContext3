@@ -7,32 +7,42 @@ public class ShowWarning : MonoBehaviour
     public GameObject showWarning;
     [SerializeField] private PlayerRuneActivation runes = default;
     [SerializeField] private float minDistance = 35f;
-    [SerializeField] private GameObject obstacle = default;
+    [SerializeField] private GameObject obstacles = default;
+    public List<GameObject> individualObstacles = new List<GameObject>();
+    public int obstacleIndex = 0;
 
 	private void Start()
 	{
         runes = GetComponent<PlayerRuneActivation>();
+		foreach( Transform obstacle in obstacles.GetComponentsInChildren<Transform>() )
+		{
+            individualObstacles.Add( obstacle.gameObject );
+            individualObstacles.Sort(delegate(GameObject a, GameObject b) { return Vector2.Distance( this.transform.position, a.transform.position ).CompareTo( Vector2.Distance( this.transform.position, b.transform.position ) ); } );
+		}
 	}
 
 	void Update()
     {
-     //   ShowObstacleWarning();
-        CheckDistance();
-    }
-
-    private void ShowObstacleWarning()
-    {
-        if(runes.completed)
-        {
-            showWarning.SetActive( true );
-		}
+		CheckDistance();
     }
 
     void CheckDistance()
     {
-        if( ( this.transform.position - obstacle.transform.position ).magnitude <= minDistance )
+        if( individualObstacles.Count > 0)
         {
-            showWarning.SetActive( true );
+			if( ( individualObstacles[obstacleIndex].transform.position - this.transform.position ).magnitude <= minDistance)
+			{
+				showWarning.SetActive( true );
+			}
+			else
+			{
+				showWarning.SetActive( false );
+			}
         }
+        else
+        {
+            showWarning.SetActive( false );
+            return;
+		}
     }
 }
