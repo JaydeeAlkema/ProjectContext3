@@ -37,6 +37,10 @@ public class RuneObstacle : MonoBehaviour
 			runeActivation.gameObject.SetActive( true );
 			CheckForDestroyComplete();
 		}
+		if( !runeDone && player.transform.position.x >= transform.position.x )
+		{
+			runeActivation.rune = defaultBehaviour;
+		}
 	}
 
 	void CheckForDestroyComplete()
@@ -57,12 +61,6 @@ public class RuneObstacle : MonoBehaviour
 			runeActivation.gameObject.SetActive( false );
 			runeActivation.rune = PlayerRuneActivation.Runes.NULL;
 		}
-	}
-
-	private void OnTriggerEnter2D( Collider2D collision )
-	{
-		if( !runeDone )
-			runeActivation.rune = defaultBehaviour;
 	}
 
 	private void OnDrawGizmos()
