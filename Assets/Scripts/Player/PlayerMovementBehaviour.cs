@@ -149,7 +149,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		do
 		{
 			float jumpForce = jumpfallOff.Evaluate( timeInAir );
-			playerAnimationBehaviour.SetFloat( "Velocity_Y", jumpForce );
+			playerAnimationBehaviour.SetFloat( "Velocity_Y", Mathf.Clamp01( jumpForce ) );
 			charController.Move( Vector3.up * jumpForce * jumpMultiplier * Time.deltaTime );
 			timeInAir += Time.deltaTime;
 			yield return null;
@@ -166,7 +166,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		{
 			charController.height = 0f;
 			charController.center = new Vector2( charController.center.x, -0.25f );
-			spriteRenderer.gameObject.transform.localScale = new Vector3( 0.025f, 0.025f, 1f );
 			spriteRenderer.gameObject.transform.localPosition = new Vector3( 0f, 0.185f, 1f );
 			StartCoroutine( SlideCooldown() );
 		}
@@ -188,7 +187,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		yield return new WaitForSeconds( slideTime );
 		charController.height = 0.7f;
 		charController.center = new Vector2( charController.center.x, 0f );
-		spriteRenderer.gameObject.transform.localScale = new Vector3( 0.05f, 0.05f, 1f );
 		spriteRenderer.gameObject.transform.localPosition = new Vector3( 0f, 0.37f, 1f );
 		isSliding = false;
 		canSlide = true;
@@ -208,6 +206,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	private void UpdateAnimator()
 	{
 		playerAnimationBehaviour.SetBool( "Jumping", isJumping );
+		playerAnimationBehaviour.SetBool( "Sliding", isSliding );
 	}
 
 	public void BlinkSprite()

@@ -11,11 +11,11 @@ public class GenericObstacle : MonoBehaviour, IObstacle
 
 	}
 
-	private void OnTriggerEnter2D( Collider2D collision )
+	private void OnTriggerEnter( Collider other )
 	{
-		if( collision.GetComponent<PlayerMovementBehaviour>() != null )
+		if( other.GetComponent<PlayerMovementBehaviour>() != null )
 		{
-			collision.GetComponent<PlayerMovementBehaviour>()?.BlinkSprite();
+			other.GetComponent<PlayerMovementBehaviour>()?.BlinkSprite();
 			OnHit();
 		}
 	}
