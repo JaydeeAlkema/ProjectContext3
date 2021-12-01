@@ -149,6 +149,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		do
 		{
 			float jumpForce = jumpfallOff.Evaluate( timeInAir );
+			playerAnimationBehaviour.SetFloat( "Velocity_Y", jumpForce );
 			charController.Move( Vector3.up * jumpForce * jumpMultiplier * Time.deltaTime );
 			timeInAir += Time.deltaTime;
 			yield return null;

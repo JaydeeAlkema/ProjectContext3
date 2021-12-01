@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: 4fe4e054795e692468e8b75f92885cbf
+guid: 11e2ac40eb40e8e43921d1488b39105b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5421205809224022180
-    second: Spr_Anim_Run_0
+      213: 883817972336971936
+    second: Spr_Anim_Fall_0
   - first:
-      213: 358899064790002734
-    second: Spr_Anim_Run_1
+      213: -5466746330839787904
+    second: Spr_Anim_Fall_1
   - first:
-      213: -2919730093428958565
-    second: Spr_Anim_Run_2
+      213: 1562223876632380361
+    second: Spr_Anim_Fall_2
   - first:
-      213: -6233985755062523043
-    second: Spr_Anim_Run_3
+      213: 2792635795884761491
+    second: Spr_Anim_Fall_3
   - first:
-      213: 7197681190181356196
-    second: Spr_Anim_Run_4
-  - first:
-      213: 1028899077730014830
-    second: Spr_Anim_Run_5
+      213: 8695549831403352116
+    second: Spr_Anim_Fall_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -51,7 +48,7 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: 2
+    aniso: 1
     mipBias: 0
     wrapU: 1
     wrapV: 1
@@ -61,7 +58,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -86,7 +83,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,7 +95,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +107,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,7 +119,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -134,7 +131,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -146,7 +143,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -157,127 +154,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spr_Anim_Run_0
+      name: Spr_Anim_Fall_0
       rect:
         serializedVersion: 2
-        x: 331
-        y: 33
-        width: 1239
-        height: 1400
+        x: 52
+        y: 933
+        width: 949
+        height: 982
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a8f411f5fdfb3b40800000000000000
-      internalID: 5421205809224022180
+      spriteID: 0a0504f53c3f34c00800000000000000
+      internalID: 883817972336971936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spr_Anim_Run_1
+      name: Spr_Anim_Fall_1
       rect:
         serializedVersion: 2
-        x: 2091
-        y: 27
-        width: 1592
-        height: 1503
+        x: 1268
+        y: 282
+        width: 962
+        height: 1583
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2c27034cc01bf400800000000000000
-      internalID: 358899064790002734
+      spriteID: 086df191d273224b0800000000000000
+      internalID: -5466746330839787904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spr_Anim_Run_2
+      name: Spr_Anim_Fall_2
       rect:
         serializedVersion: 2
-        x: 3808
-        y: 60
-        width: 1689
-        height: 1367
+        x: 2568
+        y: 16
+        width: 999
+        height: 1640
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9a162d03f80b77d0800000000000000
-      internalID: -2919730093428958565
+      spriteID: 9c38e4ab6522ea510800000000000000
+      internalID: 1562223876632380361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spr_Anim_Run_3
+      name: Spr_Anim_Fall_3
       rect:
         serializedVersion: 2
-        x: 5790
-        y: 27
-        width: 1260
-        height: 1297
+        x: 4110
+        y: 61
+        width: 946
+        height: 1066
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5b27ae1cfe6c79a0800000000000000
-      internalID: -6233985755062523043
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spr_Anim_Run_4
-      rect:
-        serializedVersion: 2
-        x: 7534
-        y: 33
-        width: 1553
-        height: 1508
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a2454358ec43e360800000000000000
-      internalID: 7197681190181356196
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spr_Anim_Run_5
-      rect:
-        serializedVersion: 2
-        x: 9299
-        y: 71
-        width: 1695
-        height: 1497
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6613d58242674e00800000000000000
-      internalID: 1028899077730014830
+      spriteID: 39160c8d57f61c620800000000000000
+      internalID: 2792635795884761491
       vertices: []
       indices: 
       edges: []

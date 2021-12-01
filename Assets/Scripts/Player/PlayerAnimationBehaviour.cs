@@ -15,4 +15,9 @@ public class PlayerAnimationBehaviour : MonoBehaviour
 	{
 		anim.SetTrigger( name );
 	}
+
+	public void SetFloat( string name, float value )
+	{
+		anim.SetFloat( name, value );
+	}
 }
