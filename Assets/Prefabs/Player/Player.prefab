@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2250325880319197293}
   - component: {fileID: 2250325880319197295}
   - component: {fileID: 368164410}
+  - component: {fileID: 2081139970}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -45,18 +46,18 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2250325880319197299}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 1f21bd3ea1307424cb1e7915f1d4b217, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &2250325880319197297
 CapsuleCollider2D:
@@ -65,14 +66,14 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2250325880319197299}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.015408099}
-  m_Size: {x: 0.14111373, y: 0.7191838}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.2, y: 0.7}
   m_Direction: 0
 --- !u!114 &2250325880319197293
 MonoBehaviour:
@@ -99,23 +100,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fc921b3aa95914f84fb41a3233844b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 1
-  rb2d: {fileID: 2250325880319197294}
   spriteTransform: {fileID: 2250325881263789063}
   baseMovementSpeed: 2
+  slopeForce: 100
+  slopeForceRayLength: 2
+  jumpMultiplier: 5
+  jumpfallOff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.261658
+      value: 0.85515875
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.81865287
+      value: -0.0019841343
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  slideTime: 0.6
   jumpKeyCode: 119
   slideKeyCode: 7300000012010000
-  jumpCheckTransform: {fileID: 2250325881183362067}
-  jumpForce: 250
-  jumpCheckDistance: 0.1
-  immediateJumpCooldown: 0.1
   hitMask:
     serializedVersion: 2
     m_Bits: 64
   runeActivation: {fileID: 0}
-  jumpOnCooldown: 0
-  canJump: 0
-  jumping: 0
+  isJumping: 0
   canSlide: 1
   isSliding: 0
   maxSpriteBlinkCount: 8
@@ -127,17 +148,35 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2250325880319197299}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 132e0127f8fb5ce4c90b2ac5119e947c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: {fileID: 0}
-  enemyWarning: {fileID: 0}
-  enemy: {fileID: 0}
+  showWarning: {fileID: 0}
+  runes: {fileID: 0}
+  minDistance: 15
   obstacles: {fileID: 0}
-  obstacleWarning: {fileID: 0}
-  obstacle: {fileID: 0}
+  individualObstacles: []
+  obstacleIndex: 0
+--- !u!143 &2081139970
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250325880319197299}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 0.7
+  m_Radius: 0.1
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2250325880886385889
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +254,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 15.919999, y: 15.043776}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
