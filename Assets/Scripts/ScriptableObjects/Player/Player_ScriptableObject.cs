@@ -22,4 +22,25 @@ public class Player_ScriptableObject : ScriptableObject
 	[ReadOnly] public bool grounded = false;
 	[ReadOnly] public bool isJumping = false;
 	[ReadOnly] public bool isSliding = false;
+
+	private void OnDestroy()
+	{
+		grounded = false;
+		isJumping = false;
+		isSliding = false;
+	}
+
+	private void OnDisable()
+	{
+		grounded = false;
+		isJumping = false;
+		isSliding = false;
+	}
+
+	private void OnEnable()
+	{
+		grounded = false;
+		isJumping = false;
+		isSliding = false;
+	}
 }
