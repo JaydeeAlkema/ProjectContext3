@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwapper : MonoBehaviour
 {
+	private void Awake()
+	{
+		Time.timeScale = 1;
+	}
 
 	public void GoToMenu()
 	{
