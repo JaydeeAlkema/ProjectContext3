@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3834355265063442555}
   - component: {fileID: 3834355265063442551}
   - component: {fileID: 9158267111697547193}
+  - component: {fileID: 3834355264452091311}
   m_Layer: 0
   m_Name: Main Camera [NEW]
   m_TagString: MainCamera
@@ -46,7 +47,7 @@ Camera:
   m_GameObject: {fileID: 3834355265063442552}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -63,7 +64,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 25
-  orthographic: 0
+  orthographic: 1
   orthographic size: 2
   m_Depth: -1
   m_CullingMask:
@@ -108,7 +109,7 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   m_VolumeTrigger: {fileID: 0}
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
@@ -139,6 +140,18 @@ MonoBehaviour:
   maxClampVector: {x: 1000, y: 0}
   clampX: 1
   clampY: 1
+--- !u!114 &3834355264452091311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3834355265063442552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad9f16da7dbb1343b2eccc1a78356eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7814123780003130397
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +167,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5804980572447968741
 Transform:
@@ -165,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 7814123780003130397}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 0.7370637, y: 0.7370637, z: 0.36853185}
   m_Children: []
   m_Father: {fileID: 3834355265063442548}
   m_RootOrder: 0
