@@ -50,8 +50,8 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	private void Update()
 	{
 		Move();
-		GetJumpInput();
-		GetSlideInput();
+		if( !isSliding && !isJumping ) GetJumpInput();
+		if( !isSliding && !isJumping ) GetSlideInput();
 
 		UpdateSpriteRotation();
 		UpdateAnimator();
@@ -63,8 +63,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 		if( OnSlope() )
 			charController.Move( Vector3.down * charController.height / 2f * slopeForce * Time.deltaTime );
-
-		GetJumpInput();
 
 		//Debug.Log( string.Format( "Velocity [{0}][{1}]", vel.x, vel.y ) )
 	}
@@ -188,8 +186,8 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		charController.height = 0.7f;
 		charController.center = new Vector2( charController.center.x, 0f );
 		spriteRenderer.gameObject.transform.localPosition = new Vector3( 0f, 0.37f, 1f );
-		isSliding = false;
 		canSlide = true;
+		isSliding = false;
 	}
 
 	private void UpdateSpriteRotation()
