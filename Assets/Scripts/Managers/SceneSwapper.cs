@@ -24,4 +24,9 @@ public class SceneSwapper : MonoBehaviour
 	{
 		SceneManager.LoadScene( "Game" );
 	}
+
+	public void ExitGame()
+	{
+		Application.Quit();
+	}
 }
