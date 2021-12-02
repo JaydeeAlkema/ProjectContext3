@@ -22,9 +22,18 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	public void PauseGame()
+	{
+		Time.timeScale = 0;
+	}
+
 	public void ContinueGame()
 	{
 		Time.timeScale = 1;
+	}
+
+	public void TutorialOff()
+	{
 		tutorialObject.SetActive( false );
 	}
 }
