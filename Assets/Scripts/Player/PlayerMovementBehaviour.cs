@@ -88,7 +88,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 				{
 					if( touch.deltaPosition.y > beginPos.y + 50f && !runeActivation.isDrawing )
 					{
-						isJumping = true;
 						StartCoroutine( JumpEvent() );
 					}
 				}
@@ -97,14 +96,14 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 		if( Input.GetKeyDown( jumpKeyCode ) )
 		{
-			isJumping = true;
 			StartCoroutine( JumpEvent() );
 		}
 	}
 
 	private void GetSlideInput()
 	{
-		//add animation
+		if( !charController.isGrounded ) return;
+
 		if( Input.touchCount > 0 )
 		{
 			Touch touch = Input.GetTouch( 0 );
@@ -142,6 +141,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 	private IEnumerator JumpEvent()
 	{
+		isJumping = true;
 		charController.slopeLimit = 90f;
 		float timeInAir = 0f;
 		do
@@ -185,7 +185,8 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 		yield return new WaitForSeconds( slideTime );
 		charController.height = 0.7f;
 		charController.center = new Vector2( charController.center.x, 0f );
-		spriteRenderer.gameObject.transform.localPosition = new Vector3( 0f, 0.37f, 1f );
+		spriteRenderer.gameObject.transform.localPosition = new Vector3( 0f, 0.37f, 0f );
+		yield return new WaitForEndOfFrame();
 		canSlide = true;
 		isSliding = false;
 	}
