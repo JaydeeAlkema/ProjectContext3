@@ -21,7 +21,7 @@ public class SmoothCam : MonoBehaviour
 	float clampedPosX;
 	float clampedPosY;
 
-	private void Update()
+	private void FixedUpdate()
 	{
 		if( target )
 		{
