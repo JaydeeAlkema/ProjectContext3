@@ -196,10 +196,10 @@ TextureImporter:
       name: SpriteSheet UI Cybersprint V2_1
       rect:
         serializedVersion: 2
-        x: 1620
-        y: 1806
-        width: 92
-        height: 189
+        x: 1594
+        y: 1781
+        width: 142
+        height: 237
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -516,7 +516,7 @@ TextureImporter:
         width: 559
         height: 386
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
