@@ -8,78 +8,78 @@ using UnityEngine;
 
 public static class DataAccess
 {
-	[DllImport( "__Internal" )]
-	private static extern void SyncFiles();
+	//[DllImport( "__Internal" )]
+	//private static extern void SyncFiles();
 
-	[DllImport( "__Internal" )]
-	private static extern void WindowAlert( string message );
+	//[DllImport( "__Internal" )]
+	//private static extern void WindowAlert( string message );
 
 
-	public static void Save( PlayerData playerData )
-	{
-		string dataPath = string.Format( "{0}/Playerdata.dat", Application.persistentDataPath );
-		BinaryFormatter formatter = new BinaryFormatter();
-		FileStream fileStream;
+	//public static void Save( PlayerData playerData )
+	//{
+	//	string dataPath = string.Format( "{0}/Playerdata.dat", Application.persistentDataPath );
+	//	BinaryFormatter formatter = new BinaryFormatter();
+	//	FileStream fileStream;
 
-		try
-		{
-			if( File.Exists( dataPath ) )
-			{
-				File.WriteAllText( dataPath, string.Empty );
-				fileStream = File.Open( dataPath, FileMode.Open );
-			}
-			else
-			{
-				fileStream = File.Create( dataPath );
-			}
+	//	try
+	//	{
+	//		if( File.Exists( dataPath ) )
+	//		{
+	//			File.WriteAllText( dataPath, string.Empty );
+	//			fileStream = File.Open( dataPath, FileMode.Open );
+	//		}
+	//		else
+	//		{
+	//			fileStream = File.Create( dataPath );
+	//		}
 
-			formatter.Serialize( fileStream, playerData );
-			fileStream.Close();
+	//		formatter.Serialize( fileStream, playerData );
+	//		fileStream.Close();
 
-			if( Application.platform == RuntimePlatform.WebGLPlayer )
-			{
-				SyncFiles();
-			}
-		}
-		catch( Exception e )
-		{
-			PlatformSafeMessage( "Failed to save: " + e.Message );
-		}
-	}
+	//		if( Application.platform == RuntimePlatform.WebGLPlayer )
+	//		{
+	//			SyncFiles();
+	//		}
+	//	}
+	//	catch( Exception e )
+	//	{
+	//		PlatformSafeMessage( "Failed to save: " + e.Message );
+	//	}
+	//}
 
-	public static PlayerData Load()
-	{
-		PlayerData playerData = null;
-		string dataPath = string.Format( "{0}/Playerdata.dat", Application.persistentDataPath );
+	//public static PlayerData Load()
+	//{
+	//	PlayerData playerData = null;
+	//	string dataPath = string.Format( "{0}/Playerdata.dat", Application.persistentDataPath );
 
-		try
-		{
-			if( File.Exists( dataPath ) )
-			{
-				BinaryFormatter formatter = new BinaryFormatter();
-				FileStream fileStream = File.Open( dataPath, FileMode.Open );
+	//	try
+	//	{
+	//		if( File.Exists( dataPath ) )
+	//		{
+	//			BinaryFormatter formatter = new BinaryFormatter();
+	//			FileStream fileStream = File.Open( dataPath, FileMode.Open );
 
-				playerData = ( PlayerData )formatter.Deserialize( fileStream );
-				fileStream.Close();
-			}
-		}
-		catch( Exception e )
-		{
-			PlatformSafeMessage( "Failed to save: " + e.Message );
-		}
+	//			playerData = ( PlayerData )formatter.Deserialize( fileStream );
+	//			fileStream.Close();
+	//		}
+	//	}
+	//	catch( Exception e )
+	//	{
+	//		PlatformSafeMessage( "Failed to save: " + e.Message );
+	//	}
 
-		return playerData;
-	}
+	//	return playerData;
+	//}
 
-	private static void PlatformSafeMessage( string message )
-	{
-		if( Application.platform == RuntimePlatform.WebGLPlayer )
-		{
-			WindowAlert( message );
-		}
-		else
-		{
-			Debug.Log( message );
-		}
-	}
+	//private static void PlatformSafeMessage( string message )
+	//{
+	//	if( Application.platform == RuntimePlatform.WebGLPlayer )
+	//	{
+	//		WindowAlert( message );
+	//	}
+	//	else
+	//	{
+	//		Debug.Log( message );
+	//	}
+	//}
 }
