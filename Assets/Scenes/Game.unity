@@ -12440,10 +12440,6 @@ PrefabInstance:
       propertyPath: showWarning
       value: 
       objectReference: {fileID: 406557983}
-    - target: {fileID: 2250325880319197295, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
-      propertyPath: runeActivation
-      value: 
-      objectReference: {fileID: 1603391925}
     - target: {fileID: 2250325880319197296, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: m_RootOrder
       value: 2

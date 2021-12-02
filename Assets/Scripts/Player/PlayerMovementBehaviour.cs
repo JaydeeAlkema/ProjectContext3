@@ -1,36 +1,16 @@
 using System.Collections;
 using UnityEngine;
-using NaughtyAttributes;
 
 public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 {
-	[SerializeField] private Transform spriteTransform = default;
-	[Space]
-	[SerializeField] private float baseMovementSpeed = 5f;
-	[SerializeField] private float slopeForce = 100f;
-	[SerializeField] private float slopeForceRayLength = 2f;
-	[SerializeField] private float jumpMultiplier = 6;
-	[SerializeField] private AnimationCurve jumpfallOff = default;
-	[SerializeField] private float slideTime = 0.75f;
-	[Space]
-	[SerializeField] private KeyCode jumpKeyCode = KeyCode.Space;
-	[SerializeField] private KeyCode[] slideKeyCode = { KeyCode.S, KeyCode.DownArrow };
-	[Space]
-	[SerializeField] private LayerMask hitMask = default;
-	[Space]
-	[SerializeField] private PlayerRuneActivation runeActivation;
-	[Space]
-	[SerializeField] [ReadOnly] private bool isJumping = false;
-	[SerializeField] [ReadOnly] private bool canSlide = true;
-	[SerializeField] [ReadOnly] private bool isSliding = false;
-	[Space]
-	[SerializeField] private int maxSpriteBlinkCount = 6;
-	[SerializeField] private float spriteBlinkInterval = 0.25f;
+	[SerializeField] private Player_ScriptableObject playerData;
+	[SerializeField] private Transform spriteTransform;
 
 	private PlayerAnimationBehaviour playerAnimationBehaviour = null;
 	private SmoothCam smoothCam = null;
 	private SpriteRenderer spriteRenderer = null;
 	private CharacterController charController = null;
+	private PlayerRuneActivation playerRuneActivation = null;
 
 	private RaycastHit hit = default;
 	private Quaternion fromRotation = default;
@@ -38,20 +18,20 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	private Quaternion toRotation = default;
 	private int spriteBlinkCount = 0;
 
-
 	private void Awake()
 	{
 		if( !playerAnimationBehaviour ) playerAnimationBehaviour = GetComponent<PlayerAnimationBehaviour>();
 		if( !smoothCam ) smoothCam = Camera.main.GetComponent<SmoothCam>();
 		if( !spriteRenderer ) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		if( !charController ) charController = GetComponent<CharacterController>();
+		if( !playerRuneActivation ) playerRuneActivation = FindObjectOfType<PlayerRuneActivation>();
 	}
 
 	private void Update()
 	{
 		Move();
-		if( !isSliding && !isJumping ) GetJumpInput();
-		if( !isSliding && !isJumping ) GetSlideInput();
+		if( !playerData.isSliding && !playerData.isJumping ) GetJumpInput();
+		if( !playerData.isSliding && !playerData.isJumping ) GetSlideInput();
 
 		UpdateSpriteRotation();
 		UpdateAnimator();
@@ -59,17 +39,19 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 	private void Move()
 	{
-		charController.SimpleMove( Vector3.right * baseMovementSpeed );
+		playerData.grounded = charController.isGrounded;
+
+		charController.SimpleMove( Vector3.right * playerData.baseMovementSpeed );
 
 		if( OnSlope() )
-			charController.Move( Vector3.down * charController.height / 2f * slopeForce * Time.deltaTime );
+			charController.Move( Vector3.down * charController.height / 2f * playerData.slopeForce * Time.deltaTime );
 
 		//Debug.Log( string.Format( "Velocity [{0}][{1}]", vel.x, vel.y ) )
 	}
 
 	private void GetJumpInput()
 	{
-		if( !charController.isGrounded ) return;
+		if( !playerData.grounded ) return;
 
 		if( Input.touchCount > 0 )
 		{
@@ -86,7 +68,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 				if( touch.phase == TouchPhase.Moved )
 				{
-					if( touch.deltaPosition.y > beginPos.y + 50f && !runeActivation.isDrawing )
+					if( touch.deltaPosition.y > beginPos.y + 50f && !playerRuneActivation.isDrawing )
 					{
 						StartCoroutine( JumpEvent() );
 					}
@@ -94,15 +76,18 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 			}
 		}
 
-		if( Input.GetKeyDown( jumpKeyCode ) )
+		foreach( KeyCode key in playerData.jumpKeyCodes )
 		{
-			StartCoroutine( JumpEvent() );
+			if( Input.GetKeyDown( key ) )
+			{
+				StartCoroutine( JumpEvent() );
+			}
 		}
 	}
 
 	private void GetSlideInput()
 	{
-		if( !charController.isGrounded ) return;
+		if( !playerData.grounded ) return;
 
 		if( Input.touchCount > 0 )
 		{
@@ -119,7 +104,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 				if( touch.phase == TouchPhase.Moved )
 				{
-					if( touch.deltaPosition.y < beginPos.y - 50f && canSlide && !runeActivation.isDrawing )
+					if( touch.deltaPosition.y < beginPos.y - 50f && !playerRuneActivation.isDrawing )
 					{
 						Slide();
 					}
@@ -127,40 +112,38 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 			}
 		}
 
-		if( canSlide )
+		foreach( KeyCode key in playerData.slideKeyCodes )
 		{
-			foreach( KeyCode key in slideKeyCode )
+			if( Input.GetKeyDown( key ) )
 			{
-				if( Input.GetKeyDown( key ) )
-				{
-					Slide();
-				}
+				Slide();
 			}
 		}
 	}
 
 	private IEnumerator JumpEvent()
 	{
-		isJumping = true;
+		playerData.isJumping = true;
 		charController.slopeLimit = 90f;
+
 		float timeInAir = 0f;
 		do
 		{
-			float jumpForce = jumpfallOff.Evaluate( timeInAir );
+			float jumpForce = playerData.jumpfallOff.Evaluate( timeInAir );
 			playerAnimationBehaviour.SetFloat( "Velocity_Y", Mathf.Clamp01( jumpForce ) );
-			charController.Move( Vector3.up * jumpForce * jumpMultiplier * Time.deltaTime );
+			charController.Move( Vector3.up * jumpForce * playerData.jumpMultiplier * Time.deltaTime );
 			timeInAir += Time.deltaTime;
 			yield return null;
 		} while( !charController.isGrounded && charController.collisionFlags != CollisionFlags.Above );
+
 		charController.slopeLimit = 45f;
-		isJumping = false;
+		playerData.isJumping = false;
 	}
 
 	private void Slide()
 	{
-		canSlide = false;
-		isSliding = true;
-		if( isSliding )
+		playerData.isSliding = true;
+		if( playerData.isSliding )
 		{
 			charController.height = 0f;
 			charController.center = new Vector2( charController.center.x, -0.25f );
@@ -171,10 +154,10 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 	private bool OnSlope()
 	{
-		if( isJumping )
+		if( playerData.isJumping )
 			return false;
 
-		if( Physics.Raycast( transform.position, Vector3.down, out hit, charController.height / 2f * slopeForceRayLength ) )
+		if( Physics.Raycast( transform.position, Vector3.down, out hit, charController.height / 2f * playerData.slopeForceRayLength ) )
 			if( hit.normal != Vector3.up )
 				return true;
 		return false;
@@ -182,13 +165,13 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 	private IEnumerator SlideCooldown()
 	{
-		yield return new WaitForSeconds( slideTime );
+		yield return new WaitForSeconds( playerData.slideTime );
 		charController.height = 0.7f;
 		charController.center = new Vector2( charController.center.x, 0f );
 		spriteRenderer.gameObject.transform.localPosition = new Vector3( 0f, 0.37f, 0f );
+
 		yield return new WaitForEndOfFrame();
-		canSlide = true;
-		isSliding = false;
+		playerData.isSliding = false;
 	}
 
 	private void UpdateSpriteRotation()
@@ -204,8 +187,8 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 	private void UpdateAnimator()
 	{
-		playerAnimationBehaviour.SetBool( "Jumping", isJumping );
-		playerAnimationBehaviour.SetBool( "Sliding", isSliding );
+		playerAnimationBehaviour.SetBool( "Jumping", playerData.isJumping );
+		playerAnimationBehaviour.SetBool( "Sliding", playerData.isSliding );
 	}
 
 	public void BlinkSprite()
@@ -215,12 +198,14 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 	private IEnumerator BlinkSpriteIE()
 	{
-		while( spriteBlinkCount < maxSpriteBlinkCount )
+		while( spriteBlinkCount < playerData.maxSpriteBlinkCount )
 		{
 			spriteRenderer.enabled = false;
-			yield return new WaitForSeconds( spriteBlinkInterval );
+
+			yield return new WaitForSeconds( playerData.spriteBlinkInterval );
 			spriteRenderer.enabled = true;
-			yield return new WaitForSeconds( spriteBlinkInterval );
+
+			yield return new WaitForSeconds( playerData.spriteBlinkInterval );
 			spriteBlinkCount++;
 		}
 		spriteBlinkCount = 0;
@@ -230,6 +215,6 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.blue;
-		Gizmos.DrawRay( transform.position, Vector3.down * slopeForceRayLength );
+		Gizmos.DrawRay( transform.position, Vector3.down * playerData.slopeForceRayLength );
 	}
 }

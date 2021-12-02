@@ -11159,6 +11159,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5345472206397620882}
     - target: {fileID: 2250325880319197295, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2caa7bdd3902504408b7aaff65dab3ca, type: 2}
+    - target: {fileID: 2250325880319197295, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: runeActivation
       value: 
       objectReference: {fileID: 5345472205971992111}

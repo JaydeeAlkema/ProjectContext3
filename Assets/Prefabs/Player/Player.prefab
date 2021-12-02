@@ -100,47 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fc921b3aa95914f84fb41a3233844b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 2caa7bdd3902504408b7aaff65dab3ca, type: 2}
   spriteTransform: {fileID: 2250325881263789063}
-  baseMovementSpeed: 2
-  slopeForce: 100
-  slopeForceRayLength: 2
-  jumpMultiplier: 5
-  jumpfallOff:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.261658
-      value: 0.85515875
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.81865287
-      value: -0.0019841343
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  slideTime: 0.6
-  jumpKeyCode: 119
-  slideKeyCode: 7300000012010000
-  hitMask:
-    serializedVersion: 2
-    m_Bits: 64
-  runeActivation: {fileID: 0}
-  isJumping: 0
-  canSlide: 1
-  isSliding: 0
-  maxSpriteBlinkCount: 8
-  spriteBlinkInterval: 0.1
 --- !u!114 &368164410
 MonoBehaviour:
   m_ObjectHideFlags: 0
