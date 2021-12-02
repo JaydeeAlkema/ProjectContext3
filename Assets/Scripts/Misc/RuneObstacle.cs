@@ -50,7 +50,7 @@ public class RuneObstacle : MonoBehaviour
 		if( runeActivation.rune == PlayerRuneActivation.Runes.DESTROY )
 		{
 			runeDone = true;
-			//anim.SetBool( "Destroyed", true );
+			anim.SetBool( "Destroyed", true );
 			runeActivation.gameObject.SetActive( false );
 			runeActivation.rune = PlayerRuneActivation.Runes.NULL;
 			Destroy( this.gameObject );
