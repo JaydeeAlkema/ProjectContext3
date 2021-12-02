@@ -53,7 +53,7 @@ public class RuneObstacle : MonoBehaviour
 			anim.SetBool( "Destroyed", true );
 			runeActivation.gameObject.SetActive( false );
 			runeActivation.rune = PlayerRuneActivation.Runes.NULL;
-			Destroy( this.gameObject );
+			StartCoroutine( DestroyAfterAnim() );
 		}
 
 		if( runeActivation.rune == PlayerRuneActivation.Runes.DISABLE )
@@ -78,5 +78,11 @@ public class RuneObstacle : MonoBehaviour
 	{
 		Gizmos.color = Color.green;
 		Gizmos.DrawWireCube( new Vector3( transform.position.x - activationRange, transform.position.y, transform.position.z ), new Vector3( 0.25f, 10, 1 ) );
+	}
+
+	IEnumerator DestroyAfterAnim(){
+
+		yield return new WaitForSeconds( 2f );
+		Destroy( this.gameObject );
 	}
 }
