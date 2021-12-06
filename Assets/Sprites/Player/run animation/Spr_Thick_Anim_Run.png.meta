@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: 86f7fe1281d4ad342813702ccbca2484
+guid: 64798b8e6392fe04cb6cacf37253e1d6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7981334728191988014
-    second: Spr_Anim_Slide_0
+      213: -4908762564596331145
+    second: Spr_Thick_Anim_Run_0
   - first:
-      213: 5734425500569553174
-    second: Spr_Anim_Slide_1
+      213: -930379996617550823
+    second: Spr_Thick_Anim_Run_1
   - first:
-      213: -4499548112108847904
-    second: Spr_Anim_Slide_2
+      213: -1642274475824138029
+    second: Spr_Thick_Anim_Run_2
+  - first:
+      213: 3457599892209740578
+    second: Spr_Thick_Anim_Run_3
+  - first:
+      213: -4383465273550750259
+    second: Spr_Thick_Anim_Run_4
+  - first:
+      213: 2836680830432037944
+    second: Spr_Thick_Anim_Run_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -77,7 +86,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -89,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,10 +107,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,7 +122,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -125,7 +134,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -137,7 +146,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -148,13 +157,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spr_Anim_Slide_0
+      name: Spr_Thick_Anim_Run_0
       rect:
         serializedVersion: 2
-        x: 372
-        y: 29
-        width: 2480
-        height: 790
+        x: 320
+        y: 27
+        width: 1261
+        height: 1416
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e215f5bf5a563ce60800000000000000
-      internalID: 7981334728191988014
+      spriteID: 77d008a847290ebb0800000000000000
+      internalID: -4908762564596331145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spr_Anim_Slide_1
+      name: Spr_Thick_Anim_Run_1
       rect:
         serializedVersion: 2
-        x: 3224
-        y: 33
-        width: 2452
-        height: 782
+        x: 2080
+        y: 16
+        width: 1614
+        height: 1525
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 619c3684c95c49f40800000000000000
-      internalID: 5734425500569553174
+      spriteID: 9145b7b8250a613f0800000000000000
+      internalID: -930379996617550823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spr_Anim_Slide_2
+      name: Spr_Thick_Anim_Run_2
       rect:
         serializedVersion: 2
-        x: 6072
-        y: 38
-        width: 2448
-        height: 789
+        x: 3797
+        y: 49
+        width: 1711
+        height: 1389
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,8 +213,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ecf8f7e4d46e81c0800000000000000
-      internalID: -4499548112108847904
+      spriteID: 3d8bfccb0187539e0800000000000000
+      internalID: -1642274475824138029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spr_Thick_Anim_Run_3
+      rect:
+        serializedVersion: 2
+        x: 5785
+        y: 16
+        width: 1276
+        height: 1319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b279668ccdbff20800000000000000
+      internalID: 3457599892209740578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spr_Thick_Anim_Run_4
+      rect:
+        serializedVersion: 2
+        x: 7528
+        y: 22
+        width: 1565
+        height: 1530
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcd3fbcee8dca23c0800000000000000
+      internalID: -4383465273550750259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spr_Thick_Anim_Run_5
+      rect:
+        serializedVersion: 2
+        x: 9288
+        y: 60
+        width: 1717
+        height: 1514
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83ccf079f2aed5720800000000000000
+      internalID: 2836680830432037944
       vertices: []
       indices: 
       edges: []
@@ -213,7 +285,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 875e6f8ded9bfc2479db82ce5d169072
+    spriteID: 141fb2c00b6b58845b35a11782a1c165
     internalID: 0
     vertices: []
     indices: 

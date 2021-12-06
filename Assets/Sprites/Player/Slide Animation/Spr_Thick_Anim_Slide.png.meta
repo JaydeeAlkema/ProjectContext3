@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 11e2ac40eb40e8e43921d1488b39105b
+guid: 98167f0b6ff636a4190f192bfe092902
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 883817972336971936
-    second: Spr_Anim_Fall_0
+      213: 5993088635512478901
+    second: Spr_Thick_Anim_Slide_0
   - first:
-      213: -5466746330839787904
-    second: Spr_Anim_Fall_1
+      213: -7544765281297197335
+    second: Spr_Thick_Anim_Slide_1
   - first:
-      213: 1562223876632380361
-    second: Spr_Anim_Fall_2
+      213: 3861655483893318386
+    second: Spr_Thick_Anim_Slide_2
   - first:
-      213: 2792635795884761491
-    second: Spr_Anim_Fall_3
-  - first:
-      213: 8695549831403352116
-    second: Spr_Anim_Fall_4
+      213: -421598760250046152
+    second: Spr_Thick_Anim_Slide_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -48,7 +45,7 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: 1
+    aniso: 2
     mipBias: 0
     wrapU: 1
     wrapV: 1
@@ -83,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,7 +92,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,10 +101,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,7 +116,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -131,7 +128,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -143,7 +140,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -154,85 +151,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spr_Anim_Fall_0
+      name: Spr_Thick_Anim_Slide_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 933
-        width: 949
-        height: 982
+        x: 0
+        y: 17
+        width: 1021
+        height: 998
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a0504f53c3f34c00800000000000000
-      internalID: 883817972336971936
+      spriteID: 5bcd62b7c5abb2350800000000000000
+      internalID: 5993088635512478901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spr_Anim_Fall_1
+      name: Spr_Thick_Anim_Slide_1
       rect:
         serializedVersion: 2
-        x: 1268
-        y: 282
-        width: 962
-        height: 1583
+        x: 3074
+        y: 0
+        width: 1445
+        height: 903
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 086df191d273224b0800000000000000
-      internalID: -5466746330839787904
+      spriteID: 9e6949653fb9b4790800000000000000
+      internalID: -7544765281297197335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spr_Anim_Fall_2
+      name: Spr_Thick_Anim_Slide_2
       rect:
         serializedVersion: 2
-        x: 2568
-        y: 16
-        width: 999
-        height: 1640
+        x: 6059
+        y: 22
+        width: 2516
+        height: 803
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c38e4ab6522ea510800000000000000
-      internalID: 1562223876632380361
+      spriteID: 2f28662e33b579530800000000000000
+      internalID: 3861655483893318386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spr_Anim_Fall_3
+      name: Spr_Thick_Anim_Slide_3
       rect:
         serializedVersion: 2
-        x: 4110
-        y: 61
-        width: 946
-        height: 1066
+        x: 9998
+        y: 0
+        width: 1428
+        height: 1026
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39160c8d57f61c620800000000000000
-      internalID: 2792635795884761491
+      spriteID: 8390d89492e262af0800000000000000
+      internalID: -421598760250046152
       vertices: []
       indices: 
       edges: []
@@ -240,7 +237,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 339400504ed67154190abf8b9417f07c
     internalID: 0
     vertices: []
     indices: 
