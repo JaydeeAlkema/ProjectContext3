@@ -12,17 +12,17 @@ public class SceneSwapper : MonoBehaviour
 
 	public void GoToMenu()
 	{
-		SceneManager.LoadScene( "Menu" );
+		SceneManager.LoadSceneAsync( "Menu" );
 	}
 
 	public void GoToGallery()
 	{
-		SceneManager.LoadScene( "Gallery" );
+		SceneManager.LoadSceneAsync( "Gallery" );
 	}
 
 	public void GoToGame()
 	{
-		SceneManager.LoadScene( "Game" );
+		SceneManager.LoadSceneAsync( "Game" );
 	}
 
 	public void ExitGame()

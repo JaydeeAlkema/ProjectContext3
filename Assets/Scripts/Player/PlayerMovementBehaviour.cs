@@ -20,6 +20,8 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 	private void Awake()
 	{
+		playerData.isJumping = false;
+		playerData.isSliding = false;
 		if( !playerAnimationBehaviour ) playerAnimationBehaviour = GetComponent<PlayerAnimationBehaviour>();
 		if( !smoothCam ) smoothCam = Camera.main.GetComponent<SmoothCam>();
 		if( !spriteRenderer ) spriteRenderer = GetComponentInChildren<SpriteRenderer>();

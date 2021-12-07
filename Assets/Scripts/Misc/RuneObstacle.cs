@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using System.Linq;
 
 public class RuneObstacle : MonoBehaviour
 {
@@ -60,6 +61,16 @@ public class RuneObstacle : MonoBehaviour
 		{
 			runeDone = true;
 			anim.SetBool( "Disabled", true );
+			warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
+			runeActivation.gameObject.SetActive( false );
+			runeActivation.rune = PlayerRuneActivation.Runes.NULL;
+		}
+
+		if(runeActivation.rune == PlayerRuneActivation.Runes.DODGE)
+		{
+			runeDone = true;
+			this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+			warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
 			runeActivation.gameObject.SetActive( false );
 			runeActivation.rune = PlayerRuneActivation.Runes.NULL;
 		}
@@ -71,7 +82,8 @@ public class RuneObstacle : MonoBehaviour
 		{ 
 			warning.obstacleIndex++; 
 		}
-		warning.individualObstacles.RemoveAt(0);
+		//warning.individualObstacles.RemoveAt(0);
+		warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
 	}
 
 	private void OnDrawGizmos()

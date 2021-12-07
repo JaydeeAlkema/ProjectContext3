@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class ShowWarning : MonoBehaviour
 {
@@ -19,18 +20,19 @@ public class ShowWarning : MonoBehaviour
             individualObstacles.Add( obstacle.gameObject );
             individualObstacles.Sort(delegate(GameObject a, GameObject b) { return Vector2.Distance( this.transform.position, a.transform.position ).CompareTo( Vector2.Distance( this.transform.position, b.transform.position ) ); } );
 		}
+        individualObstacles.Remove( individualObstacles.First<GameObject>() );
 	}
 
 	void Update()
     {
-		CheckDistance();
+        CheckDistance();
     }
 
     void CheckDistance()
     {
-        if( individualObstacles.Count > 0)
+        if( individualObstacles.Any<GameObject>() == true)
         {
-			if( ( individualObstacles[obstacleIndex].transform.position - this.transform.position ).magnitude <= minDistance)
+			if( ( individualObstacles[0].transform.position - this.transform.position ).magnitude <= minDistance)
 			{
 				showWarning.SetActive( true );
 			}
@@ -42,7 +44,6 @@ public class ShowWarning : MonoBehaviour
         else
         {
             showWarning.SetActive( false );
-            return;
 		}
     }
 }
