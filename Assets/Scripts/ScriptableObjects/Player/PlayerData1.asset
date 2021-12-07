@@ -10,26 +10,44 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc315caa3577cba4ba8f42ea18a71683, type: 3}
-  m_Name: PlayerData_test
+  m_Name: PlayerData1
   m_EditorClassIdentifier: 
-  baseMovementSpeed: 3.5
+  baseMovementSpeed: 3.3
   slopeForce: 100
   slopeForceRayLength: 2
-  jumpMultiplier: 5
+  jumpMultiplier: 6
   jumpfallOff:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.261658
+      value: 0.85515875
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.30026686
+      value: -0.008024072
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  slideTime: 0.75
+  slideTime: 0.5
   jumpKeyCodes: 7700000020000000
   slideKeyCodes: 7300000012010000
   hitMask:
     serializedVersion: 2
-    m_Bits: 0
-  maxSpriteBlinkCount: 6
-  spriteBlinkInterval: 0.25
-  grounded: 0
+    m_Bits: 64
+  maxSpriteBlinkCount: 8
+  spriteBlinkInterval: 0.1
+  grounded: 1
   isJumping: 0
   isSliding: 0
