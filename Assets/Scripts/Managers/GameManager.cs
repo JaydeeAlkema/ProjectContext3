@@ -25,11 +25,13 @@ public class GameManager : MonoBehaviour
 	public void PauseGame()
 	{
 		Time.timeScale = 0;
+		GetComponent<AudioSource>().Pause();
 	}
 
 	public void ContinueGame()
 	{
 		Time.timeScale = 1;
+		GetComponent<AudioSource>().Play();
 	}
 
 	public void TutorialOff()

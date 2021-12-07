@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: drawRuneFade
+  m_Shader: {fileID: -6465566751694194690, guid: 4679586092634b844a00fc81b99e8795, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_eb029cc4374441509ac57eb098cf379d:
+        m_Texture: {fileID: 2800000, guid: 54a97ef261f07074f83d279a65947279, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Boolean_8e2e71e2e712471a8df43c9e5fa366de: 1
+    - Vector1_a240656c066047de8d44e4aea88a8ff6: 1
+    - Vector1_b2ed4762c6124f0bbb5633b8a942588e: 0
+    - Vector1_e65211d78a8d4a1188c3d23eda45dddb: 0
+    - _Fade: 0.667
+    - _Scale: 4.1
+    - _failed: 0
+    m_Colors:
+    - Color_670e1f55a09d4e6bb8d2662ff1b4d2cf: {r: 0, g: 1, b: 0.7502525, a: 0}
+    - Color_8608523E: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
