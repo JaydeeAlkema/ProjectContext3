@@ -68,7 +68,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 				if( touch.phase == TouchPhase.Moved )
 				{
-					if( touch.deltaPosition.y > beginPos.y + 50f && !playerRuneActivation.isDrawing )
+					if( touch.deltaPosition.y > beginPos.y + 25f && !playerRuneActivation.isDrawing )
 					{
 						StartCoroutine( JumpEvent() );
 					}
@@ -104,7 +104,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 				if( touch.phase == TouchPhase.Moved )
 				{
-					if( touch.deltaPosition.y < beginPos.y - 50f && !playerRuneActivation.isDrawing )
+					if( touch.deltaPosition.y < beginPos.y - 25f && !playerRuneActivation.isDrawing )
 					{
 						Slide();
 					}

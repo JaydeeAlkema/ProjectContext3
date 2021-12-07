@@ -7,6 +7,7 @@ public class PlayerRuneActivation : MonoBehaviour
 {
 	[SerializeField] private Transform[] points;
 	[SerializeField] private List<RuneOrder> runeOrders;
+	public GameObject fingerTrail;
 	public GameObject player;
 	public bool completed = false;
 	public bool failed = false;
@@ -37,6 +38,7 @@ public class PlayerRuneActivation : MonoBehaviour
 	private void OnDisable()
 	{
 		isDrawing = false;
+		fingerTrail.gameObject.SetActive( false );
 	}
 
 	private void OnDrawGizmos()
@@ -69,9 +71,11 @@ public class PlayerRuneActivation : MonoBehaviour
 			//Check to see touch is not canceled
 			if( touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled )
 			{
+				fingerTrail.transform.position = touchPos;
 				//on first touchphase check all points to see if close enough
 				if( touch.phase == TouchPhase.Began )
 				{
+					fingerTrail.gameObject.SetActive( true );
 					hitPoints.Clear();
 					foreach( Transform point in points )
 					{
@@ -106,6 +110,7 @@ public class PlayerRuneActivation : MonoBehaviour
 			//if touchphase has ended clear list for new input
 			if( touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled )
 			{
+				fingerTrail.gameObject.SetActive( false );
 				hitPoints.Clear();
 				line.positionCount = 0;
 				isDrawing = false;
@@ -118,11 +123,12 @@ public class PlayerRuneActivation : MonoBehaviour
 		for( int i = 0; i < hitPoints.Count; i++ )
 		{
 			line.positionCount = i + 1;
-			line.SetPosition( i, touchPos + new Vector3( 0, 0, -0.1f ) );
-			if( i > 0 )
-			{
-				line.SetPosition( i -1, hitPoints.ElementAt( i -1 ).position + new Vector3( 0, 0, -0.1f ) );
-			}
+			line.SetPosition( i, hitPoints.ElementAt( i).position + new Vector3( 0, 0, -0.1f ) );
+			//line.SetPosition( i, touchPos + new Vector3( 0, 0, -0.1f ) );
+			//if( i > 0 )
+			//{
+			//	line.SetPosition( i -1, hitPoints.ElementAt( i -1 ).position + new Vector3( 0, 0, -0.1f ) );
+			//}
 		}
 	}
 
