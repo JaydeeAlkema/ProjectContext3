@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc315caa3577cba4ba8f42ea18a71683, type: 3}
+  m_Name: PlayerData_test
+  m_EditorClassIdentifier: 
+  baseMovementSpeed: 5
+  slopeForce: 100
+  slopeForceRayLength: 2
+  jumpMultiplier: 6
+  jumpfallOff:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  slideTime: 0.75
+  jumpKeyCodes: 7700000020000000
+  slideKeyCodes: 7300000012010000
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 0
+  maxSpriteBlinkCount: 6
+  spriteBlinkInterval: 0.25
+  grounded: 0
+  isJumping: 0
+  isSliding: 0

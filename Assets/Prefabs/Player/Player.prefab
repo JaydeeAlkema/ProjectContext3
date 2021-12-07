@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fc921b3aa95914f84fb41a3233844b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 2caa7bdd3902504408b7aaff65dab3ca, type: 2}
+  playerData: {fileID: 11400000, guid: 69ca967a8f57a1743b5e36ff688b6e73, type: 2}
   spriteTransform: {fileID: 2250325881263789063}
 --- !u!114 &368164410
 MonoBehaviour:
