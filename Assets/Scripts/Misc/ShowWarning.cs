@@ -10,7 +10,6 @@ public class ShowWarning : MonoBehaviour
     [SerializeField] private float minDistance = 35f;
     [SerializeField] private GameObject obstacles = default;
     public List<GameObject> individualObstacles = new List<GameObject>();
-    public int obstacleIndex = 0;
 
 	private void Start()
 	{

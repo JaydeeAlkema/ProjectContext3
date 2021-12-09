@@ -50,12 +50,16 @@ public class PlayerRuneActivation : MonoBehaviour
 		}
 	}
 
+	private void OnEnable()
+	{
+		rune = Runes.NULL;
+	}
 
 	void SpawnAnimatedRune( Runes type )
 	{
-		Vector3 spawnPos = new Vector3( transform.position.x, transform.position.y + 1, transform.position.z + 10 );
+		Vector3 spawnPos = new Vector3( transform.position.x, transform.position.y + 0.5f, transform.position.z + 10 );
 		GameObject animatedRuneGo = Instantiate( animatedRunes[( ( byte )rune )], spawnPos, Quaternion.identity, Camera.main.transform );
-		Destroy( animatedRuneGo, 4f );
+		Destroy( animatedRuneGo, 2f );
 	}
 
 	void DrawRune()

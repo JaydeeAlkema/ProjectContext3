@@ -78,11 +78,6 @@ public class RuneObstacle : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		if( warning.individualObstacles.Count > warning.obstacleIndex )
-		{ 
-			warning.obstacleIndex++; 
-		}
-		//warning.individualObstacles.RemoveAt(0);
 		warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
 	}
 
