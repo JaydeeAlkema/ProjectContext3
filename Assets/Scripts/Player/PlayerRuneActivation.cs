@@ -58,7 +58,7 @@ public class PlayerRuneActivation : MonoBehaviour
 	void SpawnAnimatedRune( Runes type )
 	{
 		Vector3 spawnPos = new Vector3( transform.position.x, transform.position.y + 0.5f, transform.position.z + 10 );
-		GameObject animatedRuneGo = Instantiate( animatedRunes[( ( byte )rune )], spawnPos, Quaternion.identity, Camera.main.transform );
+		GameObject animatedRuneGo = Instantiate( animatedRunes[( ( byte )rune ) -1], spawnPos, Quaternion.identity, Camera.main.transform );
 		Destroy( animatedRuneGo, 2f );
 	}
 
@@ -76,6 +76,7 @@ public class PlayerRuneActivation : MonoBehaviour
 				//on first touchphase check all points to see if close enough
 				if( touch.phase == TouchPhase.Began )
 				{
+					if( hitPoints.Count >= 4 ) { CheckforCompletion(); hitPoints.Clear(); }
 					rune = Runes.NULL;
 					fingerTrail.gameObject.SetActive( true );
 					hitPoints.Clear();
