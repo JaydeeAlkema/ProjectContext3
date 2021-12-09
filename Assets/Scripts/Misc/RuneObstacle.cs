@@ -38,46 +38,60 @@ public class RuneObstacle : MonoBehaviour
 		if( !runeDone && ( player.transform.position - this.transform.position ).magnitude <= activationRange )
 		{
 			runeActivation.gameObject.SetActive( true );
-			CheckForDestroyComplete();
 		}
 		if( !runeDone && player.transform.position.x >= transform.position.x )
 		{
 			runeActivation.rune = defaultBehaviour;
+			CheckForDestroyComplete();
 		}
 	}
 
 	void CheckForDestroyComplete()
 	{
-		if( runeActivation.rune == PlayerRuneActivation.Runes.DESTROY )
+		switch( runeActivation.rune )
 		{
-			runeDone = true;
-			anim.SetBool( "Destroyed", true );
-			runeActivation.gameObject.SetActive( false );
-			runeActivation.rune = PlayerRuneActivation.Runes.NULL;
-			StartCoroutine( DestroyAfterAnim() );
-		}
+			case PlayerRuneActivation.Runes.DESTROY:
+				{
+					runeDone = true;
+					anim.SetBool( "Destroyed", true );
+					runeActivation.gameObject.SetActive( false );
+					runeActivation.rune = PlayerRuneActivation.Runes.NULL;
+					StartCoroutine( DestroyAfterAnim() );
+					break;
+				}
 
-		if( runeActivation.rune == PlayerRuneActivation.Runes.DISABLE )
-		{
-			runeDone = true;
-			anim.SetBool( "Disabled", true );
-			warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
-			runeActivation.gameObject.SetActive( false );
-			runeActivation.rune = PlayerRuneActivation.Runes.NULL;
-		}
+			case PlayerRuneActivation.Runes.DISABLE:
+				{
+					runeDone = true;
+					anim.SetBool( "Disabled", true );
+					warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
+					runeActivation.gameObject.SetActive( false );
+					runeActivation.rune = PlayerRuneActivation.Runes.NULL;
+					break;
+				}
 
-		if(runeActivation.rune == PlayerRuneActivation.Runes.DODGE)
-		{
-			runeDone = true;
-			this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-			warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
-			runeActivation.gameObject.SetActive( false );
-			runeActivation.rune = PlayerRuneActivation.Runes.NULL;
+			case PlayerRuneActivation.Runes.DODGE:
+				{
+					runeDone = true;
+					this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+					warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
+					runeActivation.gameObject.SetActive( false );
+					runeActivation.rune = PlayerRuneActivation.Runes.NULL;
+					break;
+				}
+
+			default:
+				break;
 		}
 	}
 
 	private void OnDestroy()
 	{
+		if( warning.individualObstacles.Count > warning.obstacleIndex )
+		{
+			warning.obstacleIndex++;
+		}
+		//warning.individualObstacles.RemoveAt(0);
 		warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
 	}
 
@@ -87,7 +101,8 @@ public class RuneObstacle : MonoBehaviour
 		Gizmos.DrawWireCube( new Vector3( transform.position.x - activationRange, transform.position.y, transform.position.z ), new Vector3( 0.25f, 10, 1 ) );
 	}
 
-	IEnumerator DestroyAfterAnim(){
+	IEnumerator DestroyAfterAnim()
+	{
 
 		yield return new WaitForSeconds( 2f );
 		Destroy( this.gameObject );

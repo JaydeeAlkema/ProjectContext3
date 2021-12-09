@@ -128,7 +128,7 @@ public class PlayerRuneActivation : MonoBehaviour
 		for( int i = 0; i < hitPoints.Count; i++ )
 		{
 			line.positionCount = i + 1;
-			line.SetPosition( i, hitPoints.ElementAt( i).position + new Vector3( 0, 0, -0.1f ) );
+			line.SetPosition( i, hitPoints.ElementAt( i ).position + new Vector3( 0, 0, -0.1f ) );
 			//line.SetPosition( i, touchPos + new Vector3( 0, 0, -0.1f ) );
 			//if( i > 0 )
 			//{
@@ -200,9 +200,9 @@ public class PlayerRuneActivation : MonoBehaviour
 
 	public enum Runes
 	{
-		NULL,
-		DESTROY,
-		DISABLE,
-		DODGE
+		DESTROY = 0,
+		DISABLE = 1,
+		DODGE = 2,		
+		NULL = 3
 	}
 }
