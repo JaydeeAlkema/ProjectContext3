@@ -69,9 +69,6 @@ public class PlayerRuneActivation : MonoBehaviour
 			Touch touch = Input.GetTouch( 0 );
 			touchPos = Camera.main.ScreenToWorldPoint( touch.position );
 			touchPos.z = 0;
-
-			if( hitPoints.Count >= 4 ) { CheckforCompletion(); hitPoints.Clear(); }
-
 			//Check to see touch is not canceled
 			if( touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled )
 			{

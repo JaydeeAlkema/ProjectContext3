@@ -87,12 +87,10 @@ public class RuneObstacle : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		if( warning.individualObstacles.Count > warning.obstacleIndex )
+		if( warning.individualObstacles.Any<GameObject>() )
 		{
-			warning.obstacleIndex++;
+			warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
 		}
-		//warning.individualObstacles.RemoveAt(0);
-		warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
 	}
 
 	private void OnDrawGizmos()
