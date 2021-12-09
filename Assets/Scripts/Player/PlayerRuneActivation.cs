@@ -55,7 +55,7 @@ public class PlayerRuneActivation : MonoBehaviour
 	{
 		Vector3 spawnPos = new Vector3( transform.position.x, transform.position.y + 1, transform.position.z + 10 );
 		GameObject animatedRuneGo = Instantiate( animatedRunes[( ( byte )rune )], spawnPos, Quaternion.identity, Camera.main.transform );
-		Destroy( animatedRuneGo, 10f );
+		Destroy( animatedRuneGo, 4f );
 	}
 
 	void DrawRune()
@@ -75,6 +75,7 @@ public class PlayerRuneActivation : MonoBehaviour
 				//on first touchphase check all points to see if close enough
 				if( touch.phase == TouchPhase.Began )
 				{
+					rune = Runes.NULL;
 					fingerTrail.gameObject.SetActive( true );
 					hitPoints.Clear();
 					foreach( Transform point in points )
