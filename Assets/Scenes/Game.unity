@@ -778,6 +778,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialObject: {fileID: 961140234}
+  amountToSlowDown: 0.5
+  slowDownSpeed: 0.25
+  timeToSlowDown: 1.5
+  slowDown: 0
 --- !u!4 &57858113
 Transform:
   m_ObjectHideFlags: 0
@@ -803,7 +807,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a80e34187ae659e4b9a5f650e670a691, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6f245b761960f004d8e5acdad6ad435c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.25
   m_Pitch: 1
@@ -2752,6 +2756,7 @@ MonoBehaviour:
   runeActivation: {fileID: 1603391925}
   defaultBehaviour: 1
   player: {fileID: 2081139969}
+  manager: {fileID: 0}
   activationRange: 8
 --- !u!61 &370235457
 BoxCollider2D:
@@ -5795,6 +5800,7 @@ MonoBehaviour:
   runeActivation: {fileID: 1603391925}
   defaultBehaviour: 1
   player: {fileID: 2081139969}
+  manager: {fileID: 0}
   activationRange: 8
 --- !u!95 &714047945
 Animator:

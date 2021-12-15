@@ -5,6 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	[SerializeField] private GameObject tutorialObject;
+	[SerializeField] private float amountToSlowDown = 1;
+	[SerializeField] private float slowDownSpeed = 1;
+	[SerializeField] private float timeToSlowDown = 1;
+
+	public bool slowDown = false;
 
 	void Awake()
 	{
@@ -22,6 +27,11 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	private void Update()
+	{
+		SlowDown();
+	}
+
 	public void PauseGame()
 	{
 		Time.timeScale = 0;
@@ -37,5 +47,24 @@ public class GameManager : MonoBehaviour
 	public void TutorialOff()
 	{
 		tutorialObject.SetActive( false );
+		Time.timeScale = 1;
+	}
+
+	public void SlowDown()
+	{
+		if( Time.timeScale >= amountToSlowDown && slowDown)
+		{
+			Time.timeScale -= slowDownSpeed * Time.deltaTime;
+			GetComponent<AudioSource>().pitch -= slowDownSpeed * Time.deltaTime;
+		}
+		if(slowDown){ StartCoroutine( ResetSlowdown() ); }
+	}
+
+	public IEnumerator ResetSlowdown()
+	{
+		yield return new WaitForSeconds(timeToSlowDown);
+		slowDown = false;
+		Time.timeScale = 1f;
+		GetComponent<AudioSource>().pitch = 1f;
 	}
 }

@@ -11,6 +11,7 @@ public class RuneObstacle : MonoBehaviour
 	[SerializeField] private PlayerRuneActivation runeActivation = default;
 	[SerializeField] private PlayerRuneActivation.Runes defaultBehaviour;
 	[SerializeField] private GameObject player = default;
+	[SerializeField] private GameManager manager = default;
 	[Space]
 	[SerializeField] private float activationRange = 25f;   // If player gets within this range, the rune will activate.
 
@@ -24,6 +25,7 @@ public class RuneObstacle : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
 		warning = player.GetComponent<ShowWarning>();
+		manager = FindObjectOfType<GameManager>();
 
 		runeActivation.gameObject.SetActive( false );
 	}
@@ -38,6 +40,7 @@ public class RuneObstacle : MonoBehaviour
 		if( !runeDone && ( player.transform.position - this.transform.position ).magnitude <= activationRange )
 		{
 			runeActivation.gameObject.SetActive( true );
+			manager.slowDown = true; 
 		}
 		if( !runeDone && player.transform.position.x >= transform.position.x )
 		{
