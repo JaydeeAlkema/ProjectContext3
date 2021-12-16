@@ -14,10 +14,9 @@ public class GameManager : MonoBehaviour
 	void Awake()
 	{
 		Application.targetFrameRate = 60;
-
 		if( tutorialObject != null )
 		{
-			if( PlayerPrefs.GetInt( "firstTime", 0 ) == 0 )
+			if( PlayerPrefs.GetInt( "firstTime") == 0 )
 			{
 				PlayerPrefs.SetInt( "firstTime", 1 );
 				//show tutorial

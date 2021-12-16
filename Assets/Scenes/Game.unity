@@ -803,7 +803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialObject: {fileID: 961140234}
   amountToSlowDown: 0.5
-  slowDownSpeed: 0.25
+  slowDownSpeed: 0.5
   timeToSlowDown: 1.5
   slowDown: 0
 --- !u!4 &57858113
@@ -8322,7 +8322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &961140235
 MonoBehaviour:
   m_ObjectHideFlags: 0
