@@ -96,7 +96,7 @@ public class RuneObstacle : MonoBehaviour
 		}
 	}
 
-	private void OnDrawGizmos()
+	private void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.green;
 		Gizmos.DrawWireCube( new Vector3( transform.position.x - activationRange, transform.position.y, transform.position.z ), new Vector3( 0.25f, 10, 1 ) );

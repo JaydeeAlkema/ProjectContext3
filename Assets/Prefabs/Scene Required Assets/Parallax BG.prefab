@@ -169,8 +169,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -252970113
   m_SortingLayer: -1
-  m_SortingOrder: -7
-  m_Sprite: {fileID: 21300000, guid: 5d31d1868c3c4b54f90e569421dcd8db, type: 3}
+  m_SortingOrder: -9
+  m_Sprite: {fileID: 21300000, guid: 8916b813ce1246c4ebc6b0beed53ea1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.68235296}
   m_FlipX: 0
   m_FlipY: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01903b36f59b3cf4785780b0961040d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 0.1, y: 0.5}
+  parallaxEffectMultiplier: {x: 0.8, y: 1}
   infiniteHorizontal: 1
   infiniteVertical: 0
 --- !u!1 &1826206408473728289
@@ -366,7 +366,7 @@ SpriteRenderer:
   m_SortingLayerID: -1287545743
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ac5ebc7a501376948818f72852cde84e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1eeecfe9792c0a04b9dfd4aea910288c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -561,7 +561,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -252970113
   m_SortingLayer: -1
-  m_SortingOrder: -7
+  m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: de461d655d0b9a146ab69b46583832f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
