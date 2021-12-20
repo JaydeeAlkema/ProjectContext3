@@ -831,7 +831,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 469bdcfd44b67aa46a46fbbc6e78f1e2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 74f945a9081d94949817cd98bd595955, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.25
   m_Pitch: 1
@@ -11641,52 +11641,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 679986836}
     m_Modifications:
     - target: {fileID: 323950882290408506, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
-      propertyPath: m_Size.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 323950882290408506, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 8916b813ce1246c4ebc6b0beed53ea1e, type: 3}
-    - target: {fileID: 323950882290408506, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
-      propertyPath: m_SortingOrder
-      value: -9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1826206408473728289, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2451468375827096387, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
-      propertyPath: m_SortingOrder
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3139415214105313146, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
-      propertyPath: parallaxEffectMultiplier.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3139415214105313146, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
-      propertyPath: parallaxEffectMultiplier.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3744641950749295649, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_Size.y
+      value: 14.023829
       objectReference: {fileID: 0}
     - target: {fileID: 3744641950749295650, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 3744641951169401213, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3744641951169401215, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
-      propertyPath: m_SortingOrder
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3744641951435111434, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3744641952037963782, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
       propertyPath: m_Name
@@ -11736,10 +11696,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4555668186979907171, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 1eeecfe9792c0a04b9dfd4aea910288c, type: 3}
+    - target: {fileID: 4982975155140615242, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.0973
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
 --- !u!4 &1403834399 stripped
