@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d8e0f01cfa794bb43947d8586a6313e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 514b14a0a96c32749ab0118fb0c317b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6940077772644586134}
   - component: {fileID: 6940077772644586129}
   m_Layer: 0
-  m_Name: Tree1_Jump_Obstacle
+  m_Name: Stump2_Jump_Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 6940077772644586132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 21.551, y: -0.15918377, z: 0}
-  m_LocalScale: {x: 0.73569983, y: 0.39079148, z: 0.6130832}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6940077772308786116}
   m_Father: {fileID: 0}
@@ -141,5 +141,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.35712886, y: 1.168014, z: 1}
-  m_Center: {x: -0.05802888, y: 0.073360935, z: 0}
+  m_Size: {x: 0.3997879, y: 0.6646999, z: 1}
+  m_Center: {x: 0.06926155, y: 0.014703989, z: 0}
