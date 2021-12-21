@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27956c355d439774eb224cd42331df00, type: 3}
   m_Name: Completionist
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: bd1f31a80f638c043a99deea42e189fa, type: 3}
   name: Completionist
   description: Unlock all Achievements!
   ID: ACH_COMPLETIONIST
@@ -20,3 +20,4 @@ MonoBehaviour:
   goal: 6
   unlocked: 0
   hidden: 0
+  resetAchievementOnQuit: 0

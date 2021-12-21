@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27956c355d439774eb224cd42331df00, type: 3}
   m_Name: Perfectionist
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d1471323bd942a3489ac77bd2dd2b623, type: 3}
   name: Perfectionist
   description: Never miss/fail an input.
   ID: ACH_PERFECTIONIST
@@ -20,3 +20,4 @@ MonoBehaviour:
   goal: 1
   unlocked: 0
   hidden: 0
+  resetAchievementOnQuit: 0
