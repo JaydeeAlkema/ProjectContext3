@@ -173,359 +173,401 @@ MonoBehaviour:
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 323.83145, y: -0.2012278, z: 0}
-    timeStamp: 98.130745
+    position: {x: 304.96024, y: -1.2050002, z: 0}
+    timeStamp: 92.41219
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 326.03683, y: -0.20122783, z: 0}
-    timeStamp: 98.79904
+    position: {x: 307.25284, y: -1.2050002, z: 0}
+    timeStamp: 93.106926
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 328.38925, y: -0.20122777, z: 0}
-    timeStamp: 99.511894
+    position: {x: 309.6562, y: -1.205, z: 0}
+    timeStamp: 93.83521
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 333.0688, y: -0.20500009, z: 0}
-    timeStamp: 100.92994
+    position: {x: 314.1694, y: -1.205, z: 0}
+    timeStamp: 95.20285
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 337.90167, y: -1.1708674, z: 0}
-    timeStamp: 102.39445
+    position: {x: 315.3707, y: -0.97462535, z: 0}
+    timeStamp: 95.56688
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 340.0773, y: -1.205, z: 0}
-    timeStamp: 103.05373
+    position: {x: 318.8754, y: -0.20500007, z: 0}
+    timeStamp: 96.62891
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 342.34918, y: -1.205, z: 0}
-    timeStamp: 103.74218
+    position: {x: 323.42252, y: -0.20122778, z: 0}
+    timeStamp: 98.00683
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 344.6804, y: -1.2050002, z: 0}
-    timeStamp: 104.4486
+    position: {x: 325.9231, y: -0.20122784, z: 0}
+    timeStamp: 98.76457
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 349.27505, y: -1.205, z: 0}
-    timeStamp: 105.84093
+    position: {x: 328.2546, y: -0.20122775, z: 0}
+    timeStamp: 99.47109
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 356.3235, y: -1.205, z: 0}
-    timeStamp: 107.976814
+    position: {x: 330.52347, y: -0.20122784, z: 0}
+    timeStamp: 100.15862
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 358.75122, y: -1.2050002, z: 0}
-    timeStamp: 108.712494
+    position: {x: 332.8021, y: -0.20500004, z: 0}
+    timeStamp: 100.84912
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 361.1111, y: -1.2049999, z: 0}
-    timeStamp: 109.42761
+    position: {x: 337.50418, y: -1.0643607, z: 0}
+    timeStamp: 102.273994
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 363.25186, y: -1.205, z: 0}
-    timeStamp: 110.076324
+    position: {x: 339.75098, y: -1.205, z: 0}
+    timeStamp: 102.95484
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 367.9689, y: -0.2784518, z: 0}
-    timeStamp: 111.50572
+    position: {x: 342.19507, y: -1.205, z: 0}
+    timeStamp: 103.69547
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 370.2978, y: -0.20500004, z: 0}
-    timeStamp: 112.21146
+    position: {x: 344.5832, y: -1.2050002, z: 0}
+    timeStamp: 104.41915
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 375.00525, y: -0.20122781, z: 0}
-    timeStamp: 113.63796
+    position: {x: 346.80368, y: -1.205, z: 0}
+    timeStamp: 105.092026
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 379.65927, y: -0.20122781, z: 0}
-    timeStamp: 115.04826
+    position: {x: 351.50754, y: -1.205, z: 0}
+    timeStamp: 106.51743
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 384.3843, y: -0.22840075, z: 0}
-    timeStamp: 116.480095
+    position: {x: 356.24863, y: -1.205, z: 0}
+    timeStamp: 107.95413
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 386.75632, y: -0.863973, z: 0}
-    timeStamp: 117.19889
+    position: {x: 360.82666, y: -1.205, z: 0}
+    timeStamp: 109.341415
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 389.09488, y: -1.205, z: 0}
-    timeStamp: 117.90755
+    position: {x: 363.21262, y: -1.205, z: 0}
+    timeStamp: 110.06443
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 391.4227, y: -1.205, z: 0}
-    timeStamp: 118.61294
+    position: {x: 365.3174, y: -0.9889025, z: 0}
+    timeStamp: 110.70225
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 395.8026, y: -1.2050002, z: 0}
-    timeStamp: 119.94019
+    position: {x: 370.8072, y: -0.2050001, z: 0}
+    timeStamp: 112.36581
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 400.526, y: -1.2050002, z: 0}
-    timeStamp: 121.37151
+    position: {x: 373.133, y: -0.20122772, z: 0}
+    timeStamp: 113.0706
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 405.244, y: -1.205, z: 0}
-    timeStamp: 122.801216
+    position: {x: 375.62476, y: -0.20122781, z: 0}
+    timeStamp: 113.825676
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 407.62625, y: -1.2050002, z: 0}
-    timeStamp: 123.52311
+    position: {x: 378.01318, y: -0.20122772, z: 0}
+    timeStamp: 114.549446
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 409.78522, y: -1.205, z: 0}
-    timeStamp: 124.17734
+    position: {x: 380.28635, y: -0.20122781, z: 0}
+    timeStamp: 115.23828
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 414.56094, y: -1.0844191, z: 0}
-    timeStamp: 125.624535
+    position: {x: 382.44138, y: -0.20500007, z: 0}
+    timeStamp: 115.89132
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 419.2209, y: -0.20500012, z: 0}
-    timeStamp: 127.03664
+    position: {x: 384.7767, y: -0.33354178, z: 0}
+    timeStamp: 116.599
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 423.7096, y: -0.20122783, z: 0}
-    timeStamp: 128.39685
+    position: {x: 387.11255, y: -0.9594242, z: 0}
+    timeStamp: 117.30682
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 426.19675, y: -0.2012278, z: 0}
-    timeStamp: 129.15053
+    position: {x: 391.75885, y: -1.205, z: 0}
+    timeStamp: 118.7148
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 430.89362, y: -0.20405369, z: 0}
-    timeStamp: 130.57382
+    position: {x: 396.36612, y: -1.2050002, z: 0}
+    timeStamp: 120.11093
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 435.40387, y: -0.60876626, z: 0}
-    timeStamp: 131.94057
+    position: {x: 401.07883, y: -1.2050002, z: 0}
+    timeStamp: 121.53903
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 437.79855, y: -1.205, z: 0}
-    timeStamp: 132.66623
+    position: {x: 403.51862, y: -1.205, z: 0}
+    timeStamp: 122.278366
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 440.11005, y: -1.205, z: 0}
-    timeStamp: 133.36668
+    position: {x: 405.63458, y: -1.2050002, z: 0}
+    timeStamp: 122.91956
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 442.4353, y: -1.205, z: 0}
-    timeStamp: 134.0713
+    position: {x: 410.343, y: -1.2049999, z: 0}
+    timeStamp: 124.34635
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 449.59595, y: -1.205, z: 0}
-    timeStamp: 136.2412
+    position: {x: 412.7276, y: -1.205, z: 0}
+    timeStamp: 125.06896
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 451.8144, y: -1.2050002, z: 0}
-    timeStamp: 136.91345
+    position: {x: 417.37064, y: -0.33157456, z: 0}
+    timeStamp: 126.47594
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 454.09137, y: -1.2050002, z: 0}
-    timeStamp: 137.60344
+    position: {x: 419.763, y: -0.20500006, z: 0}
+    timeStamp: 127.2009
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 458.75497, y: -1.205, z: 0}
-    timeStamp: 139.01666
+    position: {x: 424.29984, y: -0.20122777, z: 0}
+    timeStamp: 128.5757
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 461.13696, y: -1.205, z: 0}
-    timeStamp: 139.73848
+    position: {x: 428.89972, y: -0.20122783, z: 0}
+    timeStamp: 129.9696
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 463.3139, y: -1.2050002, z: 0}
-    timeStamp: 140.39816
+    position: {x: 431.40137, y: -0.20500003, z: 0}
+    timeStamp: 130.72768
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 468.18854, y: -0.20500006, z: 0}
-    timeStamp: 141.87532
+    position: {x: 433.676, y: -0.20500009, z: 0}
+    timeStamp: 131.41696
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 470.47067, y: -0.20500009, z: 0}
-    timeStamp: 142.56688
+    position: {x: 435.841, y: -0.72589475, z: 0}
+    timeStamp: 132.07303
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 472.79184, y: -0.20122774, z: 0}
-    timeStamp: 143.27025
+    position: {x: 438.23495, y: -1.205, z: 0}
+    timeStamp: 132.79846
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 475.11676, y: -0.2012278, z: 0}
-    timeStamp: 143.97478
+    position: {x: 450.08252, y: -1.205, z: 0}
+    timeStamp: 136.38864
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 479.66492, y: -0.20122783, z: 0}
-    timeStamp: 145.35301
+    position: {x: 452.4119, y: -1.205, z: 0}
+    timeStamp: 137.09451
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 484.40134, y: -0.3401407, z: 0}
-    timeStamp: 146.78828
+    position: {x: 456.94736, y: -1.2050002, z: 0}
+    timeStamp: 138.46889
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 489.21213, y: -1.2050002, z: 0}
-    timeStamp: 148.24611
+    position: {x: 459.22626, y: -1.205, z: 0}
+    timeStamp: 139.15947
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 491.373, y: -1.2050002, z: 0}
-    timeStamp: 148.90091
+    position: {x: 461.6071, y: -1.205, z: 0}
+    timeStamp: 139.88094
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 493.75153, y: -1.2049999, z: 0}
-    timeStamp: 149.62167
+    position: {x: 466.37668, y: -0.5978988, z: 0}
+    timeStamp: 141.32626
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 498.1997, y: -1.2050002, z: 0}
-    timeStamp: 150.96962
+    position: {x: 470.91708, y: -0.20122775, z: 0}
+    timeStamp: 142.70213
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 500.63977, y: -1.2050002, z: 0}
-    timeStamp: 151.70901
+    position: {x: 475.5751, y: -0.20122781, z: 0}
+    timeStamp: 144.11366
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 502.9995, y: -1.2050002, z: 0}
-    timeStamp: 152.42409
+    position: {x: 477.89877, y: -0.20122784, z: 0}
+    timeStamp: 144.81781
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 507.67764, y: -1.205, z: 0}
-    timeStamp: 153.8417
+    position: {x: 480.1621, y: -0.20122781, z: 0}
+    timeStamp: 145.50366
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 510.0162, y: -1.205, z: 0}
-    timeStamp: 154.55037
+    position: {x: 482.5022, y: -0.2050001, z: 0}
+    timeStamp: 146.21277
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 512.4071, y: -1.205, z: 0}
-    timeStamp: 155.27489
+    position: {x: 487.165, y: -1.0806577, z: 0}
+    timeStamp: 147.62575
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 517.0956, y: -0.20193318, z: 0}
-    timeStamp: 156.69563
+    position: {x: 489.4895, y: -1.205, z: 0}
+    timeStamp: 148.33015
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 519.27734, y: -0.2050001, z: 0}
-    timeStamp: 157.35677
+    position: {x: 494.25525, y: -1.2049999, z: 0}
+    timeStamp: 149.7743
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 521.601, y: -0.20122775, z: 0}
-    timeStamp: 158.06091
+    position: {x: 496.58203, y: -1.205, z: 0}
+    timeStamp: 150.4794
   - name: Obstacle
     key: 111
     eventType: 2
     eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
-    position: {x: 523.9976, y: -0.20122775, z: 0}
-    timeStamp: 158.78717
+    position: {x: 501.17505, y: -1.205, z: 0}
+    timeStamp: 151.87122
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 503.50208, y: -1.2050002, z: 0}
+    timeStamp: 152.57637
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 505.7331, y: -1.2050002, z: 0}
+    timeStamp: 153.25246
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 510.5015, y: -1.205, z: 0}
+    timeStamp: 154.69742
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 515.0004, y: -0.7255063, z: 0}
+    timeStamp: 156.06073
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 519.9319, y: -0.20500009, z: 0}
+    timeStamp: 157.5551
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 522.14386, y: -0.2012278, z: 0}
+    timeStamp: 158.2254
+  - name: Obstacle
+    key: 111
+    eventType: 2
+    eventColor: {r: 0.1167942, g: 1, b: 0.07058823, a: 0}
+    position: {x: 524.3749, y: -0.20122777, z: 0}
+    timeStamp: 158.90147
