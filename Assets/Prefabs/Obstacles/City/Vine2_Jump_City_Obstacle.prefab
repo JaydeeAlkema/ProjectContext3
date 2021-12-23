@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1860660530941142730
+--- !u!1 &5170360562666484310
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1860660530941142731}
-  - component: {fileID: 1860660530941142732}
+  - component: {fileID: 5170360562666484311}
+  - component: {fileID: 5170360562666484308}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -17,27 +17,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1860660530941142731
+--- !u!4 &5170360562666484311
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860660530941142730}
+  m_GameObject: {fileID: 5170360562666484310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.58, z: 0}
-  m_LocalScale: {x: 0.60172, y: 0.60172, z: 0.60172}
+  m_LocalPosition: {x: 0.1, y: 0.096, z: 0}
+  m_LocalScale: {x: 0.2694985, y: 0.2694985, z: 0.2694985}
   m_Children: []
-  m_Father: {fileID: 1860660532709560360}
+  m_Father: {fileID: 5170360563136498436}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1860660530941142732
+--- !u!212 &5170360562666484308
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860660530941142730}
+  m_GameObject: {fileID: 5170360562666484310}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 06a694d0c3645f24d951e7ecdc97f0dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 889b27c36e991b54c8260c2d319f8548, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1860660532709560375
+--- !u!1 &5170360563136498439
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,38 +90,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1860660532709560360}
-  - component: {fileID: 1860660532709560362}
-  - component: {fileID: 1860660532709560361}
+  - component: {fileID: 5170360563136498436}
+  - component: {fileID: 5170360563136498437}
+  - component: {fileID: 5170360563136498434}
   m_Layer: 0
-  m_Name: Obstacle_Jump_Chimney
+  m_Name: Vine2_Jump_City_Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1860660532709560360
+--- !u!4 &5170360563136498436
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860660532709560375}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.582, y: -1.264, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.5, z: 1}
+  m_GameObject: {fileID: 5170360563136498439}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.9352188, y: -1.1112305, z: 0}
+  m_LocalScale: {x: 0.6792179, y: 0.6792179, z: 0.6792179}
   m_Children:
-  - {fileID: 1860660530941142731}
+  - {fileID: 5170360562666484311}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1860660532709560362
+--- !u!114 &5170360563136498437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860660532709560375}
+  m_GameObject: {fileID: 5170360563136498439}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1be214526a49bb478d52ef74c74fb00, type: 3}
@@ -130,16 +130,16 @@ MonoBehaviour:
   interactionLayer:
     serializedVersion: 2
     m_Bits: 128
---- !u!65 &1860660532709560361
+--- !u!65 &5170360563136498434
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860660532709560375}
+  m_GameObject: {fileID: 5170360563136498439}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3184613, y: 1.1888784, z: 1}
-  m_Center: {x: 0.29639462, y: 0.1882748, z: 0}
+  m_Size: {x: 0.7665791, y: 0.69274974, z: 0.9999999}
+  m_Center: {x: 0.1167102, y: 0.028804861, z: 0}
