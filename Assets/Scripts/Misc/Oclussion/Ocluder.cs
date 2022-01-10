@@ -30,6 +30,6 @@ public class Ocluder : MonoBehaviour
 	private bool ICanSee( GameObject _object )
 	{
 		Plane[] planes = GeometryUtility.CalculateFrustumPlanes( Camera.main );
-		return GeometryUtility.TestPlanesAABB( planes, _object.GetComponent<Collider>().bounds );
+		return GeometryUtility.TestPlanesAABB( planes, _object.GetComponent<SpriteRenderer>().bounds );
 	}
 }
