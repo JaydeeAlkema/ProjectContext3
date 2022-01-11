@@ -13,16 +13,15 @@ public class Ocluder : MonoBehaviour
 	{
 		foreach( GameObject gameObject in objectsToBeOcluded )
 		{
-			if( gameObject.GetComponent<SpriteRenderer>() != null )
+			if( ICanSee( gameObject ) )
 			{
-				if( !ICanSee( gameObject ) )
-				{
-					gameObject.SetActive( false );
-				}
-				else if( ICanSee( gameObject ) )
-				{
-					gameObject.SetActive( true );
-				}
+				gameObject.SetActive( true );
+				Debug.Log( $"Can See {gameObject.name}" );
+			}
+			if( !ICanSee( gameObject ) )
+			{
+				gameObject.SetActive( false );
+				Debug.Log( $"Can NOT See {gameObject.name}" );
 			}
 		}
 	}
@@ -30,6 +29,11 @@ public class Ocluder : MonoBehaviour
 	private bool ICanSee( GameObject _object )
 	{
 		Plane[] planes = GeometryUtility.CalculateFrustumPlanes( Camera.main );
-		return GeometryUtility.TestPlanesAABB( planes, _object.GetComponent<SpriteRenderer>().bounds );
+		if( gameObject.GetComponent<SpriteRenderer>() != null )
+			return GeometryUtility.TestPlanesAABB( planes, _object.GetComponent<SpriteRenderer>().bounds );
+		else if( gameObject.GetComponentInChildren<SpriteRenderer>() != null )
+			return GeometryUtility.TestPlanesAABB( planes, _object.GetComponentInChildren<SpriteRenderer>().bounds );
+		else
+			return false;
 	}
 }
