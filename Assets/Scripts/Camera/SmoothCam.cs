@@ -21,6 +21,14 @@ public class SmoothCam : MonoBehaviour
 	float clampedPosX;
 	float clampedPosY;
 
+	public Transform Target { get => target; set => target =  value ; }
+	public Vector3 Offset { get => offset; set => offset =  value ; }
+	public float Smoothing { get => smoothing; set => smoothing =  value ; }
+	public Vector2 MinClampVector { get => minClampVector; set => minClampVector =  value ; }
+	public Vector2 MaxClampVector { get => maxClampVector; set => maxClampVector =  value ; }
+	public bool ClampX { get => clampX; set => clampX =  value ; }
+	public bool ClampY { get => clampY; set => clampY =  value ; }
+
 	private void Update()
 	{
 		if( target )
