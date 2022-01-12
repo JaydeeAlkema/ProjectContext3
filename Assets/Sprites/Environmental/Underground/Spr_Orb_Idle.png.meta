@@ -1,19 +1,31 @@
 fileFormatVersion: 2
-guid: aea4509586c5e4242856ee6adf4acde5
+guid: a5223a0c12203e64ab00ac4fa8c0d150
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6546005051029853625
-    second: electric_line_0
+      213: 2005530381921142067
+    second: Spr_Orb_Idle_0
   - first:
-      213: 1974516913905227983
-    second: electric_line_1
+      213: 1161502599562022108
+    second: Spr_Orb_Idle_1
   - first:
-      213: 710035024006174276
-    second: electric_line_2
+      213: -2812764854111280710
+    second: Spr_Orb_Idle_2
   - first:
-      213: 8455579679541273991
-    second: electric_line_3
+      213: 5693909764180190650
+    second: Spr_Orb_Idle_3
+  - first:
+      213: 6440587596191749311
+    second: Spr_Orb_Idle_4
+  - first:
+      213: -5240596184657172268
+    second: Spr_Orb_Idle_5
+  - first:
+      213: 7524395386312693298
+    second: Spr_Orb_Idle_6
+  - first:
+      213: 2467932746058290003
+    second: Spr_Orb_Idle_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,13 +151,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: electric_line_0
+      name: Spr_Orb_Idle_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 3
-        width: 397
-        height: 808
+        y: 8
+        width: 380
+        height: 460
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74ae37b961be725a0800000000000000
-      internalID: -6546005051029853625
+      spriteID: 335c9a0b14315db10800000000000000
+      internalID: 2005530381921142067
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: electric_line_1
+      name: Spr_Orb_Idle_1
       rect:
         serializedVersion: 2
-        x: 397
-        y: 3
-        width: 397
-        height: 808
+        x: 380
+        y: 8
+        width: 380
+        height: 460
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc85258fba4e66b10800000000000000
-      internalID: 1974516913905227983
+      spriteID: cdc469cd57c7e1010800000000000000
+      internalID: 1161502599562022108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: electric_line_2
+      name: Spr_Orb_Idle_2
       rect:
         serializedVersion: 2
-        x: 794
-        y: 3
-        width: 397
-        height: 808
+        x: 760
+        y: 8
+        width: 380
+        height: 460
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +207,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44659f7a71d8ad900800000000000000
-      internalID: 710035024006174276
+      spriteID: ab16ef1944d07f8d0800000000000000
+      internalID: -2812764854111280710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: electric_line_3
+      name: Spr_Orb_Idle_3
       rect:
         serializedVersion: 2
-        x: 1191
-        y: 3
-        width: 397
-        height: 808
+        x: 1140
+        y: 8
+        width: 380
+        height: 460
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +228,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 785a1114be0485570800000000000000
-      internalID: 8455579679541273991
+      spriteID: ab5a61d43c4d40f40800000000000000
+      internalID: 5693909764180190650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spr_Orb_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 8
+        width: 380
+        height: 460
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb4dbc78b40916950800000000000000
+      internalID: 6440587596191749311
       vertices: []
       indices: 
       edges: []
@@ -225,7 +258,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 824de6cdec7943443a57079a24e7b00b
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
