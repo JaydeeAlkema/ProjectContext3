@@ -800,6 +800,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialObject: {fileID: 961140234}
+  amountToSlowDown: 0.5
+  slowDownSpeed: 0.25
+  timeToSlowDown: 1
+  slowDown: 0
 --- !u!4 &57858113
 Transform:
   m_ObjectHideFlags: 0
@@ -825,7 +829,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 74f945a9081d94949817cd98bd595955, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6f245b761960f004d8e5acdad6ad435c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.25
   m_Pitch: 1
@@ -20175,6 +20179,40 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2590037641640191646, guid: 828535c5bfa297b46bd56818421244b6, type: 3}
   m_PrefabInstance: {fileID: 1690852210}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2032120500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2584639062066427447, guid: 964ebfd87ead217479fe988a7296428e, type: 3}
+  m_PrefabInstance: {fileID: 1899213309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2032120504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032120500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6292dd5a286851f46973b0b4854f9176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runeActivation: {fileID: 1603391925}
+  defaultBehaviour: 1
+  player: {fileID: 2081139969}
+  activationRange: 12.89
+--- !u!135 &2032120505
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032120500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2032607937
 PrefabInstance:
   m_ObjectHideFlags: 0

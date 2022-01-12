@@ -17,6 +17,7 @@ public class RuneObstacle : MonoBehaviour
 	private SpriteRenderer spriteRenderer;
 	private ShowWarning warning;
 	private Animator anim;
+	private GameManager gm;
 	private bool runeDone = false;
 
 	private void Start()
@@ -24,6 +25,7 @@ public class RuneObstacle : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
 		warning = player.GetComponent<ShowWarning>();
+		gm = FindObjectOfType<GameManager>();
 
 		runeActivation.gameObject.SetActive( false );
 	}
@@ -38,6 +40,7 @@ public class RuneObstacle : MonoBehaviour
 		if( !runeDone && ( player.transform.position - this.transform.position ).magnitude <= activationRange )
 		{
 			runeActivation.gameObject.SetActive( true );
+			gm.slowDown = true;
 		}
 		if( !runeDone && player.transform.position.x >= transform.position.x )
 		{
