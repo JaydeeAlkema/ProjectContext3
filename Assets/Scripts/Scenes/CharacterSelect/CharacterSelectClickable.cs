@@ -14,7 +14,7 @@ public class CharacterSelectClickable : MonoBehaviour
 
 	private void OnMouseDown()
 	{
-		transform.localScale = startingScale * 1.05f;
+		transform.localScale = startingScale * 1.02f;
 	}
 
 	private void OnMouseUp()
