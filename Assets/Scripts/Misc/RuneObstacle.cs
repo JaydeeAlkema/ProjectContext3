@@ -16,14 +16,14 @@ public class RuneObstacle : MonoBehaviour
 
 	private SpriteRenderer spriteRenderer;
 	private ShowWarning warning;
-	private Animator anim;
+	private Animator animator;
 	private GameManager gm;
 	private bool runeDone = false;
 
 	private void Start()
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
-		anim = GetComponent<Animator>();
+		animator = GetComponent<Animator>();
 		warning = player.GetComponent<ShowWarning>();
 		gm = FindObjectOfType<GameManager>();
 
@@ -55,18 +55,18 @@ public class RuneObstacle : MonoBehaviour
 		{
 			case PlayerRuneActivation.Runes.DESTROY:
 				{
+					animator.SetBool( "Destroyed", true );
 					runeDone = true;
-					anim.SetBool( "Destroyed", true );
 					runeActivation.gameObject.SetActive( false );
 					runeActivation.rune = PlayerRuneActivation.Runes.NULL;
-					StartCoroutine( DestroyAfterAnim() );
+					//StartCoroutine( DestroyAfterAnim() );
 					break;
 				}
 
 			case PlayerRuneActivation.Runes.DISABLE:
 				{
+					animator.SetBool( "Disabled", true );
 					runeDone = true;
-					anim.SetBool( "Disabled", true );
 					warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
 					runeActivation.gameObject.SetActive( false );
 					runeActivation.rune = PlayerRuneActivation.Runes.NULL;
