@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
 			{
 				PlayerPrefs.SetInt( "firstTime", 1 );
 				//show tutorial
+				PauseGame();
 				tutorialObject.SetActive( true );
-				Time.timeScale = 0;
 			}
 		}
 	}
