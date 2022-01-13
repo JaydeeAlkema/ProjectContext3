@@ -6918,7 +6918,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619642019}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -18258,6 +18258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrier
       objectReference: {fileID: 0}
+    - target: {fileID: 2584639062066427447, guid: 964ebfd87ead217479fe988a7296428e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2584639062066427451, guid: 964ebfd87ead217479fe988a7296428e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -18284,7 +18288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2584639062066427451, guid: 964ebfd87ead217479fe988a7296428e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.89
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2584639062066427451, guid: 964ebfd87ead217479fe988a7296428e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18951,6 +18955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barrier
       objectReference: {fileID: 0}
+    - target: {fileID: 2584639062066427447, guid: 964ebfd87ead217479fe988a7296428e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2584639062066427451, guid: 964ebfd87ead217479fe988a7296428e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -18977,7 +18985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2584639062066427451, guid: 964ebfd87ead217479fe988a7296428e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.89
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2584639062066427451, guid: 964ebfd87ead217479fe988a7296428e, type: 3}
       propertyPath: m_LocalRotation.w
