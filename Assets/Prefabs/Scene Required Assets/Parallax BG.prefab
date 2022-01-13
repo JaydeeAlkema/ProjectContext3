@@ -211,7 +211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7544101906260348565
 Transform:
   m_ObjectHideFlags: 0
@@ -345,7 +345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7036171777062548791
 Transform:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ SpriteRenderer:
   m_SortingLayerID: -252970113
   m_SortingLayer: -1
   m_SortingOrder: -7
-  m_Sprite: {fileID: 21300000, guid: 226adf40375f9834687ca76b3733a11d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5781795327f79ff42bedf5a7768467e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1139,7 +1139,7 @@ Transform:
   m_GameObject: {fileID: 3744641950749295649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35000002, z: 1}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 8491992287330988321}
   m_RootOrder: 0
@@ -1356,9 +1356,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layers:
-  - {fileID: 4237291395216058469}
   - {fileID: 4580023461527784989}
   - {fileID: 764552445314607378}
+  - {fileID: 4237291395216058469}
   - {fileID: 7635087783134251572}
 --- !u!1 &3812973248239292010
 GameObject:
@@ -1473,7 +1473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8491992287330988321
 Transform:
   m_ObjectHideFlags: 0
@@ -1639,7 +1639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &822169397503243324
 Transform:
   m_ObjectHideFlags: 0
