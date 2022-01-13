@@ -20760,6 +20760,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1603391925}
     - target: {fileID: 368164410, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368164410, guid: 95e691b7b2d7cf844b9dd3067ffa653d, type: 3}
       propertyPath: obstacles
       value: 
       objectReference: {fileID: 28714748}

@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour
 	{
 		if( Time.timeScale >= amountToSlowDown && slowDown )
 		{
-			Debug.Log( "timescale: " + Time.timeScale );
 			Time.timeScale -= slowDownSpeed * Time.deltaTime;
 			GetComponent<AudioSource>().pitch -= slowDownSpeed * Time.deltaTime;
 		}

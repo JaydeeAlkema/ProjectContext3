@@ -15,7 +15,6 @@ public class RuneObstacle : MonoBehaviour
 	[SerializeField] private float activationRange = 25f;   // If player gets within this range, the rune will activate.
 
 	private SpriteRenderer spriteRenderer;
-	private ShowWarning warning;
 	private Animator animator;
 	private GameManager gm;
 	private bool runeDone = false;
@@ -24,7 +23,6 @@ public class RuneObstacle : MonoBehaviour
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
-		warning = player.GetComponent<ShowWarning>();
 		gm = FindObjectOfType<GameManager>();
 
 		runeActivation.gameObject.SetActive( false );
@@ -67,7 +65,6 @@ public class RuneObstacle : MonoBehaviour
 				{
 					animator.SetBool( "Disabled", true );
 					runeDone = true;
-					warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
 					runeActivation.gameObject.SetActive( false );
 					runeActivation.rune = PlayerRuneActivation.Runes.NULL;
 					break;
@@ -77,7 +74,6 @@ public class RuneObstacle : MonoBehaviour
 				{
 					runeDone = true;
 					this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-					warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
 					runeActivation.gameObject.SetActive( false );
 					runeActivation.rune = PlayerRuneActivation.Runes.NULL;
 					break;
@@ -85,14 +81,6 @@ public class RuneObstacle : MonoBehaviour
 
 			default:
 				break;
-		}
-	}
-
-	private void OnDestroy()
-	{
-		if( warning.individualObstacles.Any<GameObject>() )
-		{
-			warning.individualObstacles.Remove( warning.individualObstacles.First<GameObject>() );
 		}
 	}
 
