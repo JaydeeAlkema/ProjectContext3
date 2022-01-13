@@ -4,6 +4,8 @@ using UnityEngine;
 public class ParallaxTransition : MonoBehaviour
 {
 	[SerializeField] private int layerIndex = 0;
+	[SerializeField] private Transform spriteTransform;
+	[SerializeField] private Animator anim;
 
 	ParallaxTransitionBehaviour parallaxTransitionBehaviour;
 
@@ -18,8 +20,13 @@ public class ParallaxTransition : MonoBehaviour
 	{
 		if( other.GetComponent<IPlayer>() != null )
 		{
-			parallaxTransitionBehaviour.ToggleLayer( layerIndex );
+			anim.SetTrigger( "Transition" );
 		}
+	}
+
+	public void TriggerTransitionBehaviour()
+	{
+		parallaxTransitionBehaviour.ToggleLayer( layerIndex );
 	}
 
 }
