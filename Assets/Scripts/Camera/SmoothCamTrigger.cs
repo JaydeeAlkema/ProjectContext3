@@ -28,6 +28,7 @@ public class SmoothCamTrigger : MonoBehaviour
 	private void Start()
 	{
 		smoothCam = FindObjectOfType<SmoothCam>();
+		GetComponent<BoxCollider>().isTrigger = true;
 	}
 
 	private void OnTriggerEnter( Collider other )

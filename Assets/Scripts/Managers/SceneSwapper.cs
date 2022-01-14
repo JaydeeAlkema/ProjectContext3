@@ -25,6 +25,11 @@ public class SceneSwapper : MonoBehaviour
 		SceneManager.LoadSceneAsync( "Game" );
 	}
 
+	public void GoToCharacterSelect()
+	{
+		SceneManager.LoadSceneAsync( "CharacterSelect" );
+	}
+
 	public void ExitGame()
 	{
 		Application.Quit();
