@@ -692,7 +692,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6f245b761960f004d8e5acdad6ad435c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 74f945a9081d94949817cd98bd595955, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.25
   m_Pitch: 1
@@ -13733,6 +13733,22 @@ PrefabInstance:
     - target: {fileID: 3744641952037963783, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5222438801778917682, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
+      propertyPath: parallaxEffectMultiplier.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648654385692208002, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
+      propertyPath: parallaxEffectMultiplier.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555241991459801659, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
+      propertyPath: parallaxEffectMultiplier.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153321383457799247, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
+      propertyPath: parallaxEffectMultiplier.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9164fb3d438e7244eba188f26d73138f, type: 3}
