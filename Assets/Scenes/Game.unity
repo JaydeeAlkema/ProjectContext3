@@ -2950,6 +2950,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 431387008}
     m_Modifications:
+    - target: {fileID: 543408191165156101, guid: e87ea6e9a2b1f7f46a681a1f5803d2a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 543408191165156101, guid: e87ea6e9a2b1f7f46a681a1f5803d2a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 543408191165156101, guid: e87ea6e9a2b1f7f46a681a1f5803d2a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 57858112}
+    - target: {fileID: 543408191165156101, guid: e87ea6e9a2b1f7f46a681a1f5803d2a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 543408191165156101, guid: e87ea6e9a2b1f7f46a681a1f5803d2a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TutorialOff
+      objectReference: {fileID: 0}
+    - target: {fileID: 543408191165156101, guid: e87ea6e9a2b1f7f46a681a1f5803d2a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 543408191165156101, guid: e87ea6e9a2b1f7f46a681a1f5803d2a5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 543408191165156122, guid: e87ea6e9a2b1f7f46a681a1f5803d2a5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4157,7 +4185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &410853484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13371,7 +13399,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 326507179}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
