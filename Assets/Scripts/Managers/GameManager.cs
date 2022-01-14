@@ -11,18 +11,15 @@ public class GameManager : MonoBehaviour
 
 	public bool slowDown = false;
 
-	void Awake()
+	void Start()
 	{
-		Application.targetFrameRate = 60;
-
 		if( tutorialObject != null )
 		{
 			if( PlayerPrefs.GetInt( "firstTime", 0 ) == 0 )
 			{
-				PlayerPrefs.SetInt( "firstTime", 1 );
-				//show tutorial
 				PauseGame();
 				tutorialObject.SetActive( true );
+				PlayerPrefs.SetInt( "firstTime", 1 );
 			}
 		}
 	}
@@ -48,6 +45,7 @@ public class GameManager : MonoBehaviour
 	{
 		tutorialObject.SetActive( false );
 		Time.timeScale = 1;
+		GetComponent<AudioSource>().Play();
 	}
 
 	public void SlowDown()

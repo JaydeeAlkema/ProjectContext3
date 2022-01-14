@@ -23,6 +23,8 @@ public class SceneSwapper : MonoBehaviour
 	public void GoToGame()
 	{
 		SceneManager.LoadSceneAsync( "Game" );
+		Time.timeScale = 0;
+		GetComponent<AudioSource>().Pause();
 	}
 
 	public void GoToCharacterSelect()
