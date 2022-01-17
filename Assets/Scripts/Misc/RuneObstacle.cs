@@ -13,6 +13,7 @@ public class RuneObstacle : MonoBehaviour
 	[SerializeField] private GameObject player = default;
 	[Space]
 	[SerializeField] private float activationRange = 25f;   // If player gets within this range, the rune will activate.
+	[SerializeField] private bool isBarrier = default;
 
 	private SpriteRenderer spriteRenderer;
 	private Animator animator;
@@ -57,6 +58,7 @@ public class RuneObstacle : MonoBehaviour
 					runeDone = true;
 					runeActivation.gameObject.SetActive( false );
 					runeActivation.rune = PlayerRuneActivation.Runes.NULL;
+					AchievementManager.Instance.AddAchievementProgress( "ACH_AGGRESSIVE", 1 );
 					//StartCoroutine( DestroyAfterAnim() );
 					break;
 				}
@@ -67,6 +69,7 @@ public class RuneObstacle : MonoBehaviour
 					runeDone = true;
 					runeActivation.gameObject.SetActive( false );
 					runeActivation.rune = PlayerRuneActivation.Runes.NULL;
+					AchievementManager.Instance.AddAchievementProgress( "ACH_PACIFIST", 1 );
 					break;
 				}
 
