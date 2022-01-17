@@ -398,7 +398,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 880786685}
         m_TargetAssemblyTypeName: SceneSwapper, Assembly-CSharp
-        m_MethodName: GoToCharacterSelect
+        m_MethodName: GoToGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
