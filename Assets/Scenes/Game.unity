@@ -19475,6 +19475,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 9145903757992469579, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: lengthInSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9145903757992469579, guid: fce92794b89af934c812e606eab5a066, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fce92794b89af934c812e606eab5a066, type: 3}
 --- !u!1001 &6545311243134698233
