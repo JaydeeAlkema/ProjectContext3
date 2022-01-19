@@ -17,9 +17,9 @@ public class GameManager : MonoBehaviour
 		{
 			if( PlayerPrefs.GetInt( "firstTime", 0 ) == 0 )
 			{
-				PauseGame();
 				tutorialObject.SetActive( true );
 				PlayerPrefs.SetInt( "firstTime", 1 );
+				PauseGame();
 			}
 		}
 	}

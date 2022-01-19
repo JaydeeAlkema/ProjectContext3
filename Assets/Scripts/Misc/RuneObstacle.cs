@@ -13,12 +13,14 @@ public class RuneObstacle : MonoBehaviour
 	[SerializeField] private GameObject player = default;
 	[Space]
 	[SerializeField] private float activationRange = 25f;   // If player gets within this range, the rune will activate.
+	[SerializeField] private float barrierTimeAmount = 1f;
 	[SerializeField] private bool isBarrier = default;
 
 	private SpriteRenderer spriteRenderer;
 	private Animator animator;
 	private GameManager gm;
 	private bool runeDone = false;
+	private bool barrierTime = false;
 
 	private void Start()
 	{
@@ -36,8 +38,9 @@ public class RuneObstacle : MonoBehaviour
 
 	void CheckDistance()
 	{
-		if( !runeDone && ( player.transform.position - this.transform.position ).magnitude <= activationRange )
+		if( !barrierTime && !runeDone && ( player.transform.position - this.transform.position ).magnitude <= activationRange )
 		{
+			if(isBarrier){ StartCoroutine( BarrierTimer() ); }
 			runeActivation.gameObject.SetActive( true );
 			gm.slowDown = true;
 		}
@@ -98,5 +101,12 @@ public class RuneObstacle : MonoBehaviour
 
 		yield return new WaitForSeconds( 2f );
 		Destroy( this.gameObject );
+	}
+	IEnumerator BarrierTimer()
+	{
+		yield return new WaitForSeconds( barrierTimeAmount );
+		barrierTime = true;
+		runeActivation.rune = defaultBehaviour;
+		CheckForDestroyComplete();
 	}
 }

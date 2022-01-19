@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Smack everything in the game!
   ID: ACH_AGGRESSIVE
   current: 0
-  goal: 1
+  goal: 6
   unlocked: 0
   hidden: 0
   resetAchievementOnQuit: 0
