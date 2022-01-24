@@ -5,11 +5,19 @@ using UnityEngine.SceneManagement;
 public class SceneEndTrigger : MonoBehaviour
 {
 	[SerializeField] private Animator anim;
+	private AchievementManager aM;
+
+	private void Start()
+	{
+		aM = AchievementManager.Instance;
+	}
 
 	private void OnTriggerEnter( Collider other )
 	{
 		if( other.GetComponent<IPlayer>() != null )
 		{
+			aM.AddAchievementProgress( "ACH_BEATIT", 1 );
+			aM.AddAchievementProgress( "ACH_PERFECTIONIST", 115 );
 			StartCoroutine( FadeIn() );
 		}
 	}
@@ -18,7 +26,7 @@ public class SceneEndTrigger : MonoBehaviour
 	{
 		anim.SetTrigger( "Transition" );
 		yield return new WaitForSeconds( 2f );
-		SceneManager.LoadSceneAsync( SceneManager.GetActiveScene().buildIndex + 1 );
+		SceneManager.LoadSceneAsync("EndingShow");
 		yield return null;
 	}
 }

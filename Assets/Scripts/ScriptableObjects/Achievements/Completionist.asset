@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Unlock all Achievements!
   ID: ACH_COMPLETIONIST
   current: 0
-  goal: 6
+  goal: 4
   unlocked: 0
   hidden: 0
   resetAchievementOnQuit: 0

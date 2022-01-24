@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Beat the game without smacking anything.
   ID: ACH_PACIFIST
   current: 0
-  goal: 6
+  goal: 7
   unlocked: 0
   hidden: 0
   resetAchievementOnQuit: 0

@@ -11,6 +11,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	private SpriteRenderer spriteRenderer = null;
 	private CharacterController charController = null;
 	private PlayerRuneActivation playerRuneActivation = null;
+	private AchievementManager aM;
 
 	private RaycastHit hit = default;
 	private Quaternion fromRotation = default;
@@ -20,6 +21,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 
 	private void Awake()
 	{
+		aM = AchievementManager.Instance;
 		playerData.isJumping = false;
 		playerData.isSliding = false;
 		if( !playerAnimationBehaviour ) playerAnimationBehaviour = GetComponent<PlayerAnimationBehaviour>();
@@ -196,6 +198,7 @@ public class PlayerMovementBehaviour : MonoBehaviour, IPlayer
 	public void BlinkSprite()
 	{
 		StartCoroutine( BlinkSpriteIE() );
+		aM.AddAchievementProgress( "ACH_PERFECTIONIST", -1 );
 	}
 
 	private IEnumerator BlinkSpriteIE()

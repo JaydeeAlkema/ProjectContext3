@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Never miss/fail an input.
   ID: ACH_PERFECTIONIST
   current: 0
-  goal: 1
+  goal: 115
   unlocked: 0
   hidden: 0
   resetAchievementOnQuit: 0

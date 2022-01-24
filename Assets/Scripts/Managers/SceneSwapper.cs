@@ -27,6 +27,11 @@ public class SceneSwapper : MonoBehaviour
 		GetComponent<AudioSource>().Pause();
 	}
 
+	public void GoToEndingShow()
+	{
+		SceneManager.LoadSceneAsync( "EndingShow" );
+	}
+
 	public void GoToCharacterSelect()
 	{
 		SceneManager.LoadSceneAsync( "CharacterSelect" );

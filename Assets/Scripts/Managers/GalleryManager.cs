@@ -18,7 +18,10 @@ public class GalleryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(aM.GetAchievementByID( "ACH_BEATIT" ).unlocked && aM.GetAchievementByID( "ACH_AGGRESSIVE" ).unlocked && aM.GetAchievementByID( "ACH_PACIFIST" ).unlocked && aM.GetAchievementByID( "ACH_PERFECTIONIST" ).unlocked )
+        {
+            aM.AddAchievementProgress( "ACH_COMPLETIONIST", 4 );
+        }
     }
 
     public void OpenEnding(string AchID)
